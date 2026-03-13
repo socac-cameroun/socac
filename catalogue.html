@@ -103,6 +103,30 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--cream);
     justify-content: center;
     font-size: 4rem;
     position: relative;
+    overflow: hidden;
+}
+.product-image.has-image {
+    background: #f5f5f5;
+}
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+.product-image .fallback-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-green-light), var(--primary-green-dark));
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
 }
 
 .product-badge {
@@ -114,6 +138,7 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--cream);
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
+    z-index: 2;
 }
 .badge-stock { background: #4CAF50; color: white; }
 .badge-rupture { background: #f44336; color: white; }
@@ -596,6 +621,16 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--cream);
                 const category = product.categorie || product.category || product.division || 'Produits';
                 const icon = CATEGORY_ICONS[category] || CATEGORY_ICONS['default'];
                 
+                // Get image URL and convert Google Drive links
+                let imageUrl = product.image || product.img || product.photo || '';
+                if (imageUrl && imageUrl.includes('drive.google.com/file/d/')) {
+                    // Convert Google Drive share link to direct image link
+                    const match = imageUrl.match(/\/d\/([a-zA-Z0-9_-]+)/);
+                    if (match) {
+                        imageUrl = `https://drive.google.com/uc?export=view&id=${match[1]}`;
+                    }
+                }
+                
                 // Map various header formats
                 const parsedProduct = {
                     id: product.id || `prod-${i}`,
@@ -605,7 +640,8 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--cream);
                     unite: product.unite || product.unit || '',
                     disponible: (product.disponible || product.available || 'oui').toLowerCase() !== 'non',
                     category: category,
-                    icon: icon
+                    icon: icon,
+                    image: imageUrl
                 };
                 
                 if (parsedProduct.nom) {
@@ -657,8 +693,12 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--cream);
             emptyState.style.display = 'none';
             grid.innerHTML = products.map(product => `
                 <div class="product-card" data-category="${product.category}">
-                    <div class="product-image">
-                        <span>${product.icon}</span>
+                    <div class="product-image ${product.image ? 'has-image' : ''}">
+                        ${product.image 
+                            ? `<img src="${product.image}" alt="${product.nom}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                               <span class="fallback-icon" style="display:none;">${product.icon}</span>`
+                            : `<span>${product.icon}</span>`
+                        }
                         <span class="product-badge ${product.disponible ? 'badge-stock' : 'badge-rupture'}">
                             ${product.disponible ? 'En stock' : 'Rupture'}
                         </span>

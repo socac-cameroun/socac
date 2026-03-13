@@ -472,7 +472,7 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--cream);
                 <li><a href="../en/index.html">Home</a></li>
                 <li><a href="index.html#apropos">About Us</a></li>
                 <li><a href="index.html#activites">Our Activities</a></li>
-                <li><a href="../en/catalogue.html" class="active">Catalogue</a></li>
+                <li><a href="../en/catalogue.html" class="active">Catalog</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
             <div class="lang-selector">
@@ -491,9 +491,9 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--cream);
     <section class="page-hero">
         <div class="page-hero-icon">🛒</div>
         <h1>Catalog & Shop</h1>
-        <p>Découvrez tous nos produits agricoles de qualité. Prix mis à jour en temps réel. Commandez directement via WhatsApp.</p>
+        <p>Discover all our quality agricultural products. Prices updated in real time. Order directly via WhatsApp.</p>
         <div class="breadcrumb">
-            <a href="../en/index.html">Home</a> / <span>Catalogue</span>
+            <a href="../en/index.html">Home</a> / <span>Catalog</span>
         </div>
     </section>
 
@@ -511,8 +511,8 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--cream);
                 <button class="category-tab active" data-category="all">
                     <span class="tab-icon">📦</span> All
                 </button>
-                <button class="category-tab" data-category="Arboriculture">
-                    <span class="tab-icon">🌳</span> Arboriculture
+                <button class="category-tab" data-category="Orchard">
+                    <span class="tab-icon">🌳</span> Orchard
                 </button>
                 <button class="category-tab" data-category="Poultry Farm">
                     <span class="tab-icon">🐔</span> Poultry Farm
@@ -526,7 +526,7 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--cream);
                 <button class="category-tab" data-category="Feed Mill">
                     <span class="tab-icon">🌾</span> Feed Mill
                 </button>
-                <button class="category-tab" data-category="Sante Alimentation">
+                <button class="category-tab" data-category="Health & Nutrition">
                     <span class="tab-icon">🏥</span> Health & Nutrition
                 </button>
             </div>
@@ -587,7 +587,7 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--cream);
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 <a href="../en/index.html">SOCAC</a> - Société Coopérative Agroalimentaire du Cameroun. All droits réservés.</p>
+            <p>&copy; 2024 <a href="../en/index.html">SOCAC</a> - Société Coopérative Agroalimentaire du Cameroon. All droits réservés.</p>
             <p style="margin-top: 10px;">📍 Soa, Yaoundé | 📧 socac.cm@gmail.com | 📞 +237 654 89 22 17</p>
         </div>
     </footer>
@@ -601,8 +601,8 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--cream);
             'Pig Farm': '🐷',
             'Poultry Farm': '🐔',
             'Fish Farm': '🐟',
-            'Arboriculture': '🌳',
-            'Sante Alimentation': '🏥',
+            'Orchard': '🌳',
+            'Health & Nutrition': '🏥',
             'default': '📦'
         };
         
@@ -897,8 +897,8 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--cream);
             
             if (method === 'whatsapp') {
                 message += `💳 *Mode de paiement:* À convenir\n`;
-                message += `📍 Adresse de livraison: [À compléter]\n`;
-                message += `📞 Téléphone: [À compléter]`;
+                message += `📍 Address de livraison: [À compléter]\n`;
+                message += `📞 Phone: [À compléter]`;
                 const encodedMessage = encodeURIComponent(message);
                 window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`, '_blank');
             } 
@@ -909,8 +909,8 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--cream);
                 message += `1. Envoyez ${formatPrice(total)} au ${ORANGE_MONEY_NUMBER}\n`;
                 message += `2. Envoyez la capture d'écran de confirmation\n`;
                 message += `3. Précisez votre adresse de livraison\n\n`;
-                message += `📍 Adresse de livraison: [À compléter]\n`;
-                message += `📞 Téléphone: [À compléter]`;
+                message += `📍 Address de livraison: [À compléter]\n`;
+                message += `📞 Phone: [À compléter]`;
                 const encodedMessage = encodeURIComponent(message);
                 window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`, '_blank');
             }
@@ -921,8 +921,8 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--cream);
                 message += `1. Envoyez ${formatPrice(total)} au ${MOMO_NUMBER}\n`;
                 message += `2. Envoyez la capture d'écran de confirmation\n`;
                 message += `3. Précisez votre adresse de livraison\n\n`;
-                message += `📍 Adresse de livraison: [À compléter]\n`;
-                message += `📞 Téléphone: [À compléter]`;
+                message += `📍 Address de livraison: [À compléter]\n`;
+                message += `📞 Phone: [À compléter]`;
                 const encodedMessage = encodeURIComponent(message);
                 window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`, '_blank');
             }

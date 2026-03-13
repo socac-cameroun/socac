@@ -558,6 +558,8 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--cream);
                 if (response.ok) {
                     const csv = await response.text();
                     allProducts = parseCSV(csv);
+                    // Sort products alphabetically
+                    allProducts = sortProducts(allProducts);
                     console.log('Loaded products:', allProducts.length);
                 }
                 
@@ -686,12 +688,17 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--cream);
             return new Intl.NumberFormat('fr-CM').format(price) + ' FCFA';
         }
 
+        // Sort products alphabetically by name
+        function sortProducts(products) {
+            return products.sort((a, b) => a.nom.localeCompare(b.nom, 'fr'));
+        }
+
         // Filter products by category
         function filterProducts(category) {
-            const filtered = category === 'all' 
+            let filtered = category === 'all' 
                 ? allProducts 
                 : allProducts.filter(p => p.category === category);
-            renderProducts(filtered);
+            renderProducts(sortProducts(filtered));
         }
 
         // Category tabs

@@ -356,15 +356,19 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--cream);
     font-size: 1.2rem;
 }
 .cart-total-price { font-weight: 700; color: var(--primary-green); }
-.btn-whatsapp {
+.payment-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.btn-payment {
     width: 100%;
-    padding: 15px;
-    background: #25D366;
+    padding: 14px;
     color: white;
     border: none;
     border-radius: 30px;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 0.95rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -372,7 +376,13 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--cream);
     gap: 10px;
     transition: all 0.3s ease;
 }
-.btn-whatsapp:hover { background: #128C7E; transform: scale(1.02); }
+.btn-payment:hover { transform: scale(1.02); }
+.btn-whatsapp { background: #25D366; }
+.btn-whatsapp:hover { background: #128C7E; }
+.btn-orange { background: #FF6600; }
+.btn-orange:hover { background: #E55B00; }
+.btn-momo { background: #FFCC00; color: #000; }
+.btn-momo:hover { background: #E6B800; }
 
 .footer { background: var(--primary-green-dark); color: white; padding: 30px 0; text-align: center; }
 .footer a { color: var(--accent-gold); text-decoration: none; }
@@ -390,6 +400,7 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--cream);
     .products-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; }
     .info-banner { flex-direction: column; text-align: center; }
     .cart-preview { bottom: 80px; right: 15px; padding: 12px 20px; }
+    .payment-buttons { gap: 8px; }
 }
     </style>
 </head>
@@ -453,6 +464,9 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--cream);
                 <button class="category-tab" data-category="Arboriculture">
                     <span class="tab-icon">🌳</span> Fruits
                 </button>
+                <button class="category-tab" data-category="Sante Alimentation">
+                    <span class="tab-icon">🏥</span> Santé
+                </button>
             </div>
 
             <div class="loading-state" id="loadingState">
@@ -490,10 +504,21 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--cream);
                     <span>Total:</span>
                     <span class="cart-total-price" id="cartTotal">0 FCFA</span>
                 </div>
-                <button class="btn-whatsapp" id="btnWhatsapp" onclick="sendWhatsApp()">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    Commander via WhatsApp
-                </button>
+                <p style="text-align: center; font-size: 0.9rem; color: var(--gray); margin-bottom: 15px;">Choisissez votre mode de paiement :</p>
+                <div class="payment-buttons">
+                    <button class="btn-payment btn-whatsapp" onclick="sendOrder('whatsapp')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        WhatsApp
+                    </button>
+                    <button class="btn-payment btn-orange" onclick="sendOrder('orange')">
+                        <span style="font-weight: bold;">OM</span>
+                        Orange Money
+                    </button>
+                    <button class="btn-payment btn-momo" onclick="sendOrder('momo')">
+                        <span style="font-weight: bold;">MTN</span>
+                        MoMo
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -759,8 +784,12 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--cream);
             document.getElementById('cartModal').classList.remove('show');
         }
 
-        // Send order via WhatsApp
-        function sendWhatsApp() {
+        // Payment numbers
+        const ORANGE_MONEY_NUMBER = '237694308885';  // Numéro Orange Money SOCAC
+        const MOMO_NUMBER = '237654892217';          // Numéro MTN MoMo SOCAC
+
+        // Send order with selected payment method
+        function sendOrder(method) {
             if (cart.length === 0) return;
             
             const total = cart.reduce((sum, item) => sum + (item.prix * item.qty), 0);
@@ -773,11 +802,38 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--cream);
             });
             
             message += `\n💰 *Total: ${formatPrice(total)}*\n\n`;
-            message += `📍 Adresse de livraison: [À compléter]\n`;
-            message += `📞 Téléphone: [À compléter]`;
             
-            const encodedMessage = encodeURIComponent(message);
-            window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`, '_blank');
+            if (method === 'whatsapp') {
+                message += `💳 *Mode de paiement:* À convenir\n`;
+                message += `📍 Adresse de livraison: [À compléter]\n`;
+                message += `📞 Téléphone: [À compléter]`;
+                const encodedMessage = encodeURIComponent(message);
+                window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`, '_blank');
+            } 
+            else if (method === 'orange') {
+                message += `💳 *Mode de paiement:* Orange Money\n`;
+                message += `📱 *Numéro OM SOCAC:* ${ORANGE_MONEY_NUMBER}\n\n`;
+                message += `⚠️ *Instructions:*\n`;
+                message += `1. Envoyez ${formatPrice(total)} au ${ORANGE_MONEY_NUMBER}\n`;
+                message += `2. Envoyez la capture d'écran de confirmation\n`;
+                message += `3. Précisez votre adresse de livraison\n\n`;
+                message += `📍 Adresse de livraison: [À compléter]\n`;
+                message += `📞 Téléphone: [À compléter]`;
+                const encodedMessage = encodeURIComponent(message);
+                window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`, '_blank');
+            }
+            else if (method === 'momo') {
+                message += `💳 *Mode de paiement:* MTN Mobile Money\n`;
+                message += `📱 *Numéro MoMo SOCAC:* ${MOMO_NUMBER}\n\n`;
+                message += `⚠️ *Instructions:*\n`;
+                message += `1. Envoyez ${formatPrice(total)} au ${MOMO_NUMBER}\n`;
+                message += `2. Envoyez la capture d'écran de confirmation\n`;
+                message += `3. Précisez votre adresse de livraison\n\n`;
+                message += `📍 Adresse de livraison: [À compléter]\n`;
+                message += `📞 Téléphone: [À compléter]`;
+                const encodedMessage = encodeURIComponent(message);
+                window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`, '_blank');
+            }
         }
 
         // Close modal on outside click

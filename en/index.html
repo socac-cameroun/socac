@@ -1,490 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>SOCAC | Agro-Food Cooperative Society of Cameroon</title>
-
-<meta name="description"
-content="SOCAC - Agro-Food Cooperative Society of Cameroon. Sustainable agriculture, poultry production, pig farming, fish farming and food security development.">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-:root{
---green:#2D5A27;
---green-dark:#1D3A17;
---gold:#C4A35A;
---cream:#FAF8F5;
---text:#1A1A1A;
---gray:#666;
---radius:24px;
---shadow:0 15px 35px rgba(0,0,0,0.08);
-}
-
-*{margin:0;padding:0;box-sizing:border-box;}
-
-body{
-font-family:'Source Sans 3',sans-serif;
-background:var(--cream);
-color:var(--text);
-line-height:1.6;
-}
-
-.container{
-max-width:1200px;
-margin:auto;
-padding:0 20px;
-}
-
-header{
-background:white;
-border-bottom:1px solid rgba(0,0,0,0.05);
-position:sticky;
-top:0;
-z-index:1000;
-}
-
-.navbar{
-display:flex;
-align-items:center;
-justify-content:space-between;
-height:80px;
-}
-
-.logo{
-font-weight:800;
-font-size:22px;
-color:var(--green);
-}
-
-nav ul{
-display:flex;
-list-style:none;
-gap:20px;
-}
-
-nav a{
-font-weight:600;
-color:var(--text);
-}
-
-nav a:hover{
-color:var(--green);
-}
-
-.lang a{
-padding:8px 14px;
-border-radius:20px;
-background:var(--green);
-color:white;
-font-size:14px;
-}
-
-.hero{
-padding:80px 0;
-}
-
-.hero-grid{
-display:grid;
-grid-template-columns:1.1fr 0.9fr;
-gap:40px;
-align-items:center;
-}
-
-.hero h1{
-font-family:'Playfair Display',serif;
-font-size:48px;
-color:var(--green-dark);
-margin-bottom:20px;
-}
-
-.hero p{
-font-size:18px;
-color:var(--gray);
-margin-bottom:25px;
-}
-
-.btn{
-padding:14px 22px;
-border-radius:30px;
-font-weight:700;
-display:inline-block;
-}
-
-.btn-primary{
-background:var(--green);
-color:white;
-}
-
-.btn-secondary{
-border:1px solid var(--green);
-color:var(--green);
-margin-left:10px;
-}
-
-.card{
-background:white;
-padding:24px;
-border-radius:var(--radius);
-box-shadow:var(--shadow);
-}
-
-.section{
-padding:80px 0;
-}
-
-.section-title{
-text-align:center;
-margin-bottom:40px;
-}
-
-.section-title h2{
-font-family:'Playfair Display',serif;
-font-size:36px;
-color:var(--green-dark);
-margin-bottom:10px;
-}
-
-.section-title p{
-color:var(--gray);
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:25px;
-}
-
-.item{
-background:white;
-padding:24px;
-border-radius:var(--radius);
-box-shadow:var(--shadow);
-text-align:center;
-}
-
-.item h3{
-margin-top:10px;
-color:var(--green-dark);
-}
-
-.highlight{
-background:var(--green);
-color:white;
-padding:40px;
-border-radius:var(--radius);
-text-align:center;
-}
-
-.fims{
-background:#1F2F1D;
-color:white;
-}
-
-.fims .item{
-background:rgba(255,255,255,0.06);
-}
-
-.contact{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:30px;
-}
-
-footer{
-background:#EFEAE2;
-padding:25px;
-text-align:center;
-color:#777;
-margin-top:40px;
-}
-
-@media(max-width:900px){
-
-.hero-grid{
-grid-template-columns:1fr;
-}
-
-.grid{
-grid-template-columns:1fr 1fr;
-}
-
-.contact{
-grid-template-columns:1fr;
-}
-
-}
-
-</style>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOCAC | Agro-Food Cooperative Society of Cameroon</title>
+  <meta name="description" content="Premium English website for SOCAC." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
-
 <body>
-
 <header>
-
-<div class="container navbar">
-
-<div class="logo">SOCAC</div>
-
-<nav>
-<ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#activities">Activities</a></li>
-<li><a href="#products">Products</a></li>
-<li><a href="#fims">FIMS</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
-
-<div class="lang">
-<a href="../fr/index.html">FR</a>
-</div>
-
-</div>
-
+  <div class="container topbar">
+    <a class="brand" href="index.html">
+      <img class="brand-logo" src="../assets/images/logo-socac-main.jpg" alt="Logo SOCAC" />
+      <div class="brand-text">
+        <h1>SOCAC</h1>
+        <p>Agro-Food Cooperative Society of Cameroon</p>
+      </div>
+    </a>
+    <button class="mobile-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button><nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="ferme-avicole.html">Poultry farm</a></li>
+        <li><a href="ferme-porcine.html">Pig farm</a></li>
+        <li><a href="ferme-piscicole.html">Fish farm</a></li>
+        <li><a href="provenderie.html">Feed mill</a></li>
+        <li><a href="catalogue.html">Catalogue</a></li>
+        <li><a href="arboriculture.html">Arboriculture</a></li>
+        <li><a href="sante-alimentation.html">Health & nutrition</a></li>
+      </ul>
+    </nav>
+    <div class="lang-switch">
+      <a class="lang-btn" href="../index.html">Global home</a><a class="lang-btn" href="../fr/index.html">🇫🇷 Français</a>
+    </div>
+  </div>
 </header>
+<main>
 
 <section class="hero" id="home">
-
-<div class="container hero-grid">
-
-<div>
-
-<h1>
-Building a modern and sustainable agriculture for Cameroon
-</h1>
-
-<p>
-
-The Agro-Food Cooperative Society of Cameroon (SOCAC) promotes modern and sustainable agriculture.  
-It develops livestock and food production activities including pigs, fish farming, broiler chickens and laying hens, contributing to economic growth and food security in Cameroon.
-
-</p>
-
-<a class="btn btn-primary" href="#contact">Contact Us</a>
-<a class="btn btn-secondary" href="#fims">Discover FIMS</a>
-
-</div>
-
-<div class="card">
-
-<h2 style="color:#2D5A27;margin-bottom:15px;">SOCAC</h2>
-
-<p>
-Agro-Food Cooperative Society of Cameroon dedicated to agricultural production, livestock development and food security.
-</p>
-
-</div>
-
-</div>
-
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">🌿 Sustainable agriculture • Livestock • Production • Innovation</div>
+      <h2>An agro-food cooperative committed to modern agriculture in Cameroon</h2>
+      <p>The Agro-Food Cooperative Society of Cameroon (SOCAC) promotes modern and sustainable agriculture. It develops livestock and food production activities, including pigs, fish farming and poultry production (broiler chickens and laying hens), while actively contributing to economic development and food security in Cameroon.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Contact us</a>
+        <a href="#fims" class="btn btn-secondary">Discover FIMS</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>Pigs</strong><span>Pig production</span></div>
+        <div class="stat"><strong>Fish</strong><span>Fish farming</span></div>
+        <div class="stat"><strong>Broilers</strong><span>Broiler chickens</span></div>
+        <div class="stat"><strong>Layers</strong><span>Laying hens</span></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-head">
+        <div>
+          <h3 style="font-family:'Playfair Display',serif;color:var(--green-dark);font-size:1.8rem;">SOCAC</h3>
+          <p style="color:var(--muted);">Agro-Food Cooperative Society of Cameroon</p>
+        </div>
+        <div class="hero-tag">Premium version</div>
+      </div>
+      <div class="logo-panel">
+        <div>
+          <img src="../assets/images/logo-socac-main.jpg" alt="SOCAC logo" style="width:120px;height:120px;object-fit:contain;border-radius:24px;margin:0 auto 16px;background:#fff;padding:10px;box-shadow:var(--shadow-soft);">
+          <h3>SOCAC</h3>
+          <p>Agro-Food Cooperative Society of Cameroon</p>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="card"><div class="card-icon">🐖</div><h3>Pig farming</h3><p>A structured production line designed to meet market demand and strengthen local supply.</p></div>
+        <div class="card"><div class="card-icon">🐟</div><h3>Fish farming</h3><p>An activity focused on food security, economic development and product availability.</p></div>
+      </div>
+    </div>
+  </div>
 </section>
-
 <section class="section" id="about">
-
-<div class="container">
-
-<div class="section-title">
-<h2>About SOCAC</h2>
-<p>A strong agricultural vision for Cameroon.</p>
-</div>
-
-<div class="grid">
-
-<div class="item">
-<h3>Mission</h3>
-<p>Produce quality food and strengthen modern livestock farming.</p>
-</div>
-
-<div class="item">
-<h3>Vision</h3>
-<p>Become a leading agro-food cooperative in Cameroon and Central Africa.</p>
-</div>
-
-<div class="item">
-<h3>Values</h3>
-<p>Quality, sustainability, cooperation and innovation.</p>
-</div>
-
-<div class="item">
-<h3>Impact</h3>
-<p>Supporting local development and food security.</p>
-</div>
-
-</div>
-
-</div>
-
+  <div class="container">
+    <div class="section-title"><span>About</span><h2>A strong agricultural vision for Cameroon</h2><p>SOCAC operates through a modern, structured and sustainable cooperative model focused on production, livestock, value creation and community development.</p></div>
+    <div class="grid-3">
+      <div class="card"><div class="card-icon">🎯</div><h3>Mission</h3><p>Produce quality food, expand modern livestock farming and contribute sustainably to food security.</p></div>
+      <div class="card"><div class="card-icon">🌍</div><h3>Vision</h3><p>Become a leading integrated agro-food organization in Cameroon and Central Africa through structured and responsible production.</p></div>
+      <div class="card"><div class="card-icon">🤝</div><h3>Values</h3><p>Quality, innovation, cooperation, responsibility, sustainability and positive local impact.</p></div>
+    </div>
+  </div>
 </section>
-
 <section class="section" id="activities">
-
-<div class="container">
-
-<div class="section-title">
-<h2>Our Activities</h2>
-<p>Integrated agricultural and livestock production sectors.</p>
-</div>
-
-<div class="grid">
-
-<div class="item">
-<h3>Broiler Chickens</h3>
-<p>Poultry production for local food supply.</p>
-</div>
-
-<div class="item">
-<h3>Laying Hens</h3>
-<p>Egg production for households and markets.</p>
-</div>
-
-<div class="item">
-<h3>Pig Farming</h3>
-<p>Modern pig production with sustainable practices.</p>
-</div>
-
-<div class="item">
-<h3>Fish Farming</h3>
-<p>Aquaculture contributing to food security.</p>
-</div>
-
-</div>
-
-</div>
-
+  <div class="container">
+    <div class="section-title"><span>Activities</span><h2>Complementary agricultural and livestock value chains</h2><p>SOCAC develops several branches to strengthen local production and build a complete agro-food value chain.</p></div>
+    <div class="grid-4">
+      <div class="card"><div class="card-icon">🐔</div><h3>Broiler chickens</h3><p>Poultry production aimed at food supply and commercial distribution on the local market.</p></div>
+      <div class="card"><div class="card-icon">🥚</div><h3>Laying hens</h3><p>Egg production built around quality, consistency and reliable availability for consumers.</p></div>
+      <div class="card"><div class="card-icon">🐖</div><h3>Pigs</h3><p>Modern pig farming with a clear focus on growth, performance and long-term profitability.</p></div>
+      <div class="card"><div class="card-icon">🐟</div><h3>Fish</h3><p>Fish farming designed to support food security, economic development and local value creation.</p></div>
+    </div>
+  </div>
 </section>
-
 <section class="section" id="products">
-
-<div class="container">
-
-<div class="section-title">
-<h2>Our Products</h2>
-<p>Local production supporting communities and markets.</p>
-</div>
-
-<div class="grid">
-
-<div class="item">
-<h3>Chicken Meat</h3>
-</div>
-
-<div class="item">
-<h3>Eggs</h3>
-</div>
-
-<div class="item">
-<h3>Pork</h3>
-</div>
-
-<div class="item">
-<h3>Fish</h3>
-</div>
-
-</div>
-
-</div>
-
+  <div class="container">
+    <div class="section-title"><span>Products</span><h2>Local production serving households and the market</h2><p>SOCAC highlights products from modern farming and livestock systems designed to meet Cameroon’s food needs.</p></div>
+    <div class="grid-3">
+      <div class="card"><div class="card-icon">🍗</div><h3>Chicken meat</h3><p>Broiler chickens from organized production systems, suitable for consumption and local markets.</p></div>
+      <div class="card"><div class="card-icon">🥚</div><h3>Table eggs</h3><p>Production intended for households, retailers, restaurants and everyday food demand.</p></div>
+      <div class="card"><div class="card-icon">🌽</div><h3>Animal feed</h3><p>Progressive development of solutions to support livestock performance and production quality.</p></div>
+    </div>
+  </div>
 </section>
+<section class="section" id="impact"><div class="container"><div class="highlight-box"><h3>A cooperative contributing to Cameroon’s development</h3><p>By strengthening agricultural production, modern livestock systems, food availability and organized value chains, SOCAC actively contributes to local value creation, economic development and national food security.</p></div></div></section>
+<section class="section"><div class="container"><div class="section-title"><span>Commitments</span><h2>Strong principles at the heart of our action</h2><p>SOCAC places quality, sustainability and organization at the center of its development approach.</p></div><div class="grid-3 values-grid"><div class="card"><div class="card-icon">✅</div><h3>Quality</h3></div><div class="card"><div class="card-icon">🌱</div><h3>Sustainability</h3></div><div class="card"><div class="card-icon">📈</div><h3>Performance</h3></div><div class="card"><div class="card-icon">🧭</div><h3>Vision</h3></div><div class="card"><div class="card-icon">🤲</div><h3>Cooperation</h3></div><div class="card"><div class="card-icon">🏘️</div><h3>Local impact</h3></div></div></div></section>
+<section class="section fims-section" id="fims"><div class="container"><div class="section-title"><span>FIMS Platform</span><h2>Modern digital management for SOCAC</h2><p>The FIMS platform supports cooperative operations through modern management focused on livestock, stock, sales and finance.</p></div><div class="grid-4"><div class="dark-card"><h3>Livestock management</h3><p>Monitoring pigs, fish, broiler chickens and laying hens.</p></div><div class="dark-card"><h3>Stock management</h3><p>Control of inputs, inventory movements, stock levels and availability.</p></div><div class="dark-card"><h3>Sales management</h3><p>Commercial follow-up, customer relations and product traceability.</p></div><div class="dark-card"><h3>Financial management</h3><p>Overall view of income, expenses, margins and performance indicators.</p></div></div></div></section>
+<section class="section"><div class="container"><div class="cta-bar"><h3>Let us build modern and sustainable agriculture together</h3><p>Explore SOCAC’s activities, connect with our team and follow our growth dynamic.</p><a href="#contact" class="btn btn-primary">Get in touch</a></div></div></section>
+<section class="section" id="contact"><div class="container"><div class="section-title"><span>Contact</span><h2>Get in touch with SOCAC</h2><p>For information, partnerships or collaboration requests, contact us directly.</p></div><div class="contact-wrap"><div class="contact-panel"><p><strong>Name:</strong> SOCAC</p><p><strong>Location:</strong> Cameroon</p><p><strong>Email:</strong> contact@socac.cm</p><p><strong>Phone:</strong> +237 XXX XXX XXX</p><p><strong>WhatsApp:</strong> Available for enquiries and orders</p></div><div class="contact-panel quick-links"><h3>Quick links</h3><a href="ferme-avicole.html">Poultry farm</a><a href="ferme-porcine.html">Pig farm</a><a href="ferme-piscicole.html">Fish farm</a><a href="provenderie.html">Feed mill</a><a href="catalogue.html">Catalogue</a><a href="arboriculture.html">Arboriculture</a><a href="sante-alimentation.html">Health & nutrition</a></div><div class="contact-panel"><h3>Location — Yaoundé</h3><p class="small-note">Find SOCAC in Yaoundé and reach us quickly on WhatsApp for information, orders, and partnerships.</p><iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Yaound%C3%A9%2C%20Cameroon&z=12&output=embed" title="Google Maps Yaoundé"></iframe></div></div></div></section>
 
-<section class="section">
-
-<div class="container">
-
-<div class="highlight">
-
-<h2>Contributing to Cameroon’s Development</h2>
-
-<p>
-
-By strengthening agricultural production and livestock systems, SOCAC supports economic development, job creation and food security.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section fims" id="fims">
-
-<div class="container">
-
-<div class="section-title">
-<h2>FIMS Platform</h2>
-<p>Modern digital farm management system.</p>
-</div>
-
-<div class="grid">
-
-<div class="item">
-<h3>Livestock Management</h3>
-</div>
-
-<div class="item">
-<h3>Stock Management</h3>
-</div>
-
-<div class="item">
-<h3>Sales Management</h3>
-</div>
-
-<div class="item">
-<h3>Financial Management</h3>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="section" id="contact">
-
-<div class="container">
-
-<div class="section-title">
-<h2>Contact</h2>
-<p>Get in touch with SOCAC.</p>
-</div>
-
-<div class="contact">
-
-<div class="card">
-<p><strong>Organization:</strong> SOCAC</p>
-<p><strong>Country:</strong> Cameroon</p>
-<p><strong>Email:</strong> contact@socac.cm</p>
-<p><strong>Phone:</strong> +237 XXX XXX XXX</p>
-</div>
-
-<div class="card">
-<h3>Quick Links</h3>
-<p><a href="#about">About</a></p>
-<p><a href="#activities">Activities</a></p>
-<p><a href="#products">Products</a></p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
+</main>
+<a class="whatsapp-float" href="https://wa.me/237000000000" target="_blank" rel="noopener" aria-label="WhatsApp">✆</a>
 <footer>
-
-© 2026 SOCAC — Agro-Food Cooperative Society of Cameroon
-
+  <div class="container footer-grid">
+    <div>© <span data-year></span> SOCAC — Premium English version</div>
+    <div>Premium HTML structure with shared assets</div>
+  </div>
 </footer>
-
+<script src="../assets/js/main.js"></script>
 </body>
 </html>

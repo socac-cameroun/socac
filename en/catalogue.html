@@ -492,8 +492,125 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
     }
 }
 
-    </style>
-
+    
+/* Premium content enhancements */
+.meta-banner {
+    background: rgba(255,255,255,0.75);
+    border: 1px solid rgba(196,163,90,0.25);
+    border-radius: 18px;
+    padding: 18px 22px;
+    margin: 24px auto 0;
+    max-width: 960px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+.meta-banner p { margin: 0; color: var(--dark); font-size: 1rem; }
+.premium-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+.premium-card {
+    background: rgba(255,255,255,0.92);
+    border-radius: 18px;
+    padding: 26px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+    border: 1px solid rgba(45,90,39,0.08);
+}
+.premium-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-green);
+    margin-bottom: 10px;
+    font-size: 1.35rem;
+}
+.premium-card p, .premium-card li { color: var(--dark); }
+.section-lead {
+    max-width: 920px;
+    margin: 0 auto 36px;
+    text-align: center;
+    font-size: 1.08rem;
+    color: var(--gray);
+}
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 18px;
+    margin-top: 30px;
+}
+.stat-card {
+    background: linear-gradient(135deg, rgba(45,90,39,0.92), rgba(29,58,23,0.96));
+    color: white;
+    padding: 24px 20px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 10px 24px rgba(29,58,23,0.24);
+}
+.stat-card strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    margin-bottom: 6px;
+}
+.cta-panel {
+    background: linear-gradient(135deg, rgba(196,163,90,0.14), rgba(45,90,39,0.08));
+    border: 1px solid rgba(196,163,90,0.32);
+    border-radius: 22px;
+    padding: 28px;
+    margin-top: 36px;
+}
+.cta-panel h3 {
+    color: var(--primary-green);
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 12px;
+    font-size: 1.5rem;
+}
+.cta-panel ul {
+    padding-left: 18px;
+    margin: 12px 0 0;
+}
+.badge-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+.badge-list span {
+    background: rgba(45,90,39,0.08);
+    color: var(--primary-green);
+    border: 1px solid rgba(45,90,39,0.14);
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-size: 0.94rem;
+    font-weight: 600;
+}
+.dual-column {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    align-items: start;
+}
+.note-box {
+    background: rgba(255,255,255,0.85);
+    border-left: 4px solid var(--accent-gold);
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+}
+.check-list { list-style: none; padding: 0; margin: 0; }
+.check-list li { padding: 8px 0 8px 28px; position: relative; }
+.check-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    color: var(--primary-green);
+    font-weight: 700;
+}
+@media (max-width: 768px) {
+    .meta-banner { margin: 18px 16px 0; }
+    .premium-card, .cta-panel, .note-box { padding: 20px; }
+}
+</style>
 <style id="socac-footer-style">
 .socac-custom-footer{background:linear-gradient(90deg,#173b0f 0%,#1d4d14 50%,#173b0f 100%)!important;color:#fff!important;padding:34px 0 28px!important;margin-top:40px;position:relative;overflow:hidden;}
 .socac-custom-footer::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at center,rgba(255,255,255,.06) 0%,rgba(255,255,255,0) 60%);pointer-events:none;}
@@ -511,7 +628,7 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 .socac-social-link:hover{transform:translateY(-2px);background:rgba(255,255,255,.18);}
 @media (max-width:700px){.socac-footer-copy{font-size:20px;}.socac-footer-contact-row{font-size:18px;gap:10px;}.socac-footer-contact::after{display:none;}.socac-footer-contact{width:100%;justify-content:center;}}
 </style>
-</head>
+<meta content="SOCAC catalog: agricultural products, feed, poultry, fish, pigs, orchard products, and direct WhatsApp ordering in Yaounde." name="description"/></head>
 <body>
 <nav class="navbar">
 <div class="nav-container">
@@ -540,13 +657,13 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 <section class="page-hero">
 <div class="page-hero-icon">🛒</div>
 <h1>Catalog &amp; Shop</h1>
-<p>Discover all our quality agricultural products. Prices updated in real time. Order directly via WhatsApp.</p>
+<p>Discover our products, indicative prices, and business categories. Order directly through WhatsApp to confirm availability, request a quote, or place a bulk order.</p>
 <div class="breadcrumb">
 <a href="../en/index.html">Home</a> / <span>Catalog</span>
 </div>
 </section>
 <section class="section">
-<div class="container">
+<div class="container"><div class="note-box"><p>Displayed prices are indicative and may change depending on stock availability, season, ordered volume, or market conditions.</p></div><div class="premium-grid"><div class="premium-card"><h3>How to order?</h3><p>Browse products, choose a category, add items to your cart, then send your request through WhatsApp for quick confirmation.</p></div><div class="premium-card"><h3>Who is it for?</h3><p>The SOCAC catalog is designed for households, traders, resellers, restaurants, distributors, and professional partners.</p></div><div class="premium-card"><h3>Partnerships &amp; bulk orders</h3><p>For wholesale purchases, distribution, or recurring needs, contact us directly so we can support you with a tailored response.</p></div></div><div class="cta-panel"><h3>A catalog designed for fast, practical sales</h3><p>Our goal is to keep browsing simple while making action easy: visible pricing, clear categories, confirmed availability, and fast ordering through WhatsApp.</p><ul class="check-list"><li>Readable pricing</li><li>Clear categories</li><li>Fast availability check</li><li>Ordering and follow-up via WhatsApp</li></ul></div>
 <div class="info-banner">
 <div class="info-banner-icon">💡</div>
 <div class="info-banner-text">
@@ -631,23 +748,23 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 <div class="socac-footer-inner">
 <p class="socac-footer-copy">© 2024 <span class="socac-brand-gold">SOCAC</span> - Cameroon Agri-Food Cooperative Society. All rights reserved.</p>
 <div class="socac-footer-contact-row">
-<a class="socac-footer-contact" href="https://maps.google.com/?q=Soa,+Yaound%C3%A9,+Cameroun" target="_blank" rel="noopener noreferrer"><span class="socac-contact-icon">📍</span><span>Soa, Yaoundé</span></a>
+<a class="socac-footer-contact" href="https://maps.google.com/?q=Soa,+Yaound%C3%A9,+Cameroun" rel="noopener noreferrer" target="_blank"><span class="socac-contact-icon">📍</span><span>Soa, Yaoundé</span></a>
 <a class="socac-footer-contact" href="mailto:socac.cm@gmail.com"><span class="socac-contact-icon">📧</span><span>socac.cm@gmail.com</span></a>
-<a class="socac-footer-contact socac-phone-link" href="https://wa.me/237672142796" target="_blank" rel="noopener noreferrer"><span class="socac-contact-icon">📞</span><span>+237 672 14 27 96</span></a>
-<a class="socac-footer-contact socac-phone-link" href="https://wa.me/237654892217" target="_blank" rel="noopener noreferrer"><span class="socac-contact-icon">📞</span><span>+237 654 89 22 17</span></a>
+<a class="socac-footer-contact socac-phone-link" href="https://wa.me/237672142796" rel="noopener noreferrer" target="_blank"><span class="socac-contact-icon">📞</span><span>+237 672 14 27 96</span></a>
+<a class="socac-footer-contact socac-phone-link" href="https://wa.me/237654892217" rel="noopener noreferrer" target="_blank"><span class="socac-contact-icon">📞</span><span>+237 654 89 22 17</span></a>
 </div>
 <div class="socac-footer-socials">
-<a class="socac-social-link" href="https://www.facebook.com/share/1ApGs7SYqj/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
-<svg fill="currentColor" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+<a aria-label="Facebook" class="socac-social-link" href="https://www.facebook.com/share/1ApGs7SYqj/" rel="noopener noreferrer" target="_blank" title="Facebook">
+<svg fill="currentColor" height="22" viewbox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
 </a>
-<a class="socac-social-link" href="https://www.instagram.com/socac.cm" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
-<svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+<a aria-label="Instagram" class="socac-social-link" href="https://www.instagram.com/socac.cm" rel="noopener noreferrer" target="_blank" title="Instagram">
+<svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
 </a>
-<a class="socac-social-link" href="https://www.tiktok.com/@alimentsnourix" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok">
-<svg fill="currentColor" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"></path></svg>
+<a aria-label="TikTok" class="socac-social-link" href="https://www.tiktok.com/@alimentsnourix" rel="noopener noreferrer" target="_blank" title="TikTok">
+<svg fill="currentColor" height="22" viewbox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"></path></svg>
 </a>
-<a class="socac-social-link" href="https://wa.me/237672142796" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp">
-<svg fill="currentColor" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"></path></svg>
+<a aria-label="WhatsApp" class="socac-social-link" href="https://wa.me/237672142796" rel="noopener noreferrer" target="_blank" title="WhatsApp">
+<svg fill="currentColor" height="22" viewbox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"></path></svg>
 </a>
 </div>
 </div>

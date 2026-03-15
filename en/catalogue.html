@@ -772,7 +772,12 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 </footer>
 <script>
         // Google Sheets Configuration
-        const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1DXIaKg5y0GtNOmi3PjWr-8-PnqQu9-k7/export?format=csv&gid=0';
+        const SHEET_ID = '1DXIaKg5y0GtNOmi3PjWr-8-PnqQu9-k7';
+        const SHEET_GID = '0';
+        const GVIZ_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?gid=${SHEET_GID}&tqx=out:json`;
+        const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv&gid=${SHEET_GID}`;
+        const CACHE_KEY = 'socac-products-cache-' + (document.documentElement.lang || 'fr');
+        const CACHE_TTL_MS = 15 * 60 * 1000;
         
         const CATEGORY_ICONS = {
             'Feed Mill': '🌾',
@@ -804,24 +809,33 @@ let allProducts = [];
         // Fetch products from Google Sheets
         async function fetchProducts() {
             const loadingState = document.getElementById('loadingState');
-            loadingState.innerHTML = '<div class="loading-spinner"></div><p>Loading products...</p>';
+            const loadingMessage = document.documentElement.lang === 'en'
+                ? 'Loading products and latest prices...'
+                : 'Chargement des produits et des derniers prix...';
+            loadingState.innerHTML = `<div class="loading-spinner"></div><p>${loadingMessage}</p>`;
 
             let loadedProducts = [];
 
             try {
-                const response = await fetch(SHEET_URL, { cache: 'no-store', mode: 'cors' });
-                if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                const csv = await response.text();
-                loadedProducts = parseCSV(csv);
+                loadedProducts = await loadProductsFromGoogleSheet();
             } catch (error) {
-                console.warn('Remote sheet unavailable, using embedded products.', error);
+                console.warn('Remote sheet unavailable, trying cache.', error);
+            }
+
+            if (!loadedProducts.length) {
+                loadedProducts = loadCachedProducts();
             }
 
             if (!loadedProducts.length) {
                 loadedProducts = [...FALLBACK_PRODUCTS];
             }
 
-            allProducts = sortProducts(loadedProducts.filter(product => product && product.nom).map(product => ({ ...product, category: normalizeCategory(product.category) })).filter(product => product.category));
+            allProducts = sortProducts(
+                loadedProducts
+                    .filter(product => product && product.nom)
+                    .map(product => ({ ...product, category: normalizeCategory(product.category) }))
+                    .filter(product => product.category)
+            );
             loadingState.style.display = 'none';
             updateCategoryTabs();
 
@@ -840,7 +854,148 @@ let allProducts = [];
             }
         }
 
+        async function loadProductsFromGoogleSheet() {
+            try {
+                const productsFromJsonp = await fetchProductsViaJsonp();
+                if (productsFromJsonp.length) {
+                    cacheProducts(productsFromJsonp);
+                    return productsFromJsonp;
+                }
+            } catch (error) {
+                console.warn('GViz/JSONP load failed, falling back to CSV.', error);
+            }
+
+            const response = await fetch(SHEET_URL, { cache: 'no-store', mode: 'cors' });
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const csv = await response.text();
+            const productsFromCsv = parseCSV(csv);
+            if (productsFromCsv.length) {
+                cacheProducts(productsFromCsv);
+            }
+            return productsFromCsv;
+        }
+
+        function fetchProductsViaJsonp() {
+            return new Promise((resolve, reject) => {
+                const callbackName = `socacSheetCallback_${Date.now()}_${Math.floor(Math.random() * 10000)}`;
+                const script = document.createElement('script');
+                const timeout = setTimeout(() => {
+                    cleanup();
+                    reject(new Error('Google Sheet JSONP timeout'));
+                }, 12000);
+
+                function cleanup() {
+                    clearTimeout(timeout);
+                    if (script.parentNode) script.parentNode.removeChild(script);
+                    delete window[callbackName];
+                }
+
+                window[callbackName] = (response) => {
+                    try {
+                        const products = parseGoogleVisualizationResponse(response);
+                        cleanup();
+                        resolve(products);
+                    } catch (error) {
+                        cleanup();
+                        reject(error);
+                    }
+                };
+
+                script.onerror = () => {
+                    cleanup();
+                    reject(new Error('Unable to load Google Sheet script'));
+                };
+
+                script.src = `${GVIZ_URL};responseHandler:${callbackName}`;
+                document.body.appendChild(script);
+            });
+        }
+
+        function parseGoogleVisualizationResponse(response) {
+            const table = response && response.table;
+            if (!table || !Array.isArray(table.rows) || !Array.isArray(table.cols)) {
+                return [];
+            }
+
+            const headers = table.cols.map(col => String(col.label || col.id || '').trim().toLowerCase());
+            const products = [];
+
+            table.rows.forEach(row => {
+                const product = {};
+                headers.forEach((header, index) => {
+                    const cell = row.c && row.c[index] ? row.c[index] : null;
+                    product[header] = cell && cell.v != null ? String(cell.v).trim() : '';
+                });
+
+                if (product.nom || product.name) {
+                    products.push(normalizeProduct(product));
+                }
+            });
+
+            return products;
+        }
+
+        function normalizeProduct(product) {
+            const normalized = { ...product };
+            normalized.id = normalized.id || normalized.ID || '';
+            normalized.category = normalized.category || normalized.categorie || normalized['catégorie'] || '';
+            normalized.nom = normalized.nom || normalized.name || '';
+            normalized.description = normalized.description || '';
+            normalized.prix = parseFloat(String(normalized.prix || normalized.price || '0').replace(/[^\d.,-]/g, '').replace(',', '.')) || 0;
+            normalized.unite = normalized.unite || normalized.unit || '';
+            const dispoRaw = String(normalized.disponible || normalized.available || '').toLowerCase();
+            normalized.disponible = !dispoRaw || ['oui', 'yes', 'true', '1', 'disponible', 'available'].includes(dispoRaw);
+            normalized.image = convertGoogleDriveUrl(normalized.image || '');
+            return normalized;
+        }
+
+        function cacheProducts(products) {
+            try {
+                localStorage.setItem(CACHE_KEY, JSON.stringify({ updatedAt: Date.now(), products }));
+            } catch (error) {
+                console.warn('Unable to write products cache.', error);
+            }
+        }
+
+        function loadCachedProducts() {
+            try {
+                const raw = localStorage.getItem(CACHE_KEY);
+                if (!raw) return [];
+                const parsed = JSON.parse(raw);
+                if (!parsed || !Array.isArray(parsed.products)) return [];
+                return parsed.products.map(normalizeProduct);
+            } catch (error) {
+                console.warn('Unable to read products cache.', error);
+                return [];
+            }
+        }
+
+        function convertGoogleDriveUrl(imageUrl) {
+            const rawUrl = String(imageUrl || '').trim();
+            if (!rawUrl) return '';
+            if (!rawUrl.includes('drive.google.com')) return rawUrl;
+
+            let fileId = '';
+            const patterns = [
+                /\/file\/d\/([a-zA-Z0-9_-]+)/,
+                /[?&]id=([a-zA-Z0-9_-]+)/,
+                /\/d\/([a-zA-Z0-9_-]+)/
+            ];
+
+            patterns.some(pattern => {
+                const match = rawUrl.match(pattern);
+                if (match && match[1]) {
+                    fileId = match[1];
+                    return true;
+                }
+                return false;
+            });
+
+            return fileId ? `https://lh3.googleusercontent.com/d/${fileId}` : rawUrl;
+        }
+
         // Parse CSV to product objects
+// Parse CSV to product objects
         function parseCSV(csv) {
             const lines = csv.split('\n');
             if (lines.length < 2) return [];

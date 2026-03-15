@@ -1,0 +1,572 @@
+[
+  {
+    "id": "1",
+    "category": "Arboriculture",
+    "nom": "Avocats Frais",
+    "description": "Avocats frais, variété Hass",
+    "prix": 500,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "2",
+    "category": "Arboriculture",
+    "nom": "Citrons Frais",
+    "description": "Citrons frais, acides et parfumés",
+    "prix": 50,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "3",
+    "category": "Arboriculture",
+    "nom": "Corossols Frais",
+    "description": "Corossols frais, chair blanche sucrée",
+    "prix": 1500,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "4",
+    "category": "Arboriculture",
+    "nom": "Goyaves Fraîches",
+    "description": "Goyaves fraîches, fruit rose sucré",
+    "prix": 200,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "5",
+    "category": "Arboriculture",
+    "nom": "Huile de Palme Rouge",
+    "description": "Huile de palme rouge artisanale",
+    "prix": 1500,
+    "unite": "litre",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "6",
+    "category": "Arboriculture",
+    "nom": "Mangues Fraîches",
+    "description": "Mangues fraîches de saison",
+    "prix": 300,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "7",
+    "category": "Arboriculture",
+    "nom": "Noix de Coco",
+    "description": "Noix de coco fraîches",
+    "prix": 500,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "8",
+    "category": "Arboriculture",
+    "nom": "Oranges Fraîches",
+    "description": "Oranges fraîches et juteuses",
+    "prix": 100,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "9",
+    "category": "Arboriculture",
+    "nom": "Panier Fruits Mixte 10kg",
+    "description": "Assortiment de fruits de saison (10 kg)",
+    "prix": 9000,
+    "unite": "panier",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "10",
+    "category": "Arboriculture",
+    "nom": "Panier Fruits Mixte 5kg",
+    "description": "Assortiment de fruits de saison (5 kg)",
+    "prix": 5000,
+    "unite": "panier",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "11",
+    "category": "Arboriculture",
+    "nom": "Papayes Fraîches",
+    "description": "Papayes fraîches, sucrées et mûres",
+    "prix": 500,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "12",
+    "category": "Arboriculture",
+    "nom": "Plant Avocatier Greffé",
+    "description": "Avocatier greffé, variété Hass",
+    "prix": 3500,
+    "unite": "plant",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "13",
+    "category": "Arboriculture",
+    "nom": "Plant Citronnier",
+    "description": "Citronnier greffé",
+    "prix": 3500,
+    "unite": "plant",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "14",
+    "category": "Arboriculture",
+    "nom": "Plant Corossolier",
+    "description": "Corossolier greffé",
+    "prix": 3000,
+    "unite": "plant",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "15",
+    "category": "Arboriculture",
+    "nom": "Plant Goyavier",
+    "description": "Goyavier greffé, fruit rose",
+    "prix": 2500,
+    "unite": "plant",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "16",
+    "category": "Arboriculture",
+    "nom": "Plant Manguier Greffé",
+    "description": "Manguier greffé, variété Kent",
+    "prix": 3000,
+    "unite": "plant",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "17",
+    "category": "Arboriculture",
+    "nom": "Plant Oranger",
+    "description": "Oranger greffé, variété Valencia",
+    "prix": 4000,
+    "unite": "plant",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "18",
+    "category": "Arboriculture",
+    "nom": "Plant Palmier à Huile",
+    "description": "Plant de palmier à huile sélectionné",
+    "prix": 2500,
+    "unite": "plant",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "19",
+    "category": "Arboriculture",
+    "nom": "Plant Papayer IPB9",
+    "description": "Papayer IPB9, plant de qualité",
+    "prix": 1500,
+    "unite": "plant",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "20",
+    "category": "Arboriculture",
+    "nom": "Plant Prunier (Safoutier)",
+    "description": "Safoutier (prunier africain)",
+    "prix": 2000,
+    "unite": "plant",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "21",
+    "category": "Arboriculture",
+    "nom": "Prunes (Safou)",
+    "description": "Prunes africaines (safou) fraîches",
+    "prix": 100,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "22",
+    "category": "Ferme Avicole",
+    "nom": "Coq Reproducteur",
+    "description": "Coq reproducteur de qualité",
+    "prix": 15000,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "23",
+    "category": "Ferme Avicole",
+    "nom": "Fiente de Poule",
+    "description": "Fiente de poule pour compost",
+    "prix": 3000,
+    "unite": "sac 50kg",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "24",
+    "category": "Ferme Avicole",
+    "nom": "Pintade Adulte",
+    "description": "Pintade adulte pour consommation",
+    "prix": 6000,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "25",
+    "category": "Ferme Avicole",
+    "nom": "Poule Pondeuse Réformée",
+    "description": "Poule pondeuse en fin de cycle",
+    "prix": 3500,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "26",
+    "category": "Ferme Avicole",
+    "nom": "Poulet de Chair Abattu",
+    "description": "Poulet de chair abattu et vidé",
+    "prix": 5000,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "27",
+    "category": "Ferme Avicole",
+    "nom": "Poulet de Chair Vif 2kg",
+    "description": "Poulet de chair vivant, environ 2 kg",
+    "prix": 4500,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "28",
+    "category": "Ferme Avicole",
+    "nom": "Poulette Prête à Pondre",
+    "description": "Poulette de 18 semaines, prête à pondre",
+    "prix": 5500,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "29",
+    "category": "Ferme Avicole",
+    "nom": "Poussin Chair 1 jour",
+    "description": "Poussin de chair d'un jour, vacciné",
+    "prix": 500,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "30",
+    "category": "Ferme Avicole",
+    "nom": "Poussin Pondeuse 1 jour",
+    "description": "Poussin pondeuse d'un jour, vacciné",
+    "prix": 600,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "31",
+    "category": "Ferme Avicole",
+    "nom": "Œufs de Table",
+    "description": "Œufs frais de consommation",
+    "prix": 2500,
+    "unite": "plateau 30",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "32",
+    "category": "Ferme Avicole",
+    "nom": "Œufs Fécondés Chair",
+    "description": "Œufs fécondés pour incubation (chair)",
+    "prix": 150,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "33",
+    "category": "Ferme Avicole",
+    "nom": "Œufs Fécondés Pondeuse",
+    "description": "Œufs fécondés pour incubation (pondeuse)",
+    "prix": 200,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "34",
+    "category": "Ferme Piscicole",
+    "nom": "Alevins Silure",
+    "description": "Alevins de silure (poisson-chat)",
+    "prix": 75,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "35",
+    "category": "Ferme Piscicole",
+    "nom": "Alevins Tilapia",
+    "description": "Alevins de tilapia, 2-3 cm",
+    "prix": 50,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "36",
+    "category": "Ferme Piscicole",
+    "nom": "Carpe 500g",
+    "description": "Carpe de table, environ 500 g",
+    "prix": 2000,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "37",
+    "category": "Ferme Piscicole",
+    "nom": "Filet de Tilapia",
+    "description": "Filet de tilapia frais, sans arêtes",
+    "prix": 4500,
+    "unite": "kg",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "38",
+    "category": "Ferme Piscicole",
+    "nom": "Géniteurs Silure",
+    "description": "Géniteurs silure pour reproduction",
+    "prix": 8000,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "39",
+    "category": "Ferme Piscicole",
+    "nom": "Géniteurs Tilapia",
+    "description": "Géniteurs tilapia pour reproduction",
+    "prix": 5000,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "40",
+    "category": "Ferme Piscicole",
+    "nom": "Poisson Fumé Silure",
+    "description": "Silure fumé artisanalement",
+    "prix": 5000,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "41",
+    "category": "Ferme Piscicole",
+    "nom": "Poisson Fumé Tilapia",
+    "description": "Tilapia fumé artisanalement",
+    "prix": 2500,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "42",
+    "category": "Ferme Piscicole",
+    "nom": "Silure 1kg",
+    "description": "Silure de table, environ 1 kg",
+    "prix": 3500,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "43",
+    "category": "Ferme Piscicole",
+    "nom": "Silure 2kg",
+    "description": "Silure de table, environ 2 kg",
+    "prix": 6500,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "44",
+    "category": "Ferme Piscicole",
+    "nom": "Tilapia 300g",
+    "description": "Tilapia de table, environ 300 g",
+    "prix": 1200,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "45",
+    "category": "Ferme Piscicole",
+    "nom": "Tilapia 500g",
+    "description": "Tilapia de table, environ 500 g",
+    "prix": 1800,
+    "unite": "pièce",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "54",
+    "category": "Provenderie",
+    "nom": "Nourix Chair Croissance",
+    "description": "Pour poulets de 22 à 42 jours",
+    "prix": 14500,
+    "unite": "sac 50kg",
+    "disponible": true,
+    "image": "https://lh3.googleusercontent.com/d/1o9WqWZiNApz85dyOYnyDqo5TxXXjTK2D"
+  },
+  {
+    "id": "55",
+    "category": "Provenderie",
+    "nom": "Nourix Chair Démarrage",
+    "description": "Pour poussins de 0 à 21 jours, riche en protéines",
+    "prix": 15000,
+    "unite": "sac 50kg",
+    "disponible": true,
+    "image": "https://lh3.googleusercontent.com/d/1zgFsM6vf_SSfh4UOq7dfTWGGIqd_jx26"
+  },
+  {
+    "id": "56",
+    "category": "Provenderie",
+    "nom": "Nourix Chair Finition",
+    "description": "Pour poulets de 43 jours à l'abattage",
+    "prix": 14000,
+    "unite": "sac 50kg",
+    "disponible": true,
+    "image": "https://lh3.googleusercontent.com/d/1H3PD-C25MM_ZDXy4ikVQf1H1493D3OP1"
+  },
+  {
+    "id": "57",
+    "category": "Provenderie",
+    "nom": "Nourix Poisson Chat",
+    "description": "Pour silures et poissons-chats",
+    "prix": 17000,
+    "unite": "sac 25kg",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "58",
+    "category": "Provenderie",
+    "nom": "Nourix Pondeuse Croissance",
+    "description": "Pour poulettes de 9 à 18 semaines",
+    "prix": 14500,
+    "unite": "sac 50kg",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "59",
+    "category": "Provenderie",
+    "nom": "Nourix Pondeuse Démarrage",
+    "description": "Pour poulettes de 0 à 8 semaines",
+    "prix": 15500,
+    "unite": "sac 50kg",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "60",
+    "category": "Provenderie",
+    "nom": "Nourix Pondeuse Production",
+    "description": "Pour poules pondeuses en production",
+    "prix": 13500,
+    "unite": "sac 50kg",
+    "disponible": true,
+    "image": "https://lh3.googleusercontent.com/d/17SIWbO-1zo_7FIbjzlXFcI1os6QHTHA3"
+  },
+  {
+    "id": "61",
+    "category": "Provenderie",
+    "nom": "Nourix Porcin Croissance",
+    "description": "Pour porcs de 25 à 60 kg",
+    "prix": 15000,
+    "unite": "sac 50kg",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "62",
+    "category": "Provenderie",
+    "nom": "Nourix Porcin Démarrage",
+    "description": "Pour porcelets de 0 à 25 kg",
+    "prix": 16000,
+    "unite": "sac 50kg",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "63",
+    "category": "Provenderie",
+    "nom": "Nourix Porcin Finition",
+    "description": "Pour porcs de 60 kg à l'abattage",
+    "prix": 14000,
+    "unite": "sac 50kg",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "64",
+    "category": "Provenderie",
+    "nom": "Nourix Tilapia Alevins",
+    "description": "Pour alevins de tilapia, granulés fins",
+    "prix": 18000,
+    "unite": "sac 25kg",
+    "disponible": true,
+    "image": ""
+  },
+  {
+    "id": "65",
+    "category": "Provenderie",
+    "nom": "Nourix Tilapia Croissance",
+    "description": "Pour tilapias en croissance",
+    "prix": 16000,
+    "unite": "sac 25kg",
+    "disponible": true,
+    "image": ""
+  }
+]

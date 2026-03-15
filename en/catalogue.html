@@ -803,62 +803,67 @@ let allProducts = [];
 
         // Fetch products from local prices.json (synced from the private Google Sheet)
         async function fetchProducts() {
-            const loadingState = document.getElementById('loadingState');
+            loadingState.style.display = 'block';
             loadingState.innerHTML = '<div class="loading-spinner"></div><p>Loading products...</p>';
-
+            productsSection.style.display = 'none';
+            
             let loadedProducts = [];
-
+            
             try {
-                const response = await fetch(`${PRICES_JSON_URL}?v=${Date.now()}`, { cache: 'no-store' });
-                if (!response.ok) throw new Error(`HTTP ${response.status}`);
-                const data = await response.json();
-                const rows = Array.isArray(data) ? data : (Array.isArray(data.products) ? data.products : []);
-
-                loadedProducts = rows
-                    .filter(product => product && (product.nom || product.name) && (product.category || product.categorie))
-                    .map(product => {
-                        const rawCategory = product.category || product.categorie || 'Produits';
-                        const category = normalizeCategory(rawCategory);
-                        const sourceName = product.nom || product.name || '';
-                        const sourceDescription = product.description || '';
-                        const icon = CATEGORY_ICONS[category] || CATEGORY_ICONS[rawCategory] || CATEGORY_ICONS['default'];
-                        return {
-                            id: String(product.id || ''),
-                            category,
-                            nom: NAME_TRANSLATIONS[sourceName] || sourceName,
-                            description: DESCRIPTION_TRANSLATIONS[sourceDescription] || sourceDescription,
-                            prix: parseInt(product.prix, 10) || 0,
-                            unite: UNIT_TRANSLATIONS[product.unite] || product.unite || product.unit || '',
-                            disponible: String(product.disponible).toLowerCase() !== 'false' && String(product.disponible).toLowerCase() !== 'non' && String(product.disponible).toLowerCase() !== '0',
-                            image: product.image || '',
-                            icon
-                        };
-                    });
+                if (Array.isArray(window.SOCAC_PRICES) && window.SOCAC_PRICES.length) {
+                    loadedProducts = window.SOCAC_PRICES;
+                } else {
+                    const response = await fetch(`${PRICES_JSON_URL}?v=${Date.now()}`, { cache: 'no-store' });
+                    if (!response.ok) throw new Error(`prices.json fetch failed: ${response.status}`);
+                    const data = await response.json();
+                    const rows = Array.isArray(data) ? data : (Array.isArray(data.products) ? data.products : []);
+                    loadedProducts = rows;
+                }
             } catch (error) {
-                console.warn('prices.json unavailable, using embedded products.', error);
+                console.warn('Price sync source unavailable, using embedded products.', error);
             }
 
             if (!loadedProducts.length) {
                 loadedProducts = [...FALLBACK_PRODUCTS];
             }
 
-            allProducts = sortProducts(loadedProducts.filter(product => product && product.nom).map(product => ({ ...product, category: normalizeCategory(product.category) })).filter(product => product.category));
-            loadingState.style.display = 'none';
+            allProducts = sortProducts(
+                loadedProducts
+                    .filter(product => product && (product.nom || product.name))
+                    .map(product => normalizeLoadedProduct(product))
+                    .filter(product => product && product.nom && product.category)
+            );
+
             updateCategoryTabs();
-
-            const activeTab = document.querySelector('.category-tab.active');
-            const visibleTabs = [...document.querySelectorAll('.category-tab')].filter(tab => tab.dataset.category === 'all' || tab.style.display !== 'none');
-            const selectedTab = activeTab && (activeTab.dataset.category === 'all' || activeTab.style.display !== 'none')
-                ? activeTab
-                : (visibleTabs[0] || document.querySelector('.category-tab[data-category="all"]'));
-
-            if (selectedTab) {
-                document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
-                selectedTab.classList.add('active');
+            loadingState.style.display = 'none';
+            productsSection.style.display = 'block';
+            
+            const selectedTab = document.querySelector('.category-tab.active');
+            if (selectedTab && selectedTab.dataset.category !== 'all') {
                 filterProducts(selectedTab.dataset.category);
             } else {
                 renderProducts(allProducts);
             }
+        }
+
+        function normalizeLoadedProduct(product) {
+            const rawCategory = product.category || product.categorie || '';
+            const rawUnit = product.unite || product.unit || '';
+            const rawPrice = product.prix ?? product.price ?? 0;
+            return {
+                ...product,
+                nom: product.nom || product.name || '',
+                description: product.description || product.details || '',
+                prix: typeof rawPrice === 'number' ? rawPrice : parseInt(String(rawPrice).replace(/[^\d]/g, ''), 10) || 0,
+                unite: normalizeUnit(rawUnit),
+                category: normalizeCategory(rawCategory),
+                disponible: typeof product.disponible === 'boolean' ? product.disponible : !['false','0','no','non','rupture','outofstock'].includes(String(product.disponible).toLowerCase())
+            };
+        }
+
+        function normalizeUnit(unit) {
+            const normalized = String(unit || '').trim();
+            return UNIT_ALIASES[normalized] || normalized || 'unit';
         }
 
         // Parse CSV to product objects
@@ -1173,5 +1178,6 @@ let allProducts = [];
         // Initialize
         fetchProducts();
     </script>
+<script src="../prices-data.js"></script>
 </body>
 </html>

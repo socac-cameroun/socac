@@ -3,961 +3,126 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>SOCAC | Société Coopérative Agroalimentaire du Cameroun</title>
-  <meta
-    name="description"
-    content="SOCAC - Société Coopérative Agroalimentaire du Cameroun. Agriculture durable, élevage, pisciculture, porciculture, poulets de chair, poules pondeuses, alimentation animale et développement économique."
-  />
-  <meta
-    name="keywords"
-    content="SOCAC, agriculture Cameroun, élevage Cameroun, porciculture, pisciculture, poulets de chair, poules pondeuses, coopérative agroalimentaire, alimentation animale"
-  />
-  <meta name="author" content="SOCAC" />
-
+  <meta name="description" content="Version française premium de la vitrine SOCAC." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Sans+3:wght@300;400;600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <style>
-    :root {
-      --primary-green: #2d5a27;
-      --primary-green-light: #3d7a37;
-      --primary-green-dark: #1d3a17;
-      --accent-gold: #c4a35a;
-      --accent-gold-light: #d4b36a;
-      --cream: #faf8f5;
-      --cream-dark: #f0ede8;
-      --white: #ffffff;
-      --dark: #1a1a1a;
-      --gray: #666666;
-      --gray-light: #999999;
-      --shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
-      --shadow-soft: 0 10px 22px rgba(0, 0, 0, 0.05);
-      --radius: 24px;
-      --radius-sm: 16px;
-      --max-width: 1220px;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "Source Sans 3", sans-serif;
-      background: linear-gradient(180deg, #faf8f5 0%, #f7f4ef 60%, #fcfbf9 100%);
-      color: var(--dark);
-      line-height: 1.65;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(var(--max-width), calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .section {
-      padding: 82px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 38px;
-    }
-
-    .section-title span {
-      display: inline-block;
-      color: var(--accent-gold);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-weight: 700;
-      font-size: 0.82rem;
-      margin-bottom: 10px;
-    }
-
-    .section-title h2 {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.15;
-      color: var(--primary-green-dark);
-      margin-bottom: 12px;
-    }
-
-    .section-title p {
-      max-width: 760px;
-      margin: 0 auto;
-      color: var(--gray);
-      font-size: 1.05rem;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(250, 248, 245, 0.94);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(45, 90, 39, 0.08);
-    }
-
-    .topbar {
-      min-height: 84px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .brand-badge {
-      width: 56px;
-      height: 56px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, var(--primary-green), var(--primary-green-light));
-      color: var(--white);
-      display: grid;
-      place-items: center;
-      font-size: 1.45rem;
-      font-weight: 800;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .brand-text h1 {
-      font-size: 1.25rem;
-      color: var(--primary-green-dark);
-      line-height: 1;
-      font-weight: 800;
-    }
-
-    .brand-text p {
-      font-size: 0.85rem;
-      color: var(--gray);
-      margin-top: 4px;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      font-weight: 700;
-      color: var(--dark);
-      transition: 0.25s ease;
-    }
-
-    nav a:hover {
-      color: var(--primary-green);
-    }
-
-    .lang-switch {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .lang-btn {
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: var(--white);
-      color: var(--primary-green);
-      border: 1px solid rgba(45, 90, 39, 0.12);
-      font-weight: 700;
-      transition: 0.25s ease;
-    }
-
-    .lang-btn:hover {
-      background: var(--primary-green);
-      color: var(--white);
-    }
-
-    .hero {
-      padding: 74px 0 60px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 34px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 14px;
-      border-radius: 999px;
-      background: rgba(196, 163, 90, 0.14);
-      border: 1px solid rgba(196, 163, 90, 0.22);
-      color: var(--primary-green);
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    .hero h2 {
-      font-family: "Playfair Display", serif;
-      font-size: clamp(2.4rem, 5vw, 4.7rem);
-      line-height: 1.06;
-      color: var(--primary-green-dark);
-      margin-bottom: 18px;
-    }
-
-    .hero p {
-      font-size: 1.12rem;
-      color: var(--gray);
-      margin-bottom: 26px;
-      max-width: 720px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 28px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 24px;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: 0.25s ease;
-    }
-
-    .btn-primary {
-      background: var(--primary-green);
-      color: var(--white);
-      box-shadow: var(--shadow);
-    }
-
-    .btn-primary:hover {
-      background: var(--primary-green-dark);
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      background: var(--white);
-      color: var(--primary-green);
-      border: 1px solid rgba(45, 90, 39, 0.12);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--accent-gold);
-      color: var(--accent-gold);
-    }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .stat {
-      background: var(--white);
-      border-radius: var(--radius-sm);
-      padding: 16px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(45, 90, 39, 0.05);
-    }
-
-    .stat strong {
-      display: block;
-      color: var(--primary-green);
-      font-size: 1.4rem;
-      margin-bottom: 4px;
-    }
-
-    .stat span {
-      color: var(--gray);
-      font-size: 0.95rem;
-    }
-
-    .hero-card {
-      background: linear-gradient(180deg, #ffffff 0%, #f7f4ef 100%);
-      border-radius: 32px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(45, 90, 39, 0.06);
-    }
-
-    .hero-card-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-
-    .hero-tag {
-      display: inline-flex;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(196, 163, 90, 0.14);
-      color: #8c6a25;
-      font-size: 0.84rem;
-      font-weight: 700;
-    }
-
-    .logo-panel {
-      min-height: 250px;
-      border-radius: 28px;
-      background: linear-gradient(180deg, #fffdf8 0%, #f2ede4 100%);
-      border: 1px solid rgba(196, 163, 90, 0.18);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 26px;
-      margin-bottom: 20px;
-    }
-
-    .logo-panel h3 {
-      font-family: "Playfair Display", serif;
-      font-size: 2.8rem;
-      color: var(--primary-green);
-      margin-bottom: 8px;
-    }
-
-    .logo-panel p {
-      color: var(--gray);
-      margin: 0;
-    }
-
-    .grid-4,
-    .grid-3,
-    .grid-2 {
-      display: grid;
-      gap: 22px;
-    }
-
-    .grid-4 {
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .grid-3 {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .grid-2 {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(45, 90, 39, 0.05);
-      transition: 0.25s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-    }
-
-    .card-icon {
-      font-size: 2rem;
-      margin-bottom: 12px;
-    }
-
-    .card h3 {
-      color: var(--primary-green-dark);
-      font-size: 1.2rem;
-      margin-bottom: 8px;
-    }
-
-    .card p {
-      color: var(--gray);
-    }
-
-    .highlight-box {
-      background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-dark) 100%);
-      border-radius: 32px;
-      padding: 36px;
-      color: var(--white);
-      box-shadow: var(--shadow);
-    }
-
-    .highlight-box h3 {
-      font-family: "Playfair Display", serif;
-      font-size: 2rem;
-      margin-bottom: 14px;
-    }
-
-    .highlight-box p {
-      color: rgba(255, 255, 255, 0.92);
-      font-size: 1.06rem;
-    }
-
-    .values-grid .card {
-      text-align: center;
-    }
-
-    .values-grid .card h3 {
-      margin-bottom: 0;
-    }
-
-    .fims-section {
-      background: linear-gradient(180deg, #173015 0%, #0f2110 100%);
-      color: var(--white);
-    }
-
-    .fims-section .section-title h2,
-    .fims-section .section-title p {
-      color: var(--white);
-    }
-
-    .fims-section .section-title span {
-      color: #e7c98c;
-    }
-
-    .dark-card {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: var(--radius);
-      padding: 24px;
-      backdrop-filter: blur(8px);
-    }
-
-    .dark-card h3 {
-      color: var(--white);
-      margin-bottom: 8px;
-    }
-
-    .dark-card p {
-      color: rgba(255, 255, 255, 0.82);
-    }
-
-    .contact-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-    }
-
-    .contact-panel {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 26px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(45, 90, 39, 0.05);
-    }
-
-    .contact-panel p {
-      margin-bottom: 12px;
-      color: var(--gray);
-      font-size: 1.04rem;
-    }
-
-    .contact-panel strong {
-      color: var(--primary-green-dark);
-    }
-
-    .quick-links {
-      background: var(--cream-dark);
-    }
-
-    .quick-links h3 {
-      margin-bottom: 14px;
-    }
-
-    .quick-links a {
-      display: block;
-      margin-bottom: 10px;
-      color: var(--primary-green);
-      font-weight: 700;
-    }
-
-    .quick-links a:hover {
-      color: var(--accent-gold);
-    }
-
-    .cta-bar {
-      background: linear-gradient(135deg, #fffaf0 0%, #f5efe2 100%);
-      border: 1px solid rgba(196, 163, 90, 0.16);
-      border-radius: 30px;
-      padding: 26px;
-      text-align: center;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .cta-bar h3 {
-      font-family: "Playfair Display", serif;
-      color: var(--primary-green-dark);
-      font-size: 1.9rem;
-      margin-bottom: 10px;
-    }
-
-    .cta-bar p {
-      color: var(--gray);
-      margin-bottom: 18px;
-    }
-
-    footer {
-      background: #f2ede4;
-      border-top: 1px solid rgba(45, 90, 39, 0.08);
-      padding: 30px 0;
-      color: var(--gray);
-    }
-
-    .footer-grid {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 1100px) {
-      .hero-grid,
-      .grid-4,
-      .grid-3,
-      .grid-2,
-      .contact-wrap {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .hero-stats {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 860px) {
-      .topbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 14px 0;
-      }
-
-      .hero-grid,
-      .grid-4,
-      .grid-3,
-      .grid-2,
-      .contact-wrap {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-stats {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .hero-stats {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-actions,
-      .lang-switch {
-        width: 100%;
-      }
-
-      .btn,
-      .lang-btn {
-        width: 100%;
-      }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
+<header>
+  <div class="container topbar">
+    <a class="brand" href="index.html">
+      <img class="brand-logo" src="../assets/images/logo-socac-main.jpg" alt="Logo SOCAC" />
+      <div class="brand-text">
+        <h1>SOCAC</h1>
+        <p>Société Coopérative Agroalimentaire du Cameroun</p>
+      </div>
+    </a>
+    <button class="mobile-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button><nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="ferme-avicole.html">Ferme avicole</a></li>
+        <li><a href="ferme-porcine.html">Ferme porcine</a></li>
+        <li><a href="ferme-piscicole.html">Ferme piscicole</a></li>
+        <li><a href="provenderie.html">Provenderie</a></li>
+        <li><a href="catalogue.html">Catalogue</a></li>
+        <li><a href="arboriculture.html">Arboriculture</a></li>
+        <li><a href="sante-alimentation.html">Santé & alimentation</a></li>
+      </ul>
+    </nav>
+    <div class="lang-switch">
+      <a class="lang-btn" href="../index.html">Accueil global</a><a class="lang-btn" href="../en/index.html">🇬🇧 English</a>
+    </div>
+  </div>
+</header>
+<main>
 
-  <header>
-    <div class="container topbar">
-      <div class="brand">
-        <div class="brand-badge">S</div>
-        <div class="brand-text">
-          <h1>SOCAC</h1>
+<section class="hero" id="accueil">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">🌿 Agriculture durable • Élevage • Production • Innovation</div>
+      <h2>Une coopérative agroalimentaire engagée pour une agriculture moderne au Cameroun</h2>
+      <p>La Société Coopérative Agroalimentaire du Cameroun (SOCAC) promeut une agriculture durable et moderne. Elle développe des activités d’élevage et de production alimentaire, notamment la production de porcs, de poissons et de volailles (poulets de chair et poules pondeuses), tout en contribuant activement au développement économique et à la sécurité alimentaire du Cameroun.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Nous contacter</a>
+        <a href="#fims" class="btn btn-secondary">Découvrir FIMS</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>Porcs</strong><span>Production porcine</span></div>
+        <div class="stat"><strong>Poissons</strong><span>Pisciculture</span></div>
+        <div class="stat"><strong>Chair</strong><span>Poulets de chair</span></div>
+        <div class="stat"><strong>Ponte</strong><span>Poules pondeuses</span></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-head">
+        <div>
+          <h3 style="font-family:'Playfair Display',serif;color:var(--green-dark);font-size:1.8rem;">SOCAC</h3>
+          <p style="color:var(--muted);">Coopérative agroalimentaire du Cameroun</p>
+        </div>
+        <div class="hero-tag">Version Premium</div>
+      </div>
+      <div class="logo-panel">
+        <div>
+          <img src="../assets/images/logo-socac-main.jpg" alt="Logo SOCAC" style="width:120px;height:120px;object-fit:contain;border-radius:24px;margin:0 auto 16px;background:#fff;padding:10px;box-shadow:var(--shadow-soft);">
+          <h3>SOCAC</h3>
           <p>Société Coopérative Agroalimentaire du Cameroun</p>
         </div>
       </div>
-
-      <nav>
-        <ul>
-          <li><a href="#accueil">Accueil</a></li>
-          <li><a href="#apropos">À propos</a></li>
-          <li><a href="#activites">Activités</a></li>
-          <li><a href="#produits">Produits</a></li>
-          <li><a href="#impact">Impact</a></li>
-          <li><a href="#fims">FIMS</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-
-      <div class="lang-switch">
-        <a class="lang-btn" href="../index.html">Accueil global</a>
-        <a class="lang-btn" href="../en/index.html">🇬🇧 English</a>
+      <div class="grid-2">
+        <div class="card"><div class="card-icon">🐖</div><h3>Porciculture</h3><p>Une filière structurée pour répondre aux besoins du marché et soutenir la production locale.</p></div>
+        <div class="card"><div class="card-icon">🐟</div><h3>Pisciculture</h3><p>Une activité orientée sécurité alimentaire, développement économique et disponibilité produit.</p></div>
       </div>
     </div>
-  </header>
-
-  <main>
-    <section class="hero" id="accueil">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">🌿 Agriculture durable • Élevage • Production • Innovation</div>
-
-          <h2>
-            Une coopérative agroalimentaire engagée pour une agriculture moderne au Cameroun
-          </h2>
-
-          <p>
-            La Société Coopérative Agroalimentaire du Cameroun (SOCAC) promeut une agriculture durable et moderne.
-            Elle développe des activités d’élevage et de production alimentaire, notamment la production de porcs,
-            de poissons et de volailles (poulets de chair et poules pondeuses), tout en contribuant activement
-            au développement économique et à la sécurité alimentaire du Cameroun.
-          </p>
-
-          <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">Nous contacter</a>
-            <a href="#fims" class="btn btn-secondary">Découvrir FIMS</a>
-          </div>
-
-          <div class="hero-stats">
-            <div class="stat">
-              <strong>Porcs</strong>
-              <span>Production porcine</span>
-            </div>
-            <div class="stat">
-              <strong>Poissons</strong>
-              <span>Pisciculture</span>
-            </div>
-            <div class="stat">
-              <strong>Chair</strong>
-              <span>Poulets de chair</span>
-            </div>
-            <div class="stat">
-              <strong>Ponte</strong>
-              <span>Poules pondeuses</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-card">
-          <div class="hero-card-head">
-            <div>
-              <h3 style="font-family: 'Playfair Display', serif; color: var(--primary-green-dark); font-size: 1.8rem;">SOCAC</h3>
-              <p style="color: var(--gray);">Coopérative agroalimentaire du Cameroun</p>
-            </div>
-            <div class="hero-tag">Version Premium</div>
-          </div>
-
-          <div class="logo-panel">
-            <div>
-              <h3>SOCAC</h3>
-              <p>Société Coopérative Agroalimentaire du Cameroun</p>
-            </div>
-          </div>
-
-          <div class="grid-2">
-            <div class="card">
-              <div class="card-icon">🐖</div>
-              <h3>Porciculture</h3>
-              <p>Une filière structurée pour répondre aux besoins du marché et soutenir la production locale.</p>
-            </div>
-            <div class="card">
-              <div class="card-icon">🐟</div>
-              <h3>Pisciculture</h3>
-              <p>Une activité orientée sécurité alimentaire, développement économique et disponibilité produit.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="apropos">
-      <div class="container">
-        <div class="section-title">
-          <span>À propos</span>
-          <h2>Une vision agricole forte pour le Cameroun</h2>
-          <p>
-            SOCAC s’inscrit dans une dynamique de production, d’élevage, de transformation et de développement
-            des communautés à travers un modèle coopératif moderne, structuré et durable.
-          </p>
-        </div>
-
-        <div class="grid-3">
-          <div class="card">
-            <div class="card-icon">🎯</div>
-            <h3>Mission</h3>
-            <p>
-              Produire des aliments de qualité, développer l’élevage moderne et contribuer durablement
-              à la sécurité alimentaire.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-icon">🌍</div>
-            <h3>Vision</h3>
-            <p>
-              Devenir une référence agroalimentaire intégrée au Cameroun et en Afrique centrale
-              grâce à une production structurée et responsable.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-icon">🤝</div>
-            <h3>Valeurs</h3>
-            <p>
-              Qualité, innovation, coopération, responsabilité, durabilité et impact positif
-              sur l’économie locale.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="activites">
-      <div class="container">
-        <div class="section-title">
-          <span>Nos activités</span>
-          <h2>Des filières agricoles et d’élevage complémentaires</h2>
-          <p>
-            SOCAC développe plusieurs branches pour renforcer la production locale et construire
-            une chaîne de valeur agroalimentaire complète.
-          </p>
-        </div>
-
-        <div class="grid-4">
-          <div class="card">
-            <div class="card-icon">🐔</div>
-            <h3>Poulets de chair</h3>
-            <p>
-              Production de volailles destinées à l’alimentation et à la commercialisation sur le marché local.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-icon">🥚</div>
-            <h3>Poules pondeuses</h3>
-            <p>
-              Production d’œufs dans une logique de qualité, de régularité et de disponibilité pour les consommateurs.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-icon">🐖</div>
-            <h3>Porcs</h3>
-            <p>
-              Élevage porcin moderne avec une vision de croissance, de performance et de rentabilité durable.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-icon">🐟</div>
-            <h3>Poissons</h3>
-            <p>
-              Pisciculture orientée vers la sécurité alimentaire, le développement économique et la valorisation locale.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="produits">
-      <div class="container">
-        <div class="section-title">
-          <span>Produits</span>
-          <h2>Une production locale au service des ménages et du marché</h2>
-          <p>
-            La SOCAC met en valeur des produits issus d’une agriculture et d’un élevage modernes,
-            conçus pour répondre aux besoins du Cameroun.
-          </p>
-        </div>
-
-        <div class="grid-3">
-          <div class="card">
-            <div class="card-icon">🍗</div>
-            <h3>Viande de poulet</h3>
-            <p>
-              Poulets de chair issus d’un élevage organisé, adaptés à la consommation et au marché local.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-icon">🥚</div>
-            <h3>Œufs de consommation</h3>
-            <p>
-              Une production destinée aux ménages, commerces, restaurations et besoins alimentaires du quotidien.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-icon">🌽</div>
-            <h3>Alimentation animale</h3>
-            <p>
-              Développement progressif de solutions pour soutenir la performance et la qualité des élevages.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="impact">
-      <div class="container">
-        <div class="highlight-box">
-          <h3>Une coopérative qui participe au développement du Cameroun</h3>
-          <p>
-            En renforçant la production agricole, l’élevage moderne, la disponibilité alimentaire et l’organisation
-            des filières, la SOCAC contribue activement à la création de valeur locale, au développement économique
-            et à la sécurité alimentaire nationale.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-title">
-          <span>Nos engagements</span>
-          <h2>Des principes solides au cœur de notre action</h2>
-          <p>
-            SOCAC place la qualité, la durabilité et l’organisation au centre de sa démarche de développement.
-          </p>
-        </div>
-
-        <div class="grid-3 values-grid">
-          <div class="card">
-            <div class="card-icon">✅</div>
-            <h3>Qualité</h3>
-          </div>
-          <div class="card">
-            <div class="card-icon">🌱</div>
-            <h3>Durabilité</h3>
-          </div>
-          <div class="card">
-            <div class="card-icon">📈</div>
-            <h3>Performance</h3>
-          </div>
-          <div class="card">
-            <div class="card-icon">🧭</div>
-            <h3>Vision</h3>
-          </div>
-          <div class="card">
-            <div class="card-icon">🤲</div>
-            <h3>Coopération</h3>
-          </div>
-          <div class="card">
-            <div class="card-icon">🏘️</div>
-            <h3>Impact local</h3>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section fims-section" id="fims">
-      <div class="container">
-        <div class="section-title">
-          <span>Plateforme FIMS</span>
-          <h2>Une gestion numérique moderne pour la SOCAC</h2>
-          <p>
-            Le logiciel FIMS accompagne la gestion opérationnelle de la coopérative avec une vision moderne
-            orientée élevage, stock, ventes et finances.
-          </p>
-        </div>
-
-        <div class="grid-4">
-          <div class="dark-card">
-            <h3>Gestion élevage</h3>
-            <p>Suivi des porcs, poissons, poulets de chair et poules pondeuses.</p>
-          </div>
-
-          <div class="dark-card">
-            <h3>Gestion stock</h3>
-            <p>Contrôle des intrants, mouvements, inventaires et disponibilité produit.</p>
-          </div>
-
-          <div class="dark-card">
-            <h3>Gestion ventes</h3>
-            <p>Suivi commercial, relation client et traçabilité des produits.</p>
-          </div>
-
-          <div class="dark-card">
-            <h3>Gestion finances</h3>
-            <p>Vue d’ensemble sur les revenus, dépenses, marges et indicateurs de performance.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="cta-bar">
-          <h3>Construisons ensemble une agriculture moderne et durable</h3>
-          <p>
-            Découvrez les activités de la SOCAC, échangez avec notre équipe et suivez notre dynamique de croissance.
-          </p>
-          <a href="#contact" class="btn btn-primary">Entrer en contact</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="section-title">
-          <span>Contact</span>
-          <h2>Entrer en relation avec la SOCAC</h2>
-          <p>
-            Pour toute demande d’information, de partenariat ou de collaboration, contactez-nous directement.
-          </p>
-        </div>
-
-        <div class="contact-wrap">
-          <div class="contact-panel">
-            <p><strong>Nom :</strong> SOCAC</p>
-            <p><strong>Adresse :</strong> Cameroun</p>
-            <p><strong>Email :</strong> contact@socac.cm</p>
-            <p><strong>Téléphone :</strong> +237 XXX XXX XXX</p>
-            <p><strong>WhatsApp :</strong> Disponible pour échanges et commandes</p>
-          </div>
-
-          <div class="contact-panel quick-links">
-            <h3>Navigation rapide</h3>
-            <a href="#apropos">À propos</a>
-            <a href="#activites">Nos activités</a>
-            <a href="#produits">Nos produits</a>
-            <a href="#impact">Notre impact</a>
-            <a href="#fims">Plateforme FIMS</a>
-            <a href="../en/index.html">Voir la version anglaise</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-grid">
-      <div>© 2026 SOCAC — Société Coopérative Agroalimentaire du Cameroun</div>
-      <div>Version française premium</div>
+  </div>
+</section>
+<section class="section" id="apropos">
+  <div class="container">
+    <div class="section-title"><span>À propos</span><h2>Une vision agricole forte pour le Cameroun</h2><p>SOCAC s’inscrit dans une dynamique de production, d’élevage, de transformation et de développement des communautés à travers un modèle coopératif moderne, structuré et durable.</p></div>
+    <div class="grid-3">
+      <div class="card"><div class="card-icon">🎯</div><h3>Mission</h3><p>Produire des aliments de qualité, développer l’élevage moderne et contribuer durablement à la sécurité alimentaire.</p></div>
+      <div class="card"><div class="card-icon">🌍</div><h3>Vision</h3><p>Devenir une référence agroalimentaire intégrée au Cameroun et en Afrique centrale grâce à une production structurée et responsable.</p></div>
+      <div class="card"><div class="card-icon">🤝</div><h3>Valeurs</h3><p>Qualité, innovation, coopération, responsabilité, durabilité et impact positif sur l’économie locale.</p></div>
     </div>
-  </footer>
+  </div>
+</section>
+<section class="section" id="activites">
+  <div class="container">
+    <div class="section-title"><span>Nos activités</span><h2>Des filières agricoles et d’élevage complémentaires</h2><p>SOCAC développe plusieurs branches pour renforcer la production locale et construire une chaîne de valeur agroalimentaire complète.</p></div>
+    <div class="grid-4">
+      <div class="card"><div class="card-icon">🐔</div><h3>Poulets de chair</h3><p>Production de volailles destinées à l’alimentation et à la commercialisation sur le marché local.</p></div>
+      <div class="card"><div class="card-icon">🥚</div><h3>Poules pondeuses</h3><p>Production d’œufs dans une logique de qualité, de régularité et de disponibilité pour les consommateurs.</p></div>
+      <div class="card"><div class="card-icon">🐖</div><h3>Porcs</h3><p>Élevage porcin moderne avec une vision de croissance, de performance et de rentabilité durable.</p></div>
+      <div class="card"><div class="card-icon">🐟</div><h3>Poissons</h3><p>Pisciculture orientée vers la sécurité alimentaire, le développement économique et la valorisation locale.</p></div>
+    </div>
+  </div>
+</section>
+<section class="section" id="produits">
+  <div class="container">
+    <div class="section-title"><span>Produits</span><h2>Une production locale au service des ménages et du marché</h2><p>La SOCAC met en valeur des produits issus d’une agriculture et d’un élevage modernes, conçus pour répondre aux besoins du Cameroun.</p></div>
+    <div class="grid-3">
+      <div class="card"><div class="card-icon">🍗</div><h3>Viande de poulet</h3><p>Poulets de chair issus d’un élevage organisé, adaptés à la consommation et au marché local.</p></div>
+      <div class="card"><div class="card-icon">🥚</div><h3>Œufs de consommation</h3><p>Une production destinée aux ménages, commerces, restaurations et besoins alimentaires du quotidien.</p></div>
+      <div class="card"><div class="card-icon">🌽</div><h3>Alimentation animale</h3><p>Développement progressif de solutions pour soutenir la performance et la qualité des élevages.</p></div>
+    </div>
+  </div>
+</section>
+<section class="section" id="impact"><div class="container"><div class="highlight-box"><h3>Une coopérative qui participe au développement du Cameroun</h3><p>En renforçant la production agricole, l’élevage moderne, la disponibilité alimentaire et l’organisation des filières, la SOCAC contribue activement à la création de valeur locale, au développement économique et à la sécurité alimentaire nationale.</p></div></div></section>
+<section class="section"><div class="container"><div class="section-title"><span>Nos engagements</span><h2>Des principes solides au cœur de notre action</h2><p>SOCAC place la qualité, la durabilité et l’organisation au centre de sa démarche de développement.</p></div><div class="grid-3 values-grid"><div class="card"><div class="card-icon">✅</div><h3>Qualité</h3></div><div class="card"><div class="card-icon">🌱</div><h3>Durabilité</h3></div><div class="card"><div class="card-icon">📈</div><h3>Performance</h3></div><div class="card"><div class="card-icon">🧭</div><h3>Vision</h3></div><div class="card"><div class="card-icon">🤲</div><h3>Coopération</h3></div><div class="card"><div class="card-icon">🏘️</div><h3>Impact local</h3></div></div></div></section>
+<section class="section fims-section" id="fims"><div class="container"><div class="section-title"><span>Plateforme FIMS</span><h2>Une gestion numérique moderne pour la SOCAC</h2><p>Le logiciel FIMS accompagne la gestion opérationnelle de la coopérative avec une vision moderne orientée élevage, stock, ventes et finances.</p></div><div class="grid-4"><div class="dark-card"><h3>Gestion élevage</h3><p>Suivi des porcs, poissons, poulets de chair et poules pondeuses.</p></div><div class="dark-card"><h3>Gestion stock</h3><p>Contrôle des intrants, mouvements, inventaires et disponibilité produit.</p></div><div class="dark-card"><h3>Gestion ventes</h3><p>Suivi commercial, relation client et traçabilité des produits.</p></div><div class="dark-card"><h3>Gestion finances</h3><p>Vue d’ensemble sur les revenus, dépenses, marges et indicateurs de performance.</p></div></div></div></section>
+<section class="section"><div class="container"><div class="cta-bar"><h3>Construisons ensemble une agriculture moderne et durable</h3><p>Découvrez les activités de la SOCAC, échangez avec notre équipe et suivez notre dynamique de croissance.</p><a href="#contact" class="btn btn-primary">Entrer en contact</a></div></div></section>
+<section class="section" id="contact"><div class="container"><div class="section-title"><span>Contact</span><h2>Entrer en relation avec la SOCAC</h2><p>Pour toute demande d’information, de partenariat ou de collaboration, contactez-nous directement.</p></div><div class="contact-wrap"><div class="contact-panel"><p><strong>Nom :</strong> SOCAC</p><p><strong>Adresse :</strong> Cameroun</p><p><strong>Email :</strong> contact@socac.cm</p><p><strong>Téléphone :</strong> +237 XXX XXX XXX</p><p><strong>WhatsApp :</strong> Disponible pour échanges et commandes</p></div><div class="contact-panel quick-links"><h3>Navigation rapide</h3><a href="ferme-avicole.html">Ferme avicole</a><a href="ferme-porcine.html">Ferme porcine</a><a href="ferme-piscicole.html">Ferme piscicole</a><a href="provenderie.html">Provenderie</a><a href="catalogue.html">Catalogue</a><a href="arboriculture.html">Arboriculture</a><a href="sante-alimentation.html">Santé & alimentation</a></div><div class="contact-panel"><h3>Localisation — Yaoundé</h3><p class="small-note">Retrouvez la SOCAC à Yaoundé et contactez-nous aussi via WhatsApp pour les informations, commandes et partenariats.</p><iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Yaound%C3%A9%2C%20Cameroon&z=12&output=embed" title="Carte Google Maps Yaoundé"></iframe></div></div></div></section>
 
+</main>
+<a class="whatsapp-float" href="https://wa.me/237000000000" target="_blank" rel="noopener" aria-label="WhatsApp">✆</a>
+<footer>
+  <div class="container footer-grid">
+    <div>© <span data-year></span> SOCAC — Version française premium</div>
+    <div>Structure HTML premium avec assets partagés</div>
+  </div>
+</footer>
+<script src="../assets/js/main.js"></script>
 </body>
 </html>

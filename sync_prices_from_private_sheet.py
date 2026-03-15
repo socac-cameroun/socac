@@ -31,6 +31,7 @@ DEFAULT_SPREADSHEET_ID = '1DXIaKg5y0GtNOmi3PjWr-8-PnqQu9-k7'
 DEFAULT_SHEET_RANGE = 'A:Z'
 ROOT_DIR = Path(__file__).resolve().parent
 OUTPUT_FILE = ROOT_DIR / 'prices.json'
+OUTPUT_JS_FILE = ROOT_DIR / 'prices-data.js'
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 
 COLUMN_ALIASES = {
@@ -139,8 +140,11 @@ def main() -> None:
     output_file = Path(args.output).expanduser().resolve()
     output_file.write_text(json.dumps(products, ensure_ascii=False, indent=2), encoding='utf-8')
 
-    print(f'Updated {output_file} with {len(products)} products.')
-    print('Next step: upload/deploy the updated prices.json file with your website files.')
+    output_js_file = output_file.with_name('prices-data.js')
+    output_js_file.write_text('window.SOCAC_PRICES = ' + json.dumps(products, ensure_ascii=False, separators=(',', ':')) + ';\n', encoding='utf-8')
+
+    print(f'Updated {output_file} and {output_js_file} with {len(products)} products.')
+    print('Next step: upload/deploy the updated prices.json and prices-data.js files with your website files.')
 
 
 if __name__ == '__main__':

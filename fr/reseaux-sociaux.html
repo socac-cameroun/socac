@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Arboriculture - SOCAC</title>
+<title>Réseaux Sociaux - SOCAC</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Source+Sans+3:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
@@ -323,6 +323,86 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
     .meta-banner { margin: 18px 16px 0; }
     .premium-card, .cta-panel, .note-box { padding: 20px; }
 }
+
+/* Social hub V2 */
+.embed-shell { padding: 68px 0 84px; }
+.hero-badges { display:flex; justify-content:center; flex-wrap:wrap; gap:12px; margin-top:24px; }
+.hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.16); border:1px solid rgba(255,255,255,0.28); color:#fff; padding:10px 16px; border-radius:999px; font-weight:600; }
+.social-actions { display:flex; justify-content:center; flex-wrap:wrap; gap:14px; margin-top:28px; }
+.social-cta { display:inline-flex; align-items:center; gap:10px; padding:14px 20px; border-radius:999px; text-decoration:none; font-weight:700; color:white; background:linear-gradient(135deg,var(--primary-green),var(--primary-green-dark)); box-shadow:0 12px 28px rgba(29,58,23,0.18); }
+.social-cta.alt { background:rgba(255,255,255,0.14); border:1px solid rgba(255,255,255,0.25); }
+.platform-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:22px; margin-top:24px; }
+.platform-card { background:rgba(255,255,255,0.94); border-radius:20px; padding:24px; box-shadow:0 14px 34px rgba(0,0,0,0.08); border:1px solid rgba(45,90,39,0.08); }
+.platform-card h3 { font-family:'Playfair Display',serif; color:var(--primary-green); margin-bottom:10px; font-size:1.28rem; }
+.platform-card p { color:var(--gray); font-size:0.98rem; margin-bottom:14px; }
+.platform-link { display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:var(--primary-green); font-weight:700; }
+.embed-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:26px; }
+.embed-card { background:rgba(255,255,255,0.96); border-radius:22px; padding:22px; box-shadow:0 14px 32px rgba(0,0,0,0.08); border:1px solid rgba(45,90,39,0.08); }
+.embed-card h3 { font-family:'Playfair Display',serif; color:var(--primary-green); font-size:1.35rem; margin-bottom:8px; }
+.embed-card p { color:var(--gray); font-size:0.96rem; margin-bottom:16px; }
+.embed-frame, .profile-frame { width:100%; min-height:540px; border:none; border-radius:18px; overflow:hidden; background:#fff; }
+.profile-frame.compact { min-height:460px; }
+.embed-caption { margin-top:14px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+.embed-caption a { color:var(--primary-green); font-weight:700; text-decoration:none; }
+.embed-note { background:rgba(196,163,90,0.12); border:1px solid rgba(196,163,90,0.24); color:var(--dark); padding:16px 18px; border-radius:16px; font-size:0.95rem; }
+.highlight-strip { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; margin-top:24px; }
+.highlight-pill { background:linear-gradient(135deg, rgba(45,90,39,0.95), rgba(61,122,55,0.92)); color:white; border-radius:16px; padding:18px 16px; text-align:center; box-shadow:0 10px 24px rgba(45,90,39,0.18); }
+.helper-box { background:rgba(255,255,255,0.92); border-radius:20px; padding:24px; box-shadow:0 12px 28px rgba(0,0,0,0.06); border:1px solid rgba(45,90,39,0.08); }
+.helper-box h3 { font-family:'Playfair Display',serif; color:var(--primary-green); margin-bottom:10px; }
+.helper-box code { background:var(--cream-dark); padding:3px 8px; border-radius:8px; }
+.profile-inline { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-top:14px; }
+.profile-inline a { text-decoration:none; color:var(--primary-green); font-weight:700; }
+@media (max-width: 768px) {
+  .embed-frame, .profile-frame { min-height:520px; }
+  .social-actions { flex-direction:column; align-items:stretch; }
+  .social-cta { justify-content:center; }
+}
+
+
+/* Social Hub V5 */
+.social-page-hero{background:linear-gradient(135deg,var(--primary-green) 0%,var(--primary-green-dark) 100%);position:relative;overflow:hidden;}
+.social-page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at top right, rgba(196,163,90,.18), transparent 35%),radial-gradient(circle at bottom left, rgba(255,255,255,.12), transparent 30%);pointer-events:none;}
+.social-page-hero .container{position:relative;z-index:1;}
+.hero-badges{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:24px;}
+.hero-badge{display:inline-flex;align-items:center;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(6px);font-size:.9rem;font-weight:700;}
+.social-actions { display:flex; justify-content:center; flex-wrap:wrap; gap:14px; margin-top:28px; }
+.social-cta { display:inline-flex; align-items:center; gap:10px; padding:14px 20px; border-radius:999px; text-decoration:none; font-weight:700; color:white; background:linear-gradient(135deg,var(--primary-green),var(--primary-green-dark)); box-shadow:0 12px 28px rgba(29,58,23,0.18); }
+.social-cta.alt { background:rgba(255,255,255,0.14); border:1px solid rgba(255,255,255,0.25); }
+.platform-grid,.social-grid,.content-pillars,.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.platform-card,.wall-card,.pillar-card,.metric-card,.helper-box,.story-card{background:rgba(255,255,255,.94);border-radius:20px;padding:26px;box-shadow:0 14px 34px rgba(0,0,0,.07);border:1px solid rgba(45,90,39,.08);}
+.platform-card h3,.wall-card h3,.pillar-card h3,.story-card h3{font-family:'Playfair Display',serif;color:var(--primary-green);margin-bottom:10px;font-size:1.35rem;}
+.platform-card p,.wall-card p,.pillar-card p,.story-card p,.helper-box p{color:var(--gray);line-height:1.75;}
+.platform-link,.mini-link,.profile-inline a{display:inline-flex;align-items:center;gap:8px;margin-top:14px;text-decoration:none;color:var(--primary-green);font-weight:700;}
+.platform-link:hover,.mini-link:hover,.profile-inline a:hover{text-decoration:underline;}
+.embed-shell{background:rgba(255,255,255,.22);}
+.social-grid{grid-template-columns:1.15fr 1fr;align-items:start;}
+.wall-card.featured{padding:30px;}
+.wall-card .instagram-wrap{display:flex;justify-content:center;}
+.instagram-media{background:#FFF;border:0;border-radius:16px;box-shadow:0 10px 28px rgba(0,0,0,.08);margin:0 auto !important;min-width:280px;max-width:540px;width:100% !important;}
+.embed-frame{width:100%;min-height:520px;border:0;border-radius:16px;background:#f7f7f7;}
+.embed-note{display:inline-block;color:var(--gray);font-size:.9rem;line-height:1.6;}
+.embed-caption{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-top:14px;}
+.content-pillars{grid-template-columns:repeat(3,1fr);}
+.pillar-card{position:relative;overflow:hidden;}
+.pillar-card::after{content:'';position:absolute;right:-18px;top:-18px;width:78px;height:78px;border-radius:50%;background:rgba(196,163,90,.09);}
+.pillar-card>*{position:relative;z-index:1;}
+.metric-grid{grid-template-columns:repeat(4,1fr);margin-top:28px;}
+.metric-card{text-align:center;background:linear-gradient(135deg,rgba(45,90,39,.96),rgba(29,58,23,.96));color:white;padding:24px 18px;}
+.metric-card strong{display:block;font-size:2rem;line-height:1.1;margin-bottom:8px;font-family:'Playfair Display',serif;color:#fff;}
+.metric-card span{font-size:.95rem;opacity:.9;}
+.story-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:start;}
+.story-card.dark{background:linear-gradient(135deg,var(--primary-green),var(--primary-green-dark));color:#fff;}
+.story-card.dark h3,.story-card.dark p,.story-card.dark li{color:#fff;}
+.story-card ul{padding-left:18px;margin-top:14px;display:grid;gap:10px;}
+.helper-box{margin-top:24px;}
+.profile-inline{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center;margin-top:12px;}
+.cta-band{margin-top:34px;border-radius:20px;padding:28px 32px;background:linear-gradient(135deg,var(--primary-green),var(--primary-green-dark));color:#fff;display:flex;justify-content:space-between;gap:22px;align-items:center;flex-wrap:wrap;box-shadow:0 18px 36px rgba(29,58,23,.22);}
+.cta-band h3{font-family:'Playfair Display',serif;color:#fff;font-size:1.8rem;margin-bottom:8px;}
+.cta-band p{color:rgba(255,255,255,.92);max-width:780px;}
+.cta-band .social-actions{margin-top:0;}
+@media (max-width: 1100px){.platform-grid,.metric-grid{grid-template-columns:repeat(2,1fr);} .social-grid,.story-layout,.content-pillars{grid-template-columns:1fr;}}
+@media (max-width: 768px){.platform-grid,.metric-grid,.content-pillars{grid-template-columns:1fr;} .social-actions{flex-direction:column;align-items:stretch;} .social-cta{justify-content:center;} .cta-band{padding:24px;} .embed-frame{min-height:440px;}}
+
 </style>
 <style id="socac-footer-style">
 .socac-custom-footer{background:linear-gradient(90deg,#173b0f 0%,#1d4d14 50%,#173b0f 100%)!important;color:#fff!important;padding:26px 0 22px!important;margin-top:40px;position:relative;overflow:hidden;}
@@ -340,8 +420,95 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 .socac-social-link{width:40px;height:40px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff!important;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);text-decoration:none;transition:transform .2s ease, background .2s ease;font-size:15px;}
 .socac-social-link:hover{transform:translateY(-2px);background:rgba(255,255,255,.18);}
 @media (max-width:700px){.socac-footer-copy{font-size:17px;}.socac-footer-contact-row{font-size:14px;gap:8px;}.socac-footer-contact::after{display:none;}.socac-footer-contact{width:100%;justify-content:center;}}
+
+/* Social hub V2 */
+.embed-shell { padding: 68px 0 84px; }
+.hero-badges { display:flex; justify-content:center; flex-wrap:wrap; gap:12px; margin-top:24px; }
+.hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.16); border:1px solid rgba(255,255,255,0.28); color:#fff; padding:10px 16px; border-radius:999px; font-weight:600; }
+.social-actions { display:flex; justify-content:center; flex-wrap:wrap; gap:14px; margin-top:28px; }
+.social-cta { display:inline-flex; align-items:center; gap:10px; padding:14px 20px; border-radius:999px; text-decoration:none; font-weight:700; color:white; background:linear-gradient(135deg,var(--primary-green),var(--primary-green-dark)); box-shadow:0 12px 28px rgba(29,58,23,0.18); }
+.social-cta.alt { background:rgba(255,255,255,0.14); border:1px solid rgba(255,255,255,0.25); }
+.platform-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:22px; margin-top:24px; }
+.platform-card { background:rgba(255,255,255,0.94); border-radius:20px; padding:24px; box-shadow:0 14px 34px rgba(0,0,0,0.08); border:1px solid rgba(45,90,39,0.08); }
+.platform-card h3 { font-family:'Playfair Display',serif; color:var(--primary-green); margin-bottom:10px; font-size:1.28rem; }
+.platform-card p { color:var(--gray); font-size:0.98rem; margin-bottom:14px; }
+.platform-link { display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:var(--primary-green); font-weight:700; }
+.embed-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:26px; }
+.embed-card { background:rgba(255,255,255,0.96); border-radius:22px; padding:22px; box-shadow:0 14px 32px rgba(0,0,0,0.08); border:1px solid rgba(45,90,39,0.08); }
+.embed-card h3 { font-family:'Playfair Display',serif; color:var(--primary-green); font-size:1.35rem; margin-bottom:8px; }
+.embed-card p { color:var(--gray); font-size:0.96rem; margin-bottom:16px; }
+.embed-frame, .profile-frame { width:100%; min-height:540px; border:none; border-radius:18px; overflow:hidden; background:#fff; }
+.profile-frame.compact { min-height:460px; }
+.embed-caption { margin-top:14px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+.embed-caption a { color:var(--primary-green); font-weight:700; text-decoration:none; }
+.embed-note { background:rgba(196,163,90,0.12); border:1px solid rgba(196,163,90,0.24); color:var(--dark); padding:16px 18px; border-radius:16px; font-size:0.95rem; }
+.highlight-strip { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; margin-top:24px; }
+.highlight-pill { background:linear-gradient(135deg, rgba(45,90,39,0.95), rgba(61,122,55,0.92)); color:white; border-radius:16px; padding:18px 16px; text-align:center; box-shadow:0 10px 24px rgba(45,90,39,0.18); }
+.helper-box { background:rgba(255,255,255,0.92); border-radius:20px; padding:24px; box-shadow:0 12px 28px rgba(0,0,0,0.06); border:1px solid rgba(45,90,39,0.08); }
+.helper-box h3 { font-family:'Playfair Display',serif; color:var(--primary-green); margin-bottom:10px; }
+.helper-box code { background:var(--cream-dark); padding:3px 8px; border-radius:8px; }
+.profile-inline { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-top:14px; }
+.profile-inline a { text-decoration:none; color:var(--primary-green); font-weight:700; }
+@media (max-width: 768px) {
+  .embed-frame, .profile-frame { min-height:520px; }
+  .social-actions { flex-direction:column; align-items:stretch; }
+  .social-cta { justify-content:center; }
+}
+
 </style>
-<meta content="Arboriculture SOCAC à Soa, Yaoundé : production agricole locale, vergers, diversification et offre fruitière durable." name="description"/></head>
+<meta content="Suivez SOCAC sur Facebook, Instagram, TikTok et WhatsApp. Découvrez nos publications, reels, actualités, activités et commandes rapides." name="description"/>
+<style>
+.social-page-hero{background:linear-gradient(135deg,var(--primary-green) 0%,var(--primary-green-dark) 100%);}
+.social-grid{grid-template-columns:repeat(2,1fr);}
+.social-card{position:relative;overflow:hidden;}
+.social-card::after{content:'';position:absolute;right:-20px;top:-20px;width:90px;height:90px;background:rgba(196,163,90,.08);border-radius:50%;}
+.social-badge{display:inline-block;background:rgba(45,90,39,.08);color:var(--primary-green);border:1px solid rgba(45,90,39,.15);padding:6px 12px;border-radius:999px;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px;}
+.social-link-btn{margin-top:10px;}
+.social-feature-grid{grid-template-columns:repeat(2,1fr);gap:25px;}
+.social-feature{display:block;text-align:left;cursor:default;}
+.social-feature p{color:var(--gray);line-height:1.7;font-size:.95rem;}
+.social-cta-strip{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:34px;}
+.instagram-wrap{display:flex;justify-content:center;}
+.instagram-media{background:#FFF;border:0;border-radius:14px;box-shadow:0 10px 28px rgba(0,0,0,.08);margin:0 auto !important;min-width:280px;max-width:540px;width:100% !important;}
+.embed-grid.embed-grid-3{grid-template-columns:repeat(auto-fit,minmax(320px,1fr));align-items:start;}
+
+@media (max-width: 900px){.social-grid,.social-feature-grid{grid-template-columns:1fr;}}
+
+/* Social hub V2 */
+.embed-shell { padding: 68px 0 84px; }
+.hero-badges { display:flex; justify-content:center; flex-wrap:wrap; gap:12px; margin-top:24px; }
+.hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.16); border:1px solid rgba(255,255,255,0.28); color:#fff; padding:10px 16px; border-radius:999px; font-weight:600; }
+.social-actions { display:flex; justify-content:center; flex-wrap:wrap; gap:14px; margin-top:28px; }
+.social-cta { display:inline-flex; align-items:center; gap:10px; padding:14px 20px; border-radius:999px; text-decoration:none; font-weight:700; color:white; background:linear-gradient(135deg,var(--primary-green),var(--primary-green-dark)); box-shadow:0 12px 28px rgba(29,58,23,0.18); }
+.social-cta.alt { background:rgba(255,255,255,0.14); border:1px solid rgba(255,255,255,0.25); }
+.platform-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:22px; margin-top:24px; }
+.platform-card { background:rgba(255,255,255,0.94); border-radius:20px; padding:24px; box-shadow:0 14px 34px rgba(0,0,0,0.08); border:1px solid rgba(45,90,39,0.08); }
+.platform-card h3 { font-family:'Playfair Display',serif; color:var(--primary-green); margin-bottom:10px; font-size:1.28rem; }
+.platform-card p { color:var(--gray); font-size:0.98rem; margin-bottom:14px; }
+.platform-link { display:inline-flex; align-items:center; gap:8px; text-decoration:none; color:var(--primary-green); font-weight:700; }
+.embed-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:26px; }
+.embed-card { background:rgba(255,255,255,0.96); border-radius:22px; padding:22px; box-shadow:0 14px 32px rgba(0,0,0,0.08); border:1px solid rgba(45,90,39,0.08); }
+.embed-card h3 { font-family:'Playfair Display',serif; color:var(--primary-green); font-size:1.35rem; margin-bottom:8px; }
+.embed-card p { color:var(--gray); font-size:0.96rem; margin-bottom:16px; }
+.embed-frame, .profile-frame { width:100%; min-height:540px; border:none; border-radius:18px; overflow:hidden; background:#fff; }
+.profile-frame.compact { min-height:460px; }
+.embed-caption { margin-top:14px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; }
+.embed-caption a { color:var(--primary-green); font-weight:700; text-decoration:none; }
+.embed-note { background:rgba(196,163,90,0.12); border:1px solid rgba(196,163,90,0.24); color:var(--dark); padding:16px 18px; border-radius:16px; font-size:0.95rem; }
+.highlight-strip { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; margin-top:24px; }
+.highlight-pill { background:linear-gradient(135deg, rgba(45,90,39,0.95), rgba(61,122,55,0.92)); color:white; border-radius:16px; padding:18px 16px; text-align:center; box-shadow:0 10px 24px rgba(45,90,39,0.18); }
+.helper-box { background:rgba(255,255,255,0.92); border-radius:20px; padding:24px; box-shadow:0 12px 28px rgba(0,0,0,0.06); border:1px solid rgba(45,90,39,0.08); }
+.helper-box h3 { font-family:'Playfair Display',serif; color:var(--primary-green); margin-bottom:10px; }
+.helper-box code { background:var(--cream-dark); padding:3px 8px; border-radius:8px; }
+.profile-inline { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-top:14px; }
+.profile-inline a { text-decoration:none; color:var(--primary-green); font-weight:700; }
+@media (max-width: 768px) {
+  .embed-frame, .profile-frame { min-height:520px; }
+  .social-actions { flex-direction:column; align-items:stretch; }
+  .social-cta { justify-content:center; }
+}
+
+</style></head>
 <body>
 <nav class="navbar">
 <div class="nav-container">
@@ -354,191 +521,129 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 <li><a href="index.html#activites">Nos Activités</a></li>
 <li><a href="index.html#equipe">Notre Équipe</a></li>
 <li><a href="../fr/catalogue.html">Catalogue</a></li>
-<li><a href="../fr/reseaux-sociaux.html">Réseaux</a></li>
+<li><a class="active" href="../fr/reseaux-sociaux.html">Réseaux</a></li>
 <li><a href="index.html#contact">Contact</a></li>
 </ul>
 <div class="lang-selector">
-<a class="lang-btn active" href="../fr/arboriculture.html">FR</a>
-<a class="lang-btn" href="../en/arboriculture.html">EN</a>
+<a class="lang-btn active" href="../fr/reseaux-sociaux.html">FR</a>
+<a class="lang-btn" href="../en/social-hub.html">EN</a>
 </div>
 <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
 </div>
 </nav>
-<section class="page-hero">
-<div class="page-hero-icon">🌳</div>
-<h1>Arboriculture</h1>
-<p>Culture fruitière et forestière pour une production diversifiée</p>
-<div class="breadcrumb">
-<a href="../fr/index.html">Accueil</a> &gt; <a href="index.html#activites">Nos Activités</a> &gt; Arboriculture
-        </div>
+
+
+<section class="page-hero social-page-hero">
+  <div class="container">
+    <div class="page-hero-icon">📱</div>
+    <h1>Réseaux sociaux SOCAC</h1>
+    <p>Une grande page vivante qui relie le site à Facebook, Instagram, TikTok et WhatsApp pour montrer vos activités, vos produits, vos reels et vos publications publiques.</p>
+    <div class="hero-badges">
+      <span class="hero-badge">🔴 Présence sociale active</span>
+      <span class="hero-badge">🎥 Reels et vidéos courtes</span>
+      <span class="hero-badge">🛍️ Produits, terrain et nouveautés</span>
+    </div>
+    <div class="social-actions">
+      <a class="social-cta" href="https://wa.me/237654892217" target="_blank" rel="noopener noreferrer">💬 Commander sur WhatsApp</a>
+      <a class="social-cta alt" href="../fr/catalogue.html">🛍️ Voir le catalogue</a>
+    </div>
+  </div>
 </section>
+
+<section class="section embed-shell">
+  <div class="container">
+    <div class="section-header">
+      <h2>Suivez SOCAC partout</h2>
+      <p>Le hub social centralise les accès rapides vers vos plateformes officielles et transforme le site en vitrine vivante de l’activité SOCAC.</p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="platform-grid">
+      <div class="platform-card"><h3>Facebook</h3><p>Actualités, annonces, publications publiques et visibilité communautaire autour de SOCAC.</p><a class="platform-link" href="https://www.facebook.com/share/1BEzDiwMbe/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Ouvrir Facebook ↗</a></div>
+      <div class="platform-card"><h3>Instagram</h3><p>Reels, photos, production, terrain et mise en avant visuelle du compte officiel <strong>@socac.cm</strong>.</p><a class="platform-link" href="https://www.instagram.com/socac.cm/" target="_blank" rel="noopener noreferrer">Ouvrir Instagram ↗</a></div>
+      <div class="platform-card"><h3>TikTok</h3><p>Vidéos courtes, démonstrations, ambiance de terrain et contenus rapides autour des produits Nourix / SOCAC.</p><a class="platform-link" href="https://www.tiktok.com/@alimentsnourix?_r=1&_t=ZP-94jeK1UjTUF" target="_blank" rel="noopener noreferrer">Ouvrir TikTok ↗</a></div>
+      <div class="platform-card"><h3>WhatsApp</h3><p>Le point d’entrée le plus direct pour les commandes, disponibilités, prix et demandes urgentes.</p><a class="platform-link" href="https://wa.me/237654892217" target="_blank" rel="noopener noreferrer">Écrire sur WhatsApp ↗</a></div>
+    </div>
+    <div class="metric-grid">
+      <div class="metric-card"><strong>4</strong><span>canaux connectés</span></div>
+      <div class="metric-card"><strong>1</strong><span>reel Instagram intégré</span></div>
+      <div class="metric-card"><strong>1</strong><span>profil TikTok embarqué</span></div>
+      <div class="metric-card"><strong>24/7</strong><span>accès aux profils et contacts</span></div>
+    </div>
+  </div>
+</section>
+
 <section class="section">
-<div class="container">
-<div class="section-header">
-<h2>Nos Modules</h2>
-<p>Nos modules arboricoles soutiennent la préparation, la plantation, l’entretien et la valorisation progressive des productions.</p>
-<div class="section-divider"></div>
-</div><div class="note-box"><p>L’arboriculture chez SOCAC contribue à diversifier la production et à renforcer une agriculture locale durable. Cette filière s’inscrit dans une logique de qualité, de valorisation des terres et d’offre agricole complémentaire.</p></div><div class="premium-grid"><div class="premium-card"><h3>Ce que nous proposons</h3><p>Production fruitière et arboricole selon saison, valorisation agricole, diversification de l’offre et appui à une vision agro-pastorale intégrée.</p></div><div class="premium-card"><h3>À qui s’adresse cette filière ?</h3><p>Ménages, commerçants, revendeurs, marchés locaux et partenaires intéressés par une offre agricole durable.</p></div><div class="premium-card"><h3>Notre engagement</h3><p>Développer une production utile, diversifiée et alignée sur une vision responsable du développement agricole.</p></div></div><div class="cta-panel"><h3>Une filière qui complète toute la chaîne</h3><p>L’arboriculture renforce la cohérence de SOCAC en associant production végétale, durabilité, qualité locale et développement progressif de l’offre.</p><ul class="check-list"><li>Diversification agricole</li><li>Vision durable</li><li>Ancrage local</li><li>Complémentarité avec les autres filières</li></ul></div>
-<div class="submodules-grid">
-<div class="submodule-card">
-<div class="submodule-icon">🌱</div>
-<h4>Pépinière</h4>
-<p>Production de plants greffés et certifiés pour vergers professionnels et particuliers.</p>
-</div>
-<div class="submodule-card">
-<div class="submodule-icon">🥭</div>
-<h4>Vergers Fruitiers</h4>
-<p>Culture de manguiers, avocatiers, agrumes et autres fruits tropicaux de qualité.</p>
-</div>
-<div class="submodule-card">
-<div class="submodule-icon">🌴</div>
-<h4>Palmeraie</h4>
-<p>Plantation de palmiers à huile et cocotiers pour production d'huiles végétales.</p>
-</div>
-<div class="submodule-card">
-<div class="submodule-icon">🌲</div>
-<h4>Boisement</h4>
-<p>Reboisement avec essences locales et exotiques pour bois d'œuvre et environnement.</p>
-</div>
-<div class="submodule-card">
-<div class="submodule-icon">🏭</div>
-<h4>Transformation</h4>
-<p>Séchage de fruits, production de jus et confitures pour valoriser la production.</p>
-</div>
-<div class="submodule-card">
-<div class="submodule-icon">🚚</div>
-<h4>Commercialisation</h4>
-<p>Circuits courts et export vers les marchés régionaux.</p>
-</div></div>
-<div class="products-section">
-<h3>🌳 Nos Produits &amp; Services</h3>
-<div class="products-grid"><div class="product-item">Mangues Kent &amp; Keitt</div><div class="product-item">Oranges Valencia</div><div class="product-item">Citrons &amp; Limes</div><div class="product-item">Avocats Hass</div><div class="product-item">Papayes Fraîches</div><div class="product-item">Bananes plantain</div><div class="product-item">Ananas Cayenne</div><div class="product-item">Noix de coco</div><div class="product-item">Goyaves roses</div><div class="product-item">Safou (prune africaine)</div><div class="product-item">Huile de palme rouge</div><div class="product-item">Plants greffés certifiés</div></div>
-</div>
-<div class="equipment-section">
-<h3>⚙️ Équipements de Pointe</h3>
-<div class="equipment-grid">
-<div class="equipment-item">
-<div class="equipment-icon">💧</div>
-<div class="equipment-info">
-<h5>Irrigation Goutte-à-Goutte</h5>
-<p>Système économe avec fertigation automatique et programmateurs solaires.</p>
-</div>
-</div>
-<div class="equipment-item">
-<div class="equipment-icon">🚜</div>
-<div class="equipment-info">
-<h5>Tracteurs &amp; Outils</h5>
-<p>Tracteur 4x4, gyrobroyeur, tarière, remorque pour travaux mécanisés.</p>
-</div>
-</div>
-<div class="equipment-item">
-<div class="equipment-icon">🌿</div>
-<div class="equipment-info">
-<h5>Pulvérisateurs à Rampe</h5>
-<p>Traitement phytosanitaire précis avec réduction de la dérive.</p>
-</div>
-</div>
-<div class="equipment-item">
-<div class="equipment-icon">❄️</div>
-<div class="equipment-info">
-<h5>Chambre Froide 50m³</h5>
-<p>Conservation 4-8°C pour fruits climactériques, prolongation durée de vie.</p>
-</div>
-</div>
-<div class="equipment-item">
-<div class="equipment-icon">📦</div>
-<div class="equipment-info">
-<h5>Station de Conditionnement</h5>
-<p>Lavage, cirage, calibrage automatique et emballage sous atmosphère.</p>
-</div>
-</div>
-<div class="equipment-item">
-<div class="equipment-icon">☀️</div>
-<div class="equipment-info">
-<h5>Séchoir Solaire</h5>
-<p>Déshydratation naturelle des mangues, ananas et bananes pour export.</p>
-</div>
-</div></div>
-</div>
-<div class="ingredients-section">
-<h3>🌿 Intrants &amp; Protocoles</h3>
-<div class="ingredients-grid">
-<div class="ingredient-item">
-<span>🌱</span>
-<span>Engrais NPK (15-15-15)</span>
-</div>
-<div class="ingredient-item">
-<span>🐄</span>
-<span>Fumier composté (organique)</span>
-</div>
-<div class="ingredient-item">
-<span>🧪</span>
-<span>Engrais foliaires (Zn, B, Fe)</span>
-</div>
-<div class="ingredient-item">
-<span>🐛</span>
-<span>Biopesticides (neem, Bt)</span>
-</div>
-<div class="ingredient-item">
-<span>🍄</span>
-<span>Mycorhizes (symbiose)</span>
-</div>
-<div class="ingredient-item">
-<span>🌾</span>
-<span>Paillage organique</span>
-</div>
-<div class="ingredient-item">
-<span>✂️</span>
-<span>Taille de formation</span>
-</div>
-<div class="ingredient-item">
-<span>🐝</span>
-<span>Ruches pour pollinisation</span>
-</div>
-<div class="ingredient-item">
-<span>🧬</span>
-<span>Greffage sur porte-greffes</span>
-</div></div>
-</div>
-<div class="benefits-badge">✨ Qualité : Fruits 100% naturels | Agriculture raisonnée | GlobalGAP en cours | Export régional</div>
-<div style="text-align: center;">
-<a class="back-link" href="index.html#activites">
-<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>
-                    Retour aux activités
-                </a>
-</div>
-</div>
+  <div class="container">
+    <div class="section-header">
+      <h2>Mur social en direct</h2>
+      <p>Une zone premium qui combine un vrai reel Instagram, la présence TikTok et un embed Facebook pour donner au site une impression de mouvement, d’actualité et de crédibilité terrain.</p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="social-grid">
+      <div class="wall-card featured">
+        <h3>Reel Instagram mis en avant</h3>
+        <p>Le compte <strong>@socac.cm</strong> est relié au site avec un vrai reel public intégré directement dans la page.</p>
+        <div class="instagram-wrap">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DIGlOr5BOA7/" data-instgrm-version="14"></blockquote>
+        </div>
+        <div class="embed-caption"><span class="embed-note">Le rendu dépend d’Instagram au moment du chargement, mais le lien public du reel est bien branché.</span><a class="mini-link" href="https://www.instagram.com/reel/DIGlOr5BOA7/?utm_source=ig_web_copy_link&amp;igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer">Voir le reel ↗</a></div>
+      </div>
+      <div class="story-layout">
+        <div class="wall-card">
+          <h3>Présence TikTok</h3>
+          <p>Le profil vidéo court <strong>@alimentsnourix</strong> renforce la visibilité mobile et le côté vivant de la marque.</p>
+          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@alimentsnourix?_r=1&_t=ZP-94jeK1UjTUF" data-unique-id="alimentsnourix" data-embed-type="creator" style="max-width:780px;min-width:280px;margin:0 auto;">
+            <section><a target="_blank" href="https://www.tiktok.com/@alimentsnourix?_r=1&_t=ZP-94jeK1UjTUF">@alimentsnourix</a></section>
+          </blockquote>
+          <div class="embed-caption"><span class="embed-note">TikTok peut ajuster le rendu selon le navigateur et la disponibilité de l’embed public.</span><a class="mini-link" href="https://www.tiktok.com/@alimentsnourix?_r=1&_t=ZP-94jeK1UjTUF" target="_blank" rel="noopener noreferrer">Voir TikTok ↗</a></div>
+        </div>
+        <div class="wall-card">
+          <h3>Facebook</h3>
+          <p>Actualités et publication publique connectées au hub social de SOCAC.</p>
+          <iframe class="embed-frame" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1BEzDiwMbe%2F%3Fmibextid%3DwwXIfr&show_text=true&width=500"></iframe>
+          <div class="embed-caption"><span class="embed-note">Si Facebook remplace le lien partagé par une URL canonique finale, l’embed pourra encore être affiné.</span><a class="mini-link" href="https://www.facebook.com/share/1BEzDiwMbe/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Voir Facebook ↗</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-<section class="section other-divisions">
-<div class="container">
-<div class="section-header">
-<h2>Autres divisions</h2>
-<p>Explorez les autres filières complémentaires de SOCAC.</p>
-<div class="section-divider"></div>
-</div>
-<div class="divisions-grid">
-<a class="division-link" href="../fr/provenderie.html">
-<div class="division-link-icon">🌾</div>
-<h4>Provenderie</h4>
-</a>
-<a class="division-link" href="../fr/ferme-porcine.html">
-<div class="division-link-icon">🐷</div>
-<h4>Ferme Porcine</h4>
-</a>
-<a class="division-link" href="../fr/ferme-avicole.html">
-<div class="division-link-icon">🐔</div>
-<h4>Ferme Avicole</h4>
-</a>
-<a class="division-link" href="../fr/ferme-piscicole.html">
-<div class="division-link-icon">🐟</div>
-<h4>Ferme Piscicole</h4>
-</a>
-<a class="division-link" href="../fr/sante-alimentation.html">
-<div class="division-link-icon">🏥</div>
-<h4>Santé &amp; Alimentation</h4>
-</a></div>
-</div>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Ce que cette page apporte au site</h2>
+      <p>Le social hub ne sert pas seulement à lier des icônes. Il montre visuellement que SOCAC vit, publie, produit, communique et reste joignable.</p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="content-pillars">
+      <div class="pillar-card"><h3>Preuve d’activité</h3><p>Les visiteurs voient des contenus réels, des vidéos et des publications publiques qui renforcent la crédibilité de la marque.</p></div>
+      <div class="pillar-card"><h3>Passerelle commerciale</h3><p>Le hub dirige naturellement vers WhatsApp, le catalogue et les plateformes où les clients peuvent continuer l’échange.</p></div>
+      <div class="pillar-card"><h3>Image premium</h3><p>Cette page donne au site SOCAC une allure plus institutionnelle, plus actuelle et plus connectée au terrain.</p></div>
+    </div>
+    <div class="helper-box">
+      <h3>Compte officiel Instagram prêt à grandir</h3>
+      <p>Le site embarque déjà un vrai reel public. Dès que tu ajoutes d’autres liens Instagram publics de type <code>instagram.com/reel/...</code> ou <code>instagram.com/p/...</code>, on peut élargir ce mur social encore plus.</p>
+      <div class="profile-inline">
+        <a href="https://www.instagram.com/socac.cm/" target="_blank" rel="noopener noreferrer">Ouvrir le profil Instagram ↗</a>
+        <span class="embed-note">Le profil officiel reste le point central pour découvrir les autres publications SOCAC.</span>
+      </div>
+    </div>
+    <div class="cta-band">
+      <div>
+        <h3>Suivez, regardez, commandez</h3>
+        <p>Le visiteur peut maintenant découvrir les contenus SOCAC puis passer directement à l’action via le catalogue ou WhatsApp, sans quitter l’écosystème de la marque.</p>
+      </div>
+      <div class="social-actions">
+        <a class="social-cta" href="https://wa.me/237654892217" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>
+        <a class="social-cta alt" href="../fr/catalogue.html">🛍️ Catalogue</a>
+      </div>
+    </div>
+  </div>
 </section>
+
+<script async src="https://www.tiktok.com/embed.js"></script>
+<script async src="https://www.instagram.com/embed.js"></script>
+
 <footer class="footer socac-custom-footer">
 <div class="container">
 <div class="socac-footer-inner">

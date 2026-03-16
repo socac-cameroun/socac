@@ -24,7 +24,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg, #fff3ef); color: var(--dark); line-height: 1.6; }
-:root {--page-bg: #fff3ef; --hero-start: #8a4b34; --hero-end: #5f2d1f; --page-overlay: rgba(255,243,239,0.88);}
+:root {--page-bg: #fff3ef; --hero-start: #8a4b34; --hero-end: #5f2d1f; --page-overlay: rgba(255,243,239,0.80);}
 
         body::before {
             content: '';
@@ -33,12 +33,12 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url("data:image/jpeg;base64,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");
+            background-image: url("../assets/logo-digital.jpg");
             background-repeat: no-repeat;
-            background-position: center center;
-            background-size: 55%;
+            background-position: center 140px;
+            background-size: 46%;
             background-attachment: fixed;
-            opacity: 0.16;
+            opacity: 0.24;
             z-index: -2;
             pointer-events: none;
         }
@@ -325,28 +325,28 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 }
 </style>
 <style id="socac-footer-style">
-.socac-custom-footer{background:linear-gradient(90deg,#173b0f 0%,#1d4d14 50%,#173b0f 100%)!important;color:#fff!important;padding:34px 0 28px!important;margin-top:40px;position:relative;overflow:hidden;}
+.socac-custom-footer{background:linear-gradient(90deg,#173b0f 0%,#1d4d14 50%,#173b0f 100%)!important;color:#fff!important;padding:26px 0 22px!important;margin-top:40px;position:relative;overflow:hidden;}
 .socac-custom-footer::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at center,rgba(255,255,255,.06) 0%,rgba(255,255,255,0) 60%);pointer-events:none;}
 .socac-footer-inner{position:relative;z-index:1;text-align:center;max-width:1100px;margin:0 auto;padding:0 10px;}
-.socac-footer-copy{font-size:clamp(24px,2vw,30px);line-height:1.5;margin:0 0 22px;font-weight:600;color:#fff;}
+.socac-footer-copy{font-size:clamp(18px,1.5vw,22px);line-height:1.45;margin:0 0 16px;font-weight:600;color:#fff;}
 .socac-brand-gold{color:#c9a24c;}
-.socac-footer-contact-row{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;align-items:center;margin:0 auto 18px;font-size:clamp(18px,1.6vw,24px);}
-.socac-footer-contact{color:#fff!important;text-decoration:none;display:inline-flex;align-items:center;gap:10px;font-weight:500;}
-.socac-footer-contact::after{content:'|';margin-left:14px;opacity:.65;}
+.socac-footer-contact-row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;align-items:center;margin:0 auto 14px;font-size:clamp(14px,1.15vw,18px);}
+.socac-footer-contact{color:#fff!important;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-weight:500;}
+.socac-footer-contact::after{content:'|';margin-left:10px;opacity:.55;}
 .socac-footer-contact:last-child::after{display:none;}
 .socac-phone-link{font-weight:700;}
-.socac-contact-icon{font-size:1.1em;}
-.socac-footer-socials{display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;}
-.socac-social-link{width:48px;height:48px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff!important;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);text-decoration:none;transition:transform .2s ease, background .2s ease;}
+.socac-contact-icon{font-size:0.95em;}
+.socac-footer-socials{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;}
+.socac-social-link{width:40px;height:40px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff!important;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);text-decoration:none;transition:transform .2s ease, background .2s ease;font-size:15px;}
 .socac-social-link:hover{transform:translateY(-2px);background:rgba(255,255,255,.18);}
-@media (max-width:700px){.socac-footer-copy{font-size:20px;}.socac-footer-contact-row{font-size:18px;gap:10px;}.socac-footer-contact::after{display:none;}.socac-footer-contact{width:100%;justify-content:center;}}
+@media (max-width:700px){.socac-footer-copy{font-size:17px;}.socac-footer-contact-row{font-size:14px;gap:8px;}.socac-footer-contact::after{display:none;}.socac-footer-contact{width:100%;justify-content:center;}}
 </style>
 <meta content="Ferme porcine SOCAC à Soa, Yaoundé : élevage porcin structuré, reproducteurs, engraissement, alimentation et suivi sanitaire." name="description"/></head>
 <body>
 <nav class="navbar">
 <div class="nav-container">
 <a class="nav-brand" href="../fr/index.html">
-<img alt="SOCAC" class="nav-logo" src="data:image/jpeg;base64,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"/>
+<img alt="SOCAC logo" class="nav-logo" src="../assets/logo-digital.jpg"/>
 <span class="nav-brand-text">SOCAC</span>
 </a>
 <ul class="nav-links" id="navLinks">

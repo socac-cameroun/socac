@@ -772,7 +772,8 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 </footer>
 <script>
         // Google Sheets Configuration
-        const PRICES_JSON_URL = '../prices.json';
+        const SHEET_ID = '1DXIaKg5y0GtNOmi3PjWr-8-PnqQu9-k7';
+        const SHEET_GID = '0';
         
         const CATEGORY_ICONS = {
             'Provenderie': '🌾',
@@ -786,67 +787,24 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
         
         const WHATSAPP_NUMBER = '237672142796';
         
-        const CATEGORY_ALIASES = {
-            'Arboriculture': 'Arboriculture',
-            'Orchard': 'Arboriculture',
-            'Ferme Avicole': 'Ferme Avicole',
-            'Poultry Farm': 'Ferme Avicole',
-            'Ferme Piscicole': 'Ferme Piscicole',
-            'Fish Farm': 'Ferme Piscicole',
-            'Ferme Porcine': 'Ferme Porcine',
-            'Pig Farm': 'Ferme Porcine',
-            'Provenderie': 'Provenderie',
-            'Feed Mill': 'Provenderie',
-            'Sante Alimentation': 'Sante Alimentation',
-            'Santé & Alimentation': 'Sante Alimentation',
-            'Health & Nutrition': 'Sante Alimentation'
-        };
-
-        const UNIT_ALIASES = {
-            'piece': 'pièce',
-            'pieces': 'pièce',
-            'liter': 'litre',
-            'liters': 'litre',
-            'basket': 'panier',
-            'seedling': 'plant',
-            '50kg bag': 'sac 50kg',
-            '25kg bag': 'sac 25kg',
-            'tray of 30': 'plateau 30',
-            'kg': 'kg'
-        };
-        
         
         const FALLBACK_PRODUCTS = [{"id":"1","category":"Arboriculture","nom":"Avocats Frais","description":"Avocats frais, variété Hass","prix":500,"unite":"pièce","disponible":true,"image":""},{"id":"2","category":"Arboriculture","nom":"Citrons Frais","description":"Citrons frais, acides et parfumés","prix":50,"unite":"pièce","disponible":true,"image":""},{"id":"3","category":"Arboriculture","nom":"Corossols Frais","description":"Corossols frais, chair blanche sucrée","prix":1500,"unite":"pièce","disponible":true,"image":""},{"id":"4","category":"Arboriculture","nom":"Goyaves Fraîches","description":"Goyaves fraîches, fruit rose sucré","prix":200,"unite":"pièce","disponible":true,"image":""},{"id":"5","category":"Arboriculture","nom":"Huile de Palme Rouge","description":"Huile de palme rouge artisanale","prix":1500,"unite":"litre","disponible":true,"image":""},{"id":"6","category":"Arboriculture","nom":"Mangues Fraîches","description":"Mangues fraîches de saison","prix":300,"unite":"pièce","disponible":true,"image":""},{"id":"7","category":"Arboriculture","nom":"Noix de Coco","description":"Noix de coco fraîches","prix":500,"unite":"pièce","disponible":true,"image":""},{"id":"8","category":"Arboriculture","nom":"Oranges Fraîches","description":"Oranges fraîches et juteuses","prix":100,"unite":"pièce","disponible":true,"image":""},{"id":"9","category":"Arboriculture","nom":"Panier Fruits Mixte 10kg","description":"Assortiment de fruits de saison (10 kg)","prix":9000,"unite":"panier","disponible":true,"image":""},{"id":"10","category":"Arboriculture","nom":"Panier Fruits Mixte 5kg","description":"Assortiment de fruits de saison (5 kg)","prix":5000,"unite":"panier","disponible":true,"image":""},{"id":"11","category":"Arboriculture","nom":"Papayes Fraîches","description":"Papayes fraîches, sucrées et mûres","prix":500,"unite":"pièce","disponible":true,"image":""},{"id":"12","category":"Arboriculture","nom":"Plant Avocatier Greffé","description":"Avocatier greffé, variété Hass","prix":3500,"unite":"plant","disponible":true,"image":""},{"id":"13","category":"Arboriculture","nom":"Plant Citronnier","description":"Citronnier greffé","prix":3500,"unite":"plant","disponible":true,"image":""},{"id":"14","category":"Arboriculture","nom":"Plant Corossolier","description":"Corossolier greffé","prix":3000,"unite":"plant","disponible":true,"image":""},{"id":"15","category":"Arboriculture","nom":"Plant Goyavier","description":"Goyavier greffé, fruit rose","prix":2500,"unite":"plant","disponible":true,"image":""},{"id":"16","category":"Arboriculture","nom":"Plant Manguier Greffé","description":"Manguier greffé, variété Kent","prix":3000,"unite":"plant","disponible":true,"image":""},{"id":"17","category":"Arboriculture","nom":"Plant Oranger","description":"Oranger greffé, variété Valencia","prix":4000,"unite":"plant","disponible":true,"image":""},{"id":"18","category":"Arboriculture","nom":"Plant Palmier à Huile","description":"Plant de palmier à huile sélectionné","prix":2500,"unite":"plant","disponible":true,"image":""},{"id":"19","category":"Arboriculture","nom":"Plant Papayer IPB9","description":"Papayer IPB9, plant de qualité","prix":1500,"unite":"plant","disponible":true,"image":""},{"id":"20","category":"Arboriculture","nom":"Plant Prunier (Safoutier)","description":"Safoutier (prunier africain)","prix":2000,"unite":"plant","disponible":true,"image":""},{"id":"21","category":"Arboriculture","nom":"Prunes (Safou)","description":"Prunes africaines (safou) fraîches","prix":100,"unite":"pièce","disponible":true,"image":""},{"id":"22","category":"Ferme Avicole","nom":"Coq Reproducteur","description":"Coq reproducteur de qualité","prix":15000,"unite":"pièce","disponible":true,"image":""},{"id":"23","category":"Ferme Avicole","nom":"Fiente de Poule","description":"Fiente de poule pour compost","prix":3000,"unite":"sac 50kg","disponible":true,"image":""},{"id":"24","category":"Ferme Avicole","nom":"Pintade Adulte","description":"Pintade adulte pour consommation","prix":6000,"unite":"pièce","disponible":true,"image":""},{"id":"25","category":"Ferme Avicole","nom":"Poule Pondeuse Réformée","description":"Poule pondeuse en fin de cycle","prix":3500,"unite":"pièce","disponible":true,"image":""},{"id":"26","category":"Ferme Avicole","nom":"Poulet de Chair Abattu","description":"Poulet de chair abattu et vidé","prix":5000,"unite":"pièce","disponible":true,"image":""},{"id":"27","category":"Ferme Avicole","nom":"Poulet de Chair Vif 2kg","description":"Poulet de chair vivant, environ 2 kg","prix":4500,"unite":"pièce","disponible":true,"image":""},{"id":"28","category":"Ferme Avicole","nom":"Poulette Prête à Pondre","description":"Poulette de 18 semaines, prête à pondre","prix":5500,"unite":"pièce","disponible":true,"image":""},{"id":"29","category":"Ferme Avicole","nom":"Poussin Chair 1 jour","description":"Poussin de chair d'un jour, vacciné","prix":500,"unite":"pièce","disponible":true,"image":""},{"id":"30","category":"Ferme Avicole","nom":"Poussin Pondeuse 1 jour","description":"Poussin pondeuse d'un jour, vacciné","prix":600,"unite":"pièce","disponible":true,"image":""},{"id":"31","category":"Ferme Avicole","nom":"Œufs de Table","description":"Œufs frais de consommation","prix":2500,"unite":"plateau 30","disponible":true,"image":""},{"id":"32","category":"Ferme Avicole","nom":"Œufs Fécondés Chair","description":"Œufs fécondés pour incubation (chair)","prix":150,"unite":"pièce","disponible":true,"image":""},{"id":"33","category":"Ferme Avicole","nom":"Œufs Fécondés Pondeuse","description":"Œufs fécondés pour incubation (pondeuse)","prix":200,"unite":"pièce","disponible":true,"image":""},{"id":"34","category":"Ferme Piscicole","nom":"Alevins Silure","description":"Alevins de silure (poisson-chat)","prix":75,"unite":"pièce","disponible":true,"image":""},{"id":"35","category":"Ferme Piscicole","nom":"Alevins Tilapia","description":"Alevins de tilapia, 2-3 cm","prix":50,"unite":"pièce","disponible":true,"image":""},{"id":"36","category":"Ferme Piscicole","nom":"Carpe 500g","description":"Carpe de table, environ 500 g","prix":2000,"unite":"pièce","disponible":true,"image":""},{"id":"37","category":"Ferme Piscicole","nom":"Filet de Tilapia","description":"Filet de tilapia frais, sans arêtes","prix":4500,"unite":"kg","disponible":true,"image":""},{"id":"38","category":"Ferme Piscicole","nom":"Géniteurs Silure","description":"Géniteurs silure pour reproduction","prix":8000,"unite":"pièce","disponible":true,"image":""},{"id":"39","category":"Ferme Piscicole","nom":"Géniteurs Tilapia","description":"Géniteurs tilapia pour reproduction","prix":5000,"unite":"pièce","disponible":true,"image":""},{"id":"40","category":"Ferme Piscicole","nom":"Poisson Fumé Silure","description":"Silure fumé artisanalement","prix":5000,"unite":"pièce","disponible":true,"image":""},{"id":"41","category":"Ferme Piscicole","nom":"Poisson Fumé Tilapia","description":"Tilapia fumé artisanalement","prix":2500,"unite":"pièce","disponible":true,"image":""},{"id":"42","category":"Ferme Piscicole","nom":"Silure 1kg","description":"Silure de table, environ 1 kg","prix":3500,"unite":"pièce","disponible":true,"image":""},{"id":"43","category":"Ferme Piscicole","nom":"Silure 2kg","description":"Silure de table, environ 2 kg","prix":6500,"unite":"pièce","disponible":true,"image":""},{"id":"44","category":"Ferme Piscicole","nom":"Tilapia 300g","description":"Tilapia de table, environ 300 g","prix":1200,"unite":"pièce","disponible":true,"image":""},{"id":"45","category":"Ferme Piscicole","nom":"Tilapia 500g","description":"Tilapia de table, environ 500 g","prix":1800,"unite":"pièce","disponible":true,"image":""},{"id":"54","category":"Provenderie","nom":"Nourix Chair Croissance","description":"Pour poulets de 22 à 42 jours","prix":14500,"unite":"sac 50kg","disponible":true,"image":"https://lh3.googleusercontent.com/d/1o9WqWZiNApz85dyOYnyDqo5TxXXjTK2D"},{"id":"55","category":"Provenderie","nom":"Nourix Chair Démarrage","description":"Pour poussins de 0 à 21 jours, riche en protéines","prix":15000,"unite":"sac 50kg","disponible":true,"image":"https://lh3.googleusercontent.com/d/1zgFsM6vf_SSfh4UOq7dfTWGGIqd_jx26"},{"id":"56","category":"Provenderie","nom":"Nourix Chair Finition","description":"Pour poulets de 43 jours à l'abattage","prix":14000,"unite":"sac 50kg","disponible":true,"image":"https://lh3.googleusercontent.com/d/1H3PD-C25MM_ZDXy4ikVQf1H1493D3OP1"},{"id":"57","category":"Provenderie","nom":"Nourix Poisson Chat","description":"Pour silures et poissons-chats","prix":17000,"unite":"sac 25kg","disponible":true,"image":""},{"id":"58","category":"Provenderie","nom":"Nourix Pondeuse Croissance","description":"Pour poulettes de 9 à 18 semaines","prix":14500,"unite":"sac 50kg","disponible":true,"image":""},{"id":"59","category":"Provenderie","nom":"Nourix Pondeuse Démarrage","description":"Pour poulettes de 0 à 8 semaines","prix":15500,"unite":"sac 50kg","disponible":true,"image":""},{"id":"60","category":"Provenderie","nom":"Nourix Pondeuse Production","description":"Pour poules pondeuses en production","prix":13500,"unite":"sac 50kg","disponible":true,"image":"https://lh3.googleusercontent.com/d/17SIWbO-1zo_7FIbjzlXFcI1os6QHTHA3"},{"id":"61","category":"Provenderie","nom":"Nourix Porcin Croissance","description":"Pour porcs de 25 à 60 kg","prix":15000,"unite":"sac 50kg","disponible":true,"image":""},{"id":"62","category":"Provenderie","nom":"Nourix Porcin Démarrage","description":"Pour porcelets de 0 à 25 kg","prix":16000,"unite":"sac 50kg","disponible":true,"image":""},{"id":"63","category":"Provenderie","nom":"Nourix Porcin Finition","description":"Pour porcs de 60 kg à l'abattage","prix":14000,"unite":"sac 50kg","disponible":true,"image":""},{"id":"64","category":"Provenderie","nom":"Nourix Tilapia Alevins","description":"Pour alevins de tilapia, granulés fins","prix":18000,"unite":"sac 25kg","disponible":true,"image":""},{"id":"65","category":"Provenderie","nom":"Nourix Tilapia Croissance","description":"Pour tilapias en croissance","prix":16000,"unite":"sac 25kg","disponible":true,"image":""}];
-function normalizeCategory(category) {
-            const clean = String(category || '').trim();
-            return CATEGORY_ALIASES[clean] || clean;
-        }
-
-        const FALLBACK_BY_ID = Object.fromEntries(FALLBACK_PRODUCTS.map(product => [String(product.id), product]));
-
-        let allProducts = [];
+let allProducts = [];
         let cart = [];
 
-        // Fetch products from local prices.json (synced from the private Google Sheet)
+        // Fetch products from Google Sheets without API (JSONP callback)
         async function fetchProducts() {
-            loadingState.style.display = 'block';
-            loadingState.innerHTML = '<div class="loading-spinner"></div><p>Chargement des produits...</p>';
-            productsSection.style.display = 'none';
-            
+            const loadingState = document.getElementById('loadingState');
+            loadingState.innerHTML = document.documentElement.lang === 'fr'
+                ? '<div class="loading-spinner"></div><p>Chargement des produits...</p>'
+                : '<div class="loading-spinner"></div><p>Loading products...</p>';
+
             let loadedProducts = [];
-            
+
             try {
-                if (Array.isArray(window.SOCAC_PRICES) && window.SOCAC_PRICES.length) {
-                    loadedProducts = window.SOCAC_PRICES;
-                } else {
-                    const response = await fetch(`${PRICES_JSON_URL}?v=${Date.now()}`, { cache: 'no-store' });
-                    if (!response.ok) throw new Error(`prices.json fetch failed: ${response.status}`);
-                    const data = await response.json();
-                    const rows = Array.isArray(data) ? data : (Array.isArray(data.products) ? data.products : []);
-                    loadedProducts = rows;
-                }
+                loadedProducts = await loadProductsFromGoogleSheet();
             } catch (error) {
-                console.warn('Price sync source unavailable, using embedded products.', error);
+                console.warn('Google Sheets unavailable, using embedded products.', error);
             }
 
             if (!loadedProducts.length) {
@@ -855,43 +813,119 @@ function normalizeCategory(category) {
 
             allProducts = sortProducts(
                 loadedProducts
-                    .filter(product => product && (product.nom || product.name))
-                    .map(product => normalizeLoadedProduct(product))
-                    .filter(product => product && product.nom && product.category)
+                    .filter(product => product && product.nom)
+                    .map(product => ({ ...product, category: normalizeCategory(product.category) }))
+                    .filter(product => product.category)
             );
-
-            updateCategoryTabs();
             loadingState.style.display = 'none';
-            productsSection.style.display = 'block';
-            
-            const selectedTab = document.querySelector('.category-tab.active');
-            if (selectedTab && selectedTab.dataset.category !== 'all') {
+            updateCategoryTabs();
+
+            const activeTab = document.querySelector('.category-tab.active');
+            const visibleTabs = [...document.querySelectorAll('.category-tab')].filter(tab => tab.dataset.category === 'all' || tab.style.display !== 'none');
+            const selectedTab = activeTab && (activeTab.dataset.category === 'all' || activeTab.style.display !== 'none')
+                ? activeTab
+                : (visibleTabs[0] || document.querySelector('.category-tab[data-category="all"]'));
+
+            if (selectedTab) {
+                document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+                selectedTab.classList.add('active');
                 filterProducts(selectedTab.dataset.category);
             } else {
                 renderProducts(allProducts);
             }
         }
 
-        function normalizeLoadedProduct(product) {
-            const rawCategory = product.category || product.categorie || '';
-            const rawUnit = product.unite || product.unit || '';
-            const rawPrice = product.prix ?? product.price ?? 0;
-            return {
-                ...product,
-                nom: product.nom || product.name || '',
-                description: product.description || product.details || '',
-                prix: typeof rawPrice === 'number' ? rawPrice : parseInt(String(rawPrice).replace(/[^\d]/g, ''), 10) || 0,
-                unite: normalizeUnit(rawUnit),
-                category: normalizeCategory(rawCategory),
-                disponible: typeof product.disponible === 'boolean' ? product.disponible : !['false','0','no','non','rupture','outofstock'].includes(String(product.disponible).toLowerCase())
-            };
+        function loadProductsFromGoogleSheet() {
+            return new Promise((resolve, reject) => {
+                const callbackName = 'socacSheetCallback_' + Math.random().toString(36).slice(2);
+                const existing = document.getElementById('socac-sheet-loader');
+                if (existing) existing.remove();
+
+                const cleanup = () => {
+                    try { delete window[callbackName]; } catch (e) { window[callbackName] = undefined; }
+                    const script = document.getElementById('socac-sheet-loader');
+                    if (script) script.remove();
+                };
+
+                const timer = setTimeout(() => {
+                    cleanup();
+                    reject(new Error('Google Sheets timeout'));
+                }, 12000);
+
+                window[callbackName] = (googleData) => {
+                    clearTimeout(timer);
+                    try {
+                        const parsed = parseGoogleSheetResponse(googleData);
+                        cleanup();
+                        resolve(parsed);
+                    } catch (err) {
+                        cleanup();
+                        reject(err);
+                    }
+                };
+
+                const script = document.createElement('script');
+                script.id = 'socac-sheet-loader';
+                script.async = true;
+                script.onerror = () => {
+                    clearTimeout(timer);
+                    cleanup();
+                    reject(new Error('Google Sheets script load error'));
+                };
+                script.src = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?gid=${SHEET_GID}&tqx=out:json;responseHandler:${callbackName}`;
+                document.body.appendChild(script);
+            });
         }
 
-        function normalizeUnit(unit) {
-            const normalized = String(unit || '').trim();
-            return UNIT_ALIASES[normalized] || normalized || 'unité';
+        function parseGoogleSheetResponse(googleData) {
+            const table = googleData && googleData.table;
+            if (!table || !Array.isArray(table.cols) || !Array.isArray(table.rows)) return [];
+
+            const headers = table.cols.map(col => ((col.label || col.id || '').trim().toLowerCase()));
+            const products = [];
+
+            table.rows.forEach((row, index) => {
+                const product = {};
+                headers.forEach((header, colIndex) => {
+                    const cell = row.c && row.c[colIndex] ? row.c[colIndex] : null;
+                    const rawValue = cell ? (cell.f ?? cell.v ?? '') : '';
+                    product[header] = String(rawValue).trim();
+                });
+
+                const category = product.categorie || product.category || product.division || '';
+                let imageUrl = product.image || product.img || product.photo || '';
+                if (imageUrl && imageUrl.includes('drive.google.com')) {
+                    let fileId = '';
+                    if (imageUrl.includes('/d/')) {
+                        const match = imageUrl.match(/\/d\/([a-zA-Z0-9_-]+)/);
+                        if (match) fileId = match[1];
+                    } else if (imageUrl.includes('id=')) {
+                        const match = imageUrl.match(/id=([a-zA-Z0-9_-]+)/);
+                        if (match) fileId = match[1];
+                    }
+                    if (fileId) imageUrl = `https://lh3.googleusercontent.com/d/${fileId}`;
+                }
+
+                const availabilityValue = String(product.disponible || product.available || 'oui').toLowerCase();
+                const parsedProduct = {
+                    id: product.id || `prod-${index + 1}`,
+                    nom: product.nom || product.name || product.produit || '',
+                    description: product.description || product.desc || '',
+                    prix: parseInt(String(product.prix || product.price || '0').replace(/[^\d]/g, '')) || 0,
+                    unite: product.unite || product.unit || '',
+                    disponible: !['non', 'no', 'false', '0'].includes(availabilityValue),
+                    category: category,
+                    icon: CATEGORY_ICONS[category] || CATEGORY_ICONS[normalizeCategory(category)] || CATEGORY_ICONS['default'],
+                    image: imageUrl
+                };
+
+                if (parsedProduct.nom && parsedProduct.category) products.push(parsedProduct);
+            });
+
+            return products;
         }
 
+        // Legacy CSV parser kept as fallback utility
         // Parse CSV to product objects
         function parseCSV(csv) {
             const lines = csv.split('\n');
@@ -954,6 +988,26 @@ function normalizeCategory(category) {
             return products;
         }
         
+        function normalizeCategory(category) {
+            const value = String(category || '').trim();
+            const map = {
+                'Arboriculture': 'Arboriculture',
+                'Orchard': 'Arboriculture',
+                'Ferme Avicole': 'Ferme Avicole',
+                'Poultry Farm': 'Ferme Avicole',
+                'Ferme Piscicole': 'Ferme Piscicole',
+                'Fish Farm': 'Ferme Piscicole',
+                'Provenderie': 'Provenderie',
+                'Feed Mill': 'Provenderie',
+                'Santé & Alimentation': 'Sante Alimentation',
+                'Santé et Alimentation': 'Sante Alimentation',
+                'Sante Alimentation': 'Sante Alimentation',
+                'Health & Nutrition': 'Sante Alimentation',
+                'Health and Nutrition': 'Sante Alimentation'
+            };
+            return map[value] || value;
+        }
+
         // Update category tabs based on available categories
         function updateCategoryTabs() {
             const categories = new Set(allProducts.map(p => normalizeCategory(p.category)));
@@ -1041,10 +1095,9 @@ function normalizeCategory(category) {
 
         // Filter products by category
         function filterProducts(category) {
-            const normalizedCategory = normalizeCategory(category);
-            let filtered = normalizedCategory === 'all' 
+            let filtered = normalizeCategory(category) === 'all' 
                 ? allProducts 
-                : allProducts.filter(p => normalizeCategory(p.category) === normalizedCategory);
+                : allProducts.filter(p => normalizeCategory(p.category) === normalizeCategory(category));
             renderProducts(sortProducts(filtered));
         }
 
@@ -1203,6 +1256,5 @@ function normalizeCategory(category) {
         // Initialize
         fetchProducts();
     </script>
-<script src="../prices-data.js"></script>
 </body>
 </html>

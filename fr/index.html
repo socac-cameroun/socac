@@ -44,16 +44,12 @@
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background-image: url("../assets/logo-digital.jpg");
             background-repeat: no-repeat;
-            background-position: center 140px;
-            background-size: 46%;
-            background-attachment: fixed;
-            opacity: 0.24;
+            background-position: center center;
+            background-size: min(62vw, 760px);
+            opacity: 0.16;
             z-index: -2;
             pointer-events: none;
         }
@@ -61,11 +57,8 @@
         body::after {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--page-overlay, rgba(250, 248, 245, 0.88));
+            inset: 0;
+            background-color: var(--page-overlay, rgba(250, 248, 245, 0.90));
             z-index: -1;
             pointer-events: none;
         }
@@ -189,6 +182,7 @@
             background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-dark) 100%);
             position: relative;
             overflow: hidden;
+            isolation: isolate;
             padding: 120px 20px 80px;
         }
 
@@ -200,23 +194,34 @@
             right: 0;
             bottom: 0;
             background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.5;
+            opacity: 0.22;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('../assets/logo-home-main.jpg');
+            background-repeat: no-repeat;
+            background-position: center 26%;
+            background-size: min(660px, 74vw);
+            opacity: 0.14;
+            transform: scale(1.025);
+            transform-origin: center;
+            pointer-events: none;
+            z-index: 0;
+            animation: heroLogoFloat 10s ease-in-out infinite;
         }
 
         .hero-content {
             text-align: center;
             color: white;
             position: relative;
-            z-index: 1;
+            z-index: 2;
             max-width: 900px;
-        }
-
-        .hero-logo {
-            width: 180px;
-            height: 180px;
-            margin-bottom: 30px;
-            border-radius: 50%;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            text-shadow: 0 10px 30px rgba(0,0,0,0.20);
+            padding-top: clamp(260px, 31vh, 340px);
         }
 
         .hero-badge {
@@ -235,20 +240,22 @@
 
         .hero h1 {
             font-size: 3.5rem;
-            margin-bottom: 20px;
+            margin: 0 auto 20px;
             line-height: 1.2;
             animation: fadeInUp 0.8s ease 0.2s both;
             color: var(--accent-gold);
             text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            max-width: 14ch;
         }
 
         .hero-subtitle {
             font-size: 1.3rem;
             opacity: 0.95;
-            margin-bottom: 40px;
+            margin: 0 auto 40px;
             font-weight: 300;
             animation: fadeInUp 0.8s ease 0.4s both;
             color: var(--accent-gold-light);
+            max-width: 760px;
         }
 
         .hero-buttons {
@@ -293,6 +300,11 @@
         .btn-secondary:hover {
             background: white;
             color: var(--primary-green);
+        }
+
+        @keyframes heroLogoFloat {
+            0%, 100% { transform: scale(1.025) translateY(0); }
+            50% { transform: scale(1.04) translateY(-6px); }
         }
 
         @keyframes fadeInUp {
@@ -1309,8 +1321,8 @@
             }
 
             .hero-logo {
-                width: 140px;
-                height: 140px;
+                width: min(280px, 78vw);
+                height: auto;
             }
 
             .section {
@@ -1583,16 +1595,8 @@
 
     
 /* Premium content enhancements */
-.meta-banner {
-    background: rgba(255,255,255,0.75);
-    border: 1px solid rgba(196,163,90,0.25);
-    border-radius: 18px;
-    padding: 18px 22px;
-    margin: 24px auto 0;
-    max-width: 960px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-}
-.meta-banner p { margin: 0; color: var(--dark); font-size: 1rem; }
+.meta-banner{display:none !important;}
+.meta-banner p{display:none !important;}
 .premium-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -1699,6 +1703,13 @@
     .meta-banner { margin: 18px 16px 0; }
     .premium-card, .cta-panel, .note-box { padding: 20px; }
 }
+
+@media (max-width: 768px) {
+    body::before {
+        background-size: min(82vw, 430px);
+        opacity: 0.10;
+    }
+}
 </style>
 <style id="socac-footer-style">
 .socac-custom-footer{background:linear-gradient(90deg,#173b0f 0%,#1d4d14 50%,#173b0f 100%)!important;color:#fff!important;padding:26px 0 22px!important;margin-top:40px;position:relative;overflow:hidden;}
@@ -1715,7 +1726,7 @@
 .socac-footer-socials{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;}
 .socac-social-link{width:40px;height:40px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff!important;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);text-decoration:none;transition:transform .2s ease, background .2s ease;font-size:15px;}
 .socac-social-link:hover{transform:translateY(-2px);background:rgba(255,255,255,.18);}
-@media (max-width:700px){.socac-footer-copy{font-size:17px;}.socac-footer-contact-row{font-size:14px;gap:8px;}.socac-footer-contact::after{display:none;}.socac-footer-contact{width:100%;justify-content:center;}}
+@media (max-width:700px){.socac-footer-copy{font-size:17px;}.socac-footer-contact-row{font-size:14px;gap:8px;}.socac-footer-contact::after{display:none;}.socac-footer-contact{width:100%;justify-content:center;}.hero::after{background-position:center 20%;background-size:min(420px,82vw);opacity:0.12;animation:none;}.hero-content{max-width:92%;padding-top:200px;}.hero h1{max-width:none;font-size:2.5rem;}.hero-subtitle{max-width:100%;font-size:1.08rem;}}
 </style>
 <meta content="SOCAC est une entreprise agro-pastorale intégrée basée à Soa, Yaoundé, spécialisée dans la volaille, les porcs, les poissons, l’arboriculture, la provenderie et la commande via WhatsApp." name="description"/></head>
 <body>
@@ -1732,7 +1743,6 @@
 <li><a href="#equipe">Notre Équipe</a></li>
 <li><a href="#ifms">IFMS</a></li>
 <li><a href="../fr/catalogue.html">🛒 Boutique</a></li>
-<li><a href="../fr/reseaux-sociaux.html">Réseaux</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
 <div class="lang-selector">
@@ -1749,18 +1759,17 @@
 <!-- Hero Section -->
 <section class="hero">
 <div class="hero-content">
-<img alt="SOCAC institutional logo" class="hero-logo" src="../assets/logo-institutional.jpg"/>
 <span class="hero-badge">Société Coopérative Agroalimentaire du Cameroun</span>
 <h1>SOCAC, la force d’une agriculture intégrée</h1>
 <p class="hero-subtitle">SOCAC développe une production agro-pastorale structurée au Cameroun dans les filières avicole, porcine, piscicole, arboricole et de provenderie. Nous fournissons des produits de qualité aux ménages, commerçants, revendeurs, restaurants et partenaires grâce à une approche intégrée, fiable et tournée vers la croissance durable.</p>
 <div class="hero-buttons">
 <a class="btn btn-primary" href="catalogue.html">Voir le catalogue</a>
 <a class="btn btn-secondary" href="https://wa.me/237672142796">Commander sur WhatsApp</a>
-<a class="btn btn-secondary" href="reseaux-sociaux.html">Voir nos réseaux</a>
+
 </div>
 </div>
-<div class="meta-banner"><p>Production intégrée • Produits de qualité • Prix accessibles • Commande rapide via WhatsApp • Basé à Soa, Yaoundé</p></div></section>
-<section class="section" id="social-hub-preview"><div class="container"><div class="section-header"><h2>Suivez SOCAC sur les réseaux</h2><p>Découvrez nos reels, nos publications, nos produits, nos activités terrain et nos nouveautés sur nos plateformes sociales.</p><div class="section-divider"></div></div><div class="badge-list"><span>Facebook</span><span>Instagram</span><span>TikTok</span><span>WhatsApp</span></div><div style="text-align:center;margin-top:24px;"><a class="btn btn-primary" href="reseaux-sociaux.html">Ouvrir la page réseaux sociaux</a></div></div></section>
+</section>
+
 <!-- About Section -->
 <section class="section" id="apropos">
 <div class="container">
@@ -1854,7 +1863,7 @@
 </div>
 </div>
 <div class="team-card">
-<div class="team-avatar">SN</div>
+<div class="team-avatar">ST</div>
 <div class="team-info">
 <h3>Sandrine Tebou</h3>
 <p class="role">Direction Comptabilité</p>

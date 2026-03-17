@@ -1,109 +1,212 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>SOCAC - Société Coopérative Agroalimentaire du Cameroun</title>
-<meta content="0; url=fr/index.html" http-equiv="refresh"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet"/>
 <style>
-        body {
-            font-family: 'Source Sans 3', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background: #FAF8F5;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-image: url("assets/logo-digital.jpg");
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: min(62vw, 760px);
-            opacity: 0.14;
-            z-index: -2;
-            pointer-events: none;
-        }
-
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background-color: var(--page-overlay, rgba(250, 248, 245, 0.90));
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .loading {
-            text-align: center;
-        }
-        .loading h1 {
-            color: #2D5A27;
-        }
-        .landing-logo {
-            width: 180px;
-            height: 180px;
-            object-fit: contain;
-            margin-bottom: 20px;
-            border-radius: 50%%;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-        }
-        .lang-options {
-            margin-top: 20px;
-        }
-        .lang-options a {
-            display: inline-block;
-            margin: 10px;
-            padding: 15px 30px;
-            background: #2D5A27;
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-        }
-        .lang-options a:hover {
-            background: #C4A35A;
-        }
-    
-@media (max-width: 768px) {
-    body::before {
-        background-size: min(82vw, 430px);
-        opacity: 0.10;
-    }
+:root {
+    --primary-green: #2D5A27;
+    --primary-green-light: #3D7A37;
+    --primary-green-dark: #1D3A17;
+    --accent-gold: #C4A35A;
+    --accent-gold-light: #D4B36A;
+    --cream: #FAF8F5;
+    --dark: #1A1A1A;
 }
-</style>
-<style id="socac-footer-style">
-.socac-custom-footer{background:linear-gradient(90deg,#173b0f 0%,#1d4d14 50%,#173b0f 100%)!important;color:#fff!important;padding:26px 0 22px!important;margin-top:40px;position:relative;overflow:hidden;}
-.socac-custom-footer::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at center,rgba(255,255,255,.06) 0%,rgba(255,255,255,0) 60%);pointer-events:none;}
-.socac-footer-inner{position:relative;z-index:1;text-align:center;max-width:1100px;margin:0 auto;padding:0 10px;}
-.socac-footer-copy{font-size:clamp(18px,1.5vw,22px);line-height:1.45;margin:0 0 16px;font-weight:600;color:#fff;}
-.socac-brand-gold{color:#c9a24c;}
-.socac-footer-contact-row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;align-items:center;margin:0 auto 14px;font-size:clamp(14px,1.15vw,18px);}
-.socac-footer-contact{color:#fff!important;text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-weight:500;}
-.socac-footer-contact::after{content:'|';margin-left:10px;opacity:.55;}
-.socac-footer-contact:last-child::after{display:none;}
-.socac-phone-link{font-weight:700;}
-.socac-contact-icon{font-size:0.95em;}
-.socac-footer-socials{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;}
-.socac-social-link{width:40px;height:40px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:#fff!important;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);text-decoration:none;transition:transform .2s ease, background .2s ease;font-size:15px;}
-.socac-social-link:hover{transform:translateY(-2px);background:rgba(255,255,255,.18);}
-@media (max-width:700px){.socac-footer-copy{font-size:17px;}.socac-footer-contact-row{font-size:14px;gap:8px;}.socac-footer-contact::after{display:none;}.socac-footer-contact{width:100%;justify-content:center;}}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { min-height: 100%; }
+body {
+    font-family: 'Source Sans 3', sans-serif;
+    background-color: var(--cream);
+    color: var(--dark);
+    line-height: 1.6;
+}
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-dark) 100%);
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    padding: 60px 20px;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.22;
+    z-index: 0;
+}
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('assets/logo-home-main.jpg');
+    background-repeat: no-repeat;
+    background-position: center 26%;
+    background-size: min(700px, 74vw);
+    opacity: 0.14;
+    transform: scale(1.025);
+    transform-origin: center;
+    pointer-events: none;
+    z-index: 0;
+    animation: heroLogoFloat 10s ease-in-out infinite;
+}
+.hero-content {
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 2;
+    max-width: 980px;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.20);
+    padding-top: clamp(300px, 36vh, 390px);
+}
+.hero-badge {
+    display: inline-block;
+    background: var(--accent-gold);
+    color: var(--dark);
+    padding: 11px 30px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    margin-bottom: 24px;
+    animation: fadeInUp 0.8s ease;
+}
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(4.25rem, 8.4vw, 5.8rem);
+    margin: 0 auto 12px;
+    line-height: 1;
+    color: var(--accent-gold);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    animation: fadeInUp 0.8s ease 0.15s both;
+    letter-spacing: 2px;
+}
+.hero .subtitle-fr {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.1rem, 3.35vw, 3rem);
+    color: #fff;
+    line-height: 1.2;
+    margin: 0 auto 8px;
+    max-width: 1000px;
+    animation: fadeInUp 0.8s ease 0.3s both;
+}
+.hero .subtitle-en {
+    font-size: clamp(1.3rem, 2.15vw, 1.9rem);
+    color: var(--accent-gold-light);
+    font-weight: 600;
+    margin: 0 auto 16px;
+    animation: fadeInUp 0.8s ease 0.4s both;
+}
+.hero .tagline {
+    font-size: clamp(1.18rem, 1.72vw, 1.5rem);
+    color: #c62828;
+    font-weight: 700;
+    margin: 0 auto 28px;
+    animation: fadeInUp 0.8s ease 0.5s both;
+}
+
+.prompt {
+    font-size: clamp(1.14rem, 1.55vw, 1.32rem);
+    color: #c62828;
+    font-weight: 700;
+    margin: 0 auto 30px;
+    animation: fadeInUp 0.8s ease 0.55s both;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 18px;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease 0.65s both;
+}
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+    padding: 16px 34px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+.btn-primary {
+    background: var(--accent-gold);
+    color: var(--dark);
+}
+.btn-primary:hover {
+    background: var(--accent-gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(196, 163, 90, 0.4);
+}
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border-color: rgba(255,255,255,0.92);
+}
+.btn-secondary:hover {
+    background: white;
+    color: var(--primary-green);
+    transform: translateY(-2px);
+}
+@keyframes heroLogoFloat {
+    0%, 100% { transform: scale(1.025) translateY(0); }
+    50% { transform: scale(1.04) translateY(-6px); }
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 700px) {
+    .hero::after {
+        background-position: center 20%;
+        background-size: min(420px, 82vw);
+        opacity: 0.12;
+        animation: none;
+    }
+    .hero-content {
+        max-width: 92%;
+        padding-top: 245px;
+    }
+    .hero h1 { font-size: 3.2rem; }
+    .hero .subtitle-fr { font-size: 1.62rem; }
+    .hero .subtitle-en { font-size: 1.08rem; }
+    .hero .tagline, .prompt { font-size: 1.06rem; }
+    .hero-buttons { gap: 14px; }
+    .btn { min-width: 170px; padding: 15px 22px; font-size: 0.95rem; }
+}
 </style>
 </head>
 <body>
-<div class="loading">
-<img alt="SOCAC logo" class="landing-logo" src="assets/logo-digital.jpg"/>
-<h1>SOCAC</h1>
-<p>Redirection en cours... / Redirecting...</p>
-<div class="lang-options">
-<a href="fr/index.html">🇫🇷 Français</a>
-<a href="en/index.html">🇬🇧 English</a>
-</div>
-</div>
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-badge">Bienvenue · Welcome</div>
+        <h1>SOCAC</h1>
+        <p class="subtitle-fr">Société Coopérative Agroalimentaire du Cameroun</p>
+        <p class="subtitle-en">Cameroon Agri-Food Cooperative Society</p>
+        <p class="tagline">Cultiver l’avenir et manger sainement · Cultivating the future, promoting healthy living</p>
+        <p class="prompt">Choisissez votre langue de navigation / Choose your browsing language</p>
+        <div class="hero-buttons">
+            <a class="btn btn-primary" href="fr/index.html">🇫🇷 Français</a>
+            <a class="btn btn-secondary" href="en/index.html">🇬🇧 English</a>
+        </div>
+    </div>
+</section>
 </body>
 </html>

@@ -4,6 +4,10 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>SOCAC - Société Coopérative Agroalimentaire du Cameroun</title>
+<link rel="canonical" href="./index.html"/>
+<link rel="alternate" hreflang="fr" href="./fr/index.html"/>
+<link rel="alternate" hreflang="en" href="./en/index.html"/>
+<link rel="alternate" hreflang="x-default" href="./index.html"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet"/>
@@ -109,7 +113,7 @@ body {
 }
 .hero .tagline {
     font-size: clamp(1.18rem, 1.72vw, 1.5rem);
-    color: #c62828;
+    color: #ffffff;
     font-weight: 700;
     margin: 0 auto 28px;
     animation: fadeInUp 0.8s ease 0.5s both;
@@ -117,7 +121,7 @@ body {
 
 .prompt {
     font-size: clamp(1.14rem, 1.55vw, 1.32rem);
-    color: #c62828;
+    color: #ffffff;
     font-weight: 700;
     margin: 0 auto 30px;
     animation: fadeInUp 0.8s ease 0.55s both;
@@ -203,10 +207,26 @@ body {
         <p class="tagline">Cultiver l’avenir et manger sainement · Cultivating the future, promoting healthy living</p>
         <p class="prompt">Choisissez votre langue de navigation / Choose your browsing language</p>
         <div class="hero-buttons">
-            <a class="btn btn-primary" href="fr/index.html">🇫🇷 Français</a>
-            <a class="btn btn-secondary" href="en/index.html">🇬🇧 English</a>
+            <a class="btn btn-primary lang-choice" data-lang="fr" href="fr/index.html">🇫🇷 Français</a>
+            <a class="btn btn-secondary lang-choice" data-lang="en" href="en/index.html">🇬🇧 English</a>
         </div>
     </div>
 </section>
+
+<script>
+(function(){
+  var buttons=document.querySelectorAll('.lang-choice');
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      localStorage.setItem('socac_lang', btn.getAttribute('data-lang'));
+    });
+  });
+  var saved=localStorage.getItem('socac_lang');
+  if(saved){
+    var pref=document.querySelector('.lang-choice[data-lang="'+saved+'"]');
+    if(pref){ pref.style.boxShadow='0 0 0 3px rgba(255,255,255,0.18)'; }
+  }
+})();
+</script>
 </body>
 </html>

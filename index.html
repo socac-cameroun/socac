@@ -18,6 +18,8 @@
     --primary-green-dark: #1D3A17;
     --accent-gold: #C4A35A;
     --accent-gold-light: #D4B36A;
+    --socac-orange: #F08A1E;
+    --socac-orange-light: #FFAA44;
     --cream: #FAF8F5;
     --dark: #1A1A1A;
 }
@@ -38,7 +40,7 @@ body {
     position: relative;
     overflow: hidden;
     isolation: isolate;
-    padding: 60px 20px;
+    padding: 56px 22px;
 }
 .hero::before {
     content: '';
@@ -54,83 +56,80 @@ body {
     inset: 0;
     background-image: url('assets/logo-home-main.jpg');
     background-repeat: no-repeat;
-    background-position: center 26%;
-    background-size: min(700px, 74vw);
-    opacity: 0.14;
-    transform: scale(1.025);
+    background-position: center;
+    background-size: min(820px, 64vw);
+    opacity: 0.08;
+    transform: scale(1.03);
     transform-origin: center;
     pointer-events: none;
     z-index: 0;
     animation: heroLogoFloat 10s ease-in-out infinite;
 }
 .hero-content {
-    text-align: center;
-    color: white;
+    width: min(980px, 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     z-index: 2;
-    max-width: 980px;
-    text-shadow: 0 10px 30px rgba(0,0,0,0.20);
-    padding-top: clamp(300px, 36vh, 390px);
+    padding-top: 180px;
+}
+.hero-text-panel {
+    text-align: center;
+    color: var(--socac-orange-light);
+    text-shadow: 0 12px 36px rgba(0,0,0,0.20);
+    max-width: 760px;
 }
 .hero-badge {
     display: inline-block;
-    background: var(--accent-gold);
-    color: var(--dark);
-    padding: 11px 30px;
+    background: rgba(240, 138, 30, 0.16);
+    border: 1px solid rgba(240, 138, 30, 0.45);
+    color: var(--socac-orange-light);
+    padding: 10px 24px;
     border-radius: 30px;
-    font-size: 1rem;
+    font-size: 0.98rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.8px;
-    margin-bottom: 24px;
+    letter-spacing: 1.6px;
+    margin-bottom: 22px;
     animation: fadeInUp 0.8s ease;
+    backdrop-filter: blur(4px);
 }
 .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(4.25rem, 8.4vw, 5.8rem);
-    margin: 0 auto 12px;
-    line-height: 1;
-    color: var(--accent-gold);
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    font-size: clamp(4rem, 7vw, 5.8rem);
+    margin: 0 0 8px;
+    line-height: 0.95;
+    color: var(--socac-orange-light);
     animation: fadeInUp 0.8s ease 0.15s both;
     letter-spacing: 2px;
 }
 .hero .subtitle-fr {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(2.1rem, 3.35vw, 3rem);
-    color: #fff;
-    line-height: 1.2;
-    margin: 0 auto 8px;
-    max-width: 1000px;
+    font-size: clamp(1.9rem, 3vw, 2.7rem);
+    color: var(--socac-orange-light);
+    line-height: 1.16;
+    margin: 0 0 6px;
     animation: fadeInUp 0.8s ease 0.3s both;
 }
 .hero .subtitle-en {
-    font-size: clamp(1.3rem, 2.15vw, 1.9rem);
-    color: var(--accent-gold-light);
-    font-weight: 600;
-    margin: 0 auto 16px;
+    font-size: clamp(1.15rem, 1.85vw, 1.6rem);
+    color: var(--socac-orange-light);
+    font-weight: 700;
+    margin: 0 0 18px;
     animation: fadeInUp 0.8s ease 0.4s both;
 }
 .hero .tagline {
-    font-size: clamp(1.18rem, 1.72vw, 1.5rem);
-    color: #ffffff;
+    font-size: clamp(1.16rem, 1.5vw, 1.34rem);
+    color: var(--socac-orange-light);
     font-weight: 700;
-    margin: 0 auto 28px;
+    margin: 0 0 30px;
     animation: fadeInUp 0.8s ease 0.5s both;
 }
-
-.prompt {
-    font-size: clamp(1.14rem, 1.55vw, 1.32rem);
-    color: #ffffff;
-    font-weight: 700;
-    margin: 0 auto 30px;
-    animation: fadeInUp 0.8s ease 0.55s both;
-}
-
 .hero-buttons {
     display: flex;
-    gap: 18px;
-    justify-content: center;
+    gap: 16px;
+    justify-content: flex-start;
     flex-wrap: wrap;
     animation: fadeInUp 0.8s ease 0.65s both;
 }
@@ -138,87 +137,98 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 200px;
-    padding: 16px 34px;
+    min-width: 190px;
+    padding: 15px 30px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
     font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
     transition: all 0.3s ease;
     cursor: pointer;
     border: 2px solid transparent;
 }
 .btn-primary {
-    background: var(--accent-gold);
-    color: var(--dark);
+    background: var(--socac-orange);
+    color: #fff;
+    box-shadow: 0 10px 28px rgba(240, 138, 30, 0.3);
 }
 .btn-primary:hover {
-    background: var(--accent-gold-light);
+    background: var(--socac-orange-light);
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(196, 163, 90, 0.4);
+    box-shadow: 0 14px 34px rgba(240, 138, 30, 0.38);
 }
 .btn-secondary {
     background: transparent;
-    color: white;
-    border-color: rgba(255,255,255,0.92);
+    color: var(--socac-orange-light);
+    border-color: rgba(240, 138, 30, 0.92);
 }
 .btn-secondary:hover {
-    background: white;
-    color: var(--primary-green);
+    background: var(--socac-orange);
+    color: #ffffff;
     transform: translateY(-2px);
 }
-
-.choice-note {
-    margin-top: 18px;
-    font-size: 0.98rem;
-    color: rgba(255,255,255,0.78);
-    animation: fadeInUp 0.8s ease 0.75s both;
-}
-
 @keyframes heroLogoFloat {
-    0%, 100% { transform: scale(1.025) translateY(0); }
-    50% { transform: scale(1.04) translateY(-6px); }
+    0%, 100% { transform: scale(1.03) translateY(0); }
+    50% { transform: scale(1.05) translateY(-6px); }
 }
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
-@media (max-width: 700px) {
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-26px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@media (max-width: 880px) {
     .hero::after {
-        background-position: center 20%;
-        background-size: min(420px, 82vw);
-        opacity: 0.12;
-        animation: none;
+        background-size: min(640px, 84vw);
+        opacity: 0.08;
     }
     .hero-content {
-        max-width: 92%;
-        padding-top: 245px;
+        width: min(760px, 100%);
+        padding-top: 180px;
     }
-    .hero h1 { font-size: 3.2rem; }
-    .hero .subtitle-fr { font-size: 1.62rem; }
+    .hero-text-panel {
+        text-align: center;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+}
+@media (max-width: 700px) {
+    .hero {
+        padding: 46px 18px;
+    }
+    .hero::after {
+        background-size: min(420px, 90vw);
+        animation: none;
+    }
+    .hero-content { padding-top: 130px; }
+    .hero h1 { font-size: 3.35rem; }
+    .hero .subtitle-fr { font-size: 1.7rem; }
     .hero .subtitle-en { font-size: 1.08rem; }
-    .hero .tagline, .prompt { font-size: 1.06rem; }
-    .hero-buttons { gap: 14px; }
-    .btn { min-width: 170px; padding: 15px 22px; font-size: 0.95rem; }
+    .hero .tagline { font-size: 1.02rem; }
+    .hero-buttons { gap: 12px; }
+    .btn { min-width: 160px; padding: 14px 22px; font-size: 0.95rem; }
 }
 </style>
 </head>
 <body>
 <section class="hero">
     <div class="hero-content">
-        <div class="hero-badge">Bienvenue · Welcome</div>
-        <h1>SOCAC</h1>
-        <p class="subtitle-fr">Société Coopérative Agroalimentaire du Cameroun</p>
-        <p class="subtitle-en">Cameroon Agri-Food Cooperative Society</p>
-        <p class="tagline">Cultiver l’avenir et manger sainement · Cultivating the future, promoting healthy living</p>
-        <p class="prompt">Choisissez votre langue de navigation / Choose your browsing language</p>
-        <div class="hero-buttons">
-            <a class="btn btn-primary lang-choice" data-lang="fr" href="fr/index.html">Français</a>
-            <a class="btn btn-secondary lang-choice" data-lang="en" href="en/index.html">English</a>
+        <div class="hero-text-panel">
+            <div class="hero-badge">Bienvenue · Welcome</div>
+            <h1>SOCAC</h1>
+            <p class="subtitle-fr">Société Coopérative Agroalimentaire du Cameroun</p>
+            <p class="subtitle-en">Cameroon Agri-Food Cooperative Society</p>
+            <p class="tagline">Cultiver l’avenir et manger sainement · Cultivating the future, promoting healthy living</p>
+            <div class="hero-buttons">
+                <a class="btn btn-primary lang-choice" data-lang="fr" href="fr/index.html">Français</a>
+                <a class="btn btn-secondary lang-choice" data-lang="en" href="en/index.html">English</a>
+            </div>
         </div>
-     </div>
+    </div>
 </section>
 
 <script>

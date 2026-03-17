@@ -5,6 +5,10 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Ferme Avicole - SOCAC</title>
+<link rel="canonical" href="../fr/ferme-avicole.html"/>
+<link rel="alternate" hreflang="fr" href="../fr/ferme-avicole.html"/>
+<link rel="alternate" hreflang="en" href="../en/ferme-avicole.html"/>
+<link rel="alternate" hreflang="x-default" href="../index.html"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Source+Sans+3:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
@@ -345,7 +349,7 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 <body>
 <nav class="navbar">
 <div class="nav-container">
-<a class="nav-brand" href="../fr/index.html">
+<a class="nav-brand nav-home-link" href="../fr/index.html">
 <img alt="SOCAC logo" class="nav-logo" src="../assets/logo-digital.jpg"/>
 <span class="nav-brand-text">SOCAC</span>
 </a>
@@ -357,8 +361,8 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 <li><a href="index.html#contact">Contact</a></li>
 </ul>
 <div class="lang-selector">
-<a class="lang-btn active" href="../fr/ferme-avicole.html">FR</a>
-<a class="lang-btn" href="../en/ferme-avicole.html">EN</a>
+<a class="lang-btn active lang-switch" data-lang="fr" href="../fr/ferme-avicole.html">FR</a>
+<a class="lang-btn lang-switch" data-lang="en" href="../en/ferme-avicole.html">EN</a>
 </div>
 <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
 </div>
@@ -570,5 +574,21 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
             document.getElementById('navLinks').classList.toggle('active');
         });
     </script>
+
+<script>
+(function(){
+  var currentLang='fr';
+  var saved=localStorage.getItem('socac_lang') || currentLang;
+  document.querySelectorAll('.lang-switch').forEach(function(link){
+    link.addEventListener('click', function(){
+      var lang=link.getAttribute('data-lang');
+      if(lang) localStorage.setItem('socac_lang', lang);
+    });
+  });
+  document.querySelectorAll('.nav-home-link').forEach(function(link){
+    link.setAttribute('href', saved === 'en' ? '../en/index.html' : '../fr/index.html');
+  });
+})();
+</script>
 </body>
 </html>

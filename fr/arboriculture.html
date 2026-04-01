@@ -18,6 +18,8 @@
     --primary-green-light: #3D7A37;
     --primary-green-dark: #1D3A17;
     --accent-gold: #C4A35A;
+    --socac-orange: #F08A1E;
+    --socac-orange-dark: #D4760A;
     --accent-gold-light: #D4B36A;
     --cream: #FAF8F5;
     --cream-dark: #F0EDE8;
@@ -34,13 +36,19 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
             content: '';
             position: fixed;
             inset: 0;
-            background-image: url("../assets/logo-digital.jpg");
+            background-image: url("../assets/logo-socac-official.jpg");
             background-repeat: no-repeat;
             background-position: center center;
-            background-size: min(62vw, 760px);
-            opacity: 0.14;
+            background-size: min(55vw, 680px);
+            opacity: 0.08;
             z-index: -2;
             pointer-events: none;
+            animation: logoWatermarkFloat 10s ease-in-out infinite;
+        }
+
+        @keyframes logoWatermarkFloat {
+            0%, 100% { background-position: center calc(50% + 0px); background-size: min(55vw, 680px); }
+            50% { background-position: center calc(50% - 12px); background-size: min(57vw, 700px); }
         }
 
         body::after {
@@ -64,8 +72,38 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
 .nav-toggle span { width: 25px; height: 2px; background: var(--dark); }
 
-.page-hero { background: linear-gradient(135deg, var(--hero-start, var(--primary-green)) 0%, var(--hero-end, var(--primary-green-dark)) 100%); padding: 140px 0 70px; text-align: center; color: white; }
-.page-hero-icon { font-size: 4.5rem; margin-bottom: 20px; }
+.page-hero { background: linear-gradient(135deg, var(--hero-start, var(--primary-green)) 0%, var(--hero-end, var(--primary-green-dark)) 100%); padding: 150px 0 80px; text-align: center; color: white; }
+.page-hero {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+.page-hero::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: min(72vw, 520px);
+    height: min(72vw, 520px);
+    background-image: url("../assets/logo-socac-official.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    opacity: 0.22;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    z-index: 0;
+    animation: heroLogoWatermark 10s ease-in-out infinite;
+}
+.page-hero > * {
+    position: relative;
+    z-index: 1;
+}
+@keyframes heroLogoWatermark {
+    0%, 100% { transform: translate(-50%, -50%) scale(1);    opacity: 0.22; }
+    50%       { transform: translate(-50%, -54%) scale(1.05); opacity: 0.26; }
+}
 .page-hero h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; margin-bottom: 15px; }
 .page-hero p { font-size: 1.15rem; opacity: 0.9; max-width: 650px; margin: 0 auto; }
 .breadcrumb { margin-top: 25px; font-size: 0.9rem; opacity: 0.8; }
@@ -350,7 +388,7 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 <nav class="navbar">
 <div class="nav-container">
 <a class="nav-brand nav-home-link" href="../fr/index.html">
-<img alt="SOCAC logo" class="nav-logo" src="../assets/logo-digital.jpg"/>
+<img alt="SOCAC logo" class="nav-logo" src="../assets/logo-socac-official.jpg"/>
 <span class="nav-brand-text">SOCAC</span>
 </a>
 <ul class="nav-links" id="navLinks">
@@ -368,7 +406,6 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 </div>
 </nav>
 <section class="page-hero">
-<div class="page-hero-icon">🌳</div>
 <h1>Arboriculture</h1>
 <p>Culture fruitière et forestière pour une production diversifiée</p>
 <div class="breadcrumb">
@@ -545,7 +582,7 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 <footer class="footer socac-custom-footer">
 <div class="container">
 <div class="socac-footer-inner">
-<p class="socac-footer-copy">© 2024 <span class="socac-brand-gold">SOCAC</span> - Société Coopérative Agroalimentaire du Cameroun. Tous droits réservés.</p>
+<p class="socac-footer-copy">© 2026 <span class="socac-brand-gold">SOCAC</span> - Société Coopérative Agroalimentaire du Cameroun. Tous droits réservés.</p>
 <div class="socac-footer-contact-row">
 <a class="socac-footer-contact" href="https://maps.google.com/?q=Soa,+Yaound%C3%A9,+Cameroun" rel="noopener noreferrer" target="_blank"><span class="socac-contact-icon">📍</span><span>Soa, Yaoundé</span></a>
 <a class="socac-footer-contact" href="mailto:socac.cm@gmail.com"><span class="socac-contact-icon">📧</span><span>socac.cm@gmail.com</span></a>

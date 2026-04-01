@@ -54,7 +54,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url('assets/logo-home-main.jpg');
+    background-image: url('assets/logo-socac-official.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: min(820px, 64vw);
@@ -233,16 +233,31 @@ body {
 
 <script>
 (function(){
+  // Mémoriser le choix de langue au clic
   var buttons=document.querySelectorAll('.lang-choice');
   buttons.forEach(function(btn){
     btn.addEventListener('click', function(){
       localStorage.setItem('socac_lang', btn.getAttribute('data-lang'));
     });
   });
+
+  // Si l'utilisateur a déjà choisi une langue, rediriger automatiquement
   var saved=localStorage.getItem('socac_lang');
   if(saved){
-    var pref=document.querySelector('.lang-choice[data-lang="'+saved+'"]');
-    if(pref){ pref.style.boxShadow='0 0 0 3px rgba(255,255,255,0.18)'; }
+    var dest = saved === 'en' ? 'en/index.html' : 'fr/index.html';
+    window.location.replace(dest);
+    return; // arrêter le reste
+  }
+
+  // Sinon détecter la langue du navigateur
+  var lang = (navigator.language || navigator.userLanguage || 'fr').slice(0,2).toLowerCase();
+  if(lang === 'en'){
+    // Juste mettre en évidence le bouton EN sans forcer
+    var pref=document.querySelector('.lang-choice[data-lang="en"]');
+    if(pref){ pref.style.boxShadow='0 0 0 3px rgba(255,255,255,0.28)'; }
+  } else {
+    var pref=document.querySelector('.lang-choice[data-lang="fr"]');
+    if(pref){ pref.style.boxShadow='0 0 0 3px rgba(255,255,255,0.28)'; }
   }
 })();
 </script>

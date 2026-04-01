@@ -2261,11 +2261,95 @@
             observer.observe(el);
         });
 
-        // Form submission
-        document.querySelector('.contact-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you as soon as possible.');
-        });
+        // ── Contact form — real submission ─────────────────────────────────────
+        const FORMSPREE_ID = 'xkopznkg'; // ⚠️ Create free account at formspree.io and replace this ID
+        const WA_NUMBER   = '237672142796';
+
+        const contactForm = document.querySelector('.contact-form');
+        const submitBtn   = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
+
+        function showFormSuccess(form) {
+            const container = form.parentElement;
+            form.style.display = 'none';
+            const success = document.createElement('div');
+            success.style.cssText = 'text-align:center;padding:40px 20px;';
+            success.innerHTML = `
+              <div style="font-size:3rem;margin-bottom:16px;">✅</div>
+              <h3 style="color:var(--primary-green);font-family:\'Playfair Display\',serif;margin-bottom:12px;">Message sent!</h3>
+              <p style="color:#555;margin-bottom:24px;">Thank you, we will get back to you as soon as possible.</p>
+              <a href="https://wa.me/${WA_NUMBER}" target="_blank"
+                 style="display:inline-block;background:var(--socac-orange);color:#fff;padding:12px 28px;border-radius:50px;text-decoration:none;font-weight:600;">
+                 Also chat on WhatsApp
+              </a>`;
+            container.appendChild(success);
+        }
+
+        function showFormError(form, msg) {
+            let err = form.querySelector('.form-error-msg');
+            if (!err) {
+                err = document.createElement('p');
+                err.className = 'form-error-msg';
+                err.style.cssText = 'color:#c0392b;background:#fdecea;padding:12px 16px;border-radius:8px;margin-top:12px;font-size:0.92rem;';
+                form.appendChild(err);
+            }
+            err.textContent = msg;
+        }
+
+        function buildWhatsAppMessage(data) {
+            return encodeURIComponent(
+                `📩 *New message from SOCAC website*
+
+` +
+                `*Name:* ${data.get('name')}
+` +
+                `*Email:* ${data.get('email')}
+` +
+                `*Subject:* ${data.get('subject')}
+
+` +
+                `*Message:*
+${data.get('message')}`
+            );
+        }
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const data = new FormData(contactForm);
+
+                const name = (data.get('name') || '').trim();
+                const email = (data.get('email') || '').trim();
+                const message = (data.get('message') || '').trim();
+                if (!name || !email || !message) {
+                    showFormError(contactForm, 'Please fill in all required fields.');
+                    return;
+                }
+
+                const originalText = submitBtn.textContent;
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending…';
+                submitBtn.style.opacity = '0.7';
+
+                if (FORMSPREE_ID !== 'xkopznkg') {
+                    try {
+                        const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+                            method: 'POST',
+                            body: data,
+                            headers: { 'Accept': 'application/json' }
+                        });
+                        if (res.ok) { showFormSuccess(contactForm); return; }
+                    } catch(err) { /* fallback below */ }
+                }
+
+                const waMsg = buildWhatsAppMessage(data);
+                window.open(`https://wa.me/${WA_NUMBER}?text=${waMsg}`, '_blank');
+
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+                submitBtn.style.opacity = '1';
+                showFormSuccess(contactForm);
+            });
+        }
 
         // Counter animation for stats
         const animateCounters = () => {

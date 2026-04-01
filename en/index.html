@@ -18,6 +18,9 @@
             --primary-green-light: #3D7A37;
             --primary-green-dark: #1D3A17;
             --accent-gold: #C4A35A;
+    --socac-orange: #F08A1E;
+    --socac-orange-dark: #D4760A;
+    --socac-orange-light: #FFAA44;
             --accent-gold-light: #D4B36A;
             --cream: #FAF8F5;
             --cream-dark: #F0EDE8;
@@ -49,7 +52,7 @@
             content: '';
             position: fixed;
             inset: 0;
-            background-image: url("../assets/logo-digital.jpg");
+            background-image: url("../assets/logo-socac-official.jpg");
             background-repeat: no-repeat;
             background-position: center center;
             background-size: min(62vw, 760px);
@@ -206,7 +209,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background-image: url('../assets/logo-home-main.jpg');
+            background-image: url('../assets/logo-socac-official.jpg');
             background-repeat: no-repeat;
             background-position: center 26%;
             background-size: min(660px, 74vw);
@@ -285,14 +288,14 @@
         }
 
         .btn-primary {
-            background: var(--accent-gold);
-            color: var(--dark);
+            background: var(--socac-orange);
+            color: #ffffff;
         }
 
         .btn-primary:hover {
-            background: var(--accent-gold-light);
+            background: var(--socac-orange-dark);
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(196, 163, 90, 0.4);
+            box-shadow: 0 10px 30px rgba(240, 138, 30, 0.35);
         }
 
         .btn-secondary {
@@ -379,7 +382,7 @@
             transform: translate(-50%, -50%);
             width: 150px;
             height: 150px;
-            background-image: url("../assets/logo-institutional.jpg");
+            background-image: url("../assets/logo-socac-official.jpg");
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -461,7 +464,7 @@
             transform: translate(-50%, -50%);
             width: 150px;
             height: 150px;
-            background-image: url("../assets/logo-institutional.jpg");
+            background-image: url("../assets/logo-socac-official.jpg");
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -882,7 +885,7 @@
             right: 20px;
             width: 80px;
             height: 80px;
-            background-image: url("../assets/logo-institutional.jpg");
+            background-image: url("../assets/logo-socac-official.jpg");
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -943,6 +946,25 @@
             line-height: 1.6;
         }
 
+
+        .team-avatar-vacant {
+            background: linear-gradient(135deg, #9E9E9E 0%, #BDBDBD 100%) !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12) !important;
+            font-size: 1.6rem !important;
+        }
+        .team-badge-vacant {
+            display: inline-block;
+            background: rgba(196,163,90,0.15);
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-bottom: 8px;
+        }
         /* IFMS Section */
         .ifms {
             background: var(--cream);
@@ -1738,7 +1760,7 @@
 <nav class="navbar" id="navbar">
 <div class="nav-container">
 <a class="nav-brand nav-home-link" href="../en/index.html">
-<img alt="SOCAC logo" class="nav-logo" src="../assets/logo-digital.jpg"/>
+<img alt="SOCAC logo" class="nav-logo" src="../assets/logo-socac-official.jpg"/>
 <span class="nav-brand-text">SOCAC</span>
 </a>
 <ul class="nav-links" id="navLinks">
@@ -1891,35 +1913,39 @@
 </div>
 </div>
 <div class="team-card">
-<div class="team-avatar">DAF</div>
+<div class="team-avatar team-avatar-vacant">📋</div>
 <div class="team-info">
+<span class="team-badge-vacant">Position open</span>
 <h3>Administrative &amp; Finance Director</h3>
 <p class="role">Administration &amp; Finance</p>
-<p>Financial and administrative management</p>
+<p>Financial and administrative management of the cooperative.</p>
 </div>
 </div>
 <div class="team-card">
-<div class="team-avatar">RC</div>
+<div class="team-avatar team-avatar-vacant">📊</div>
 <div class="team-info">
+<span class="team-badge-vacant">Position open</span>
 <h3>Commercial Manager</h3>
 <p class="role">Commerce &amp; Sales</p>
-<p>Business development and client relations</p>
+<p>Business development and client relations.</p>
 </div>
 </div>
 <div class="team-card">
-<div class="team-avatar">RRH</div>
+<div class="team-avatar team-avatar-vacant">👥</div>
 <div class="team-info">
+<span class="team-badge-vacant">Position open</span>
 <h3>HR Manager</h3>
-<p class="role">Ressources Humaines</p>
-<p>Human capital management</p>
+<p class="role">Human Resources</p>
+<p>Human capital management and development.</p>
 </div>
 </div>
 <div class="team-card">
-<div class="team-avatar">RSI</div>
+<div class="team-avatar team-avatar-vacant">💻</div>
 <div class="team-info">
+<span class="team-badge-vacant">Position open</span>
 <h3>Information Systems Manager</h3>
 <p class="role">Information Systems</p>
-<p>Technological innovation and IFMS system</p>
+<p>Technological innovation and IFMS system management.</p>
 </div>
 </div>
 </div>
@@ -2077,7 +2103,7 @@
 <footer class="footer socac-custom-footer">
 <div class="container">
 <div class="socac-footer-inner">
-<p class="socac-footer-copy">© 2024 <span class="socac-brand-gold">SOCAC</span> - Cameroon Agri-Food Cooperative Society. All rights reserved.</p>
+<p class="socac-footer-copy">© 2026 <span class="socac-brand-gold">SOCAC</span> - Cameroon Agri-Food Cooperative Society. All rights reserved.</p>
 <div class="socac-footer-contact-row">
 <a class="socac-footer-contact" href="https://maps.google.com/?q=Soa,+Yaound%C3%A9,+Cameroun" rel="noopener noreferrer" target="_blank"><span class="socac-contact-icon">📍</span><span>Soa, Yaoundé</span></a>
 <a class="socac-footer-contact" href="mailto:socac.cm@gmail.com"><span class="socac-contact-icon">📧</span><span>socac.cm@gmail.com</span></a>

@@ -2262,11 +2262,100 @@
             observer.observe(el);
         });
 
-        // Form submission
-        document.querySelector('.contact-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Merci pour votre message ! Nous vous répondrons dans les plus brefs délais.');
-        });
+        // ── Contact form — envoi réel ──────────────────────────────────────────
+        const FORMSPREE_ID = 'xkopznkg'; // ⚠️ Créer compte gratuit sur formspree.io et remplacer cet ID
+        const WA_NUMBER   = '237672142796';
+
+        const contactForm = document.querySelector('.contact-form');
+        const submitBtn   = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
+
+        function showFormSuccess(form) {
+            const container = form.parentElement;
+            form.style.display = 'none';
+            const success = document.createElement('div');
+            success.style.cssText = 'text-align:center;padding:40px 20px;';
+            success.innerHTML = `
+              <div style="font-size:3rem;margin-bottom:16px;">✅</div>
+              <h3 style="color:var(--primary-green);font-family:\'Playfair Display\',serif;margin-bottom:12px;">Message envoyé !</h3>
+              <p style="color:#555;margin-bottom:24px;">Merci, nous vous répondrons dans les plus brefs délais.</p>
+              <a href="https://wa.me/${WA_NUMBER}" target="_blank"
+                 style="display:inline-block;background:var(--socac-orange);color:#fff;padding:12px 28px;border-radius:50px;text-decoration:none;font-weight:600;">
+                 Discuter aussi sur WhatsApp
+              </a>`;
+            container.appendChild(success);
+        }
+
+        function showFormError(form, msg) {
+            let err = form.querySelector('.form-error-msg');
+            if (!err) {
+                err = document.createElement('p');
+                err.className = 'form-error-msg';
+                err.style.cssText = 'color:#c0392b;background:#fdecea;padding:12px 16px;border-radius:8px;margin-top:12px;font-size:0.92rem;';
+                form.appendChild(err);
+            }
+            err.textContent = msg;
+        }
+
+        function buildWhatsAppMessage(data) {
+            return encodeURIComponent(
+                `📩 *Nouveau message depuis le site SOCAC*
+
+` +
+                `*Nom :* ${data.get('name')}
+` +
+                `*Email :* ${data.get('email')}
+` +
+                `*Sujet :* ${data.get('subject')}
+
+` +
+                `*Message :*
+${data.get('message')}`
+            );
+        }
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const data = new FormData(contactForm);
+
+                // Validate
+                const name = (data.get('name') || '').trim();
+                const email = (data.get('email') || '').trim();
+                const message = (data.get('message') || '').trim();
+                if (!name || !email || !message) {
+                    showFormError(contactForm, 'Veuillez remplir tous les champs obligatoires.');
+                    return;
+                }
+
+                // Loading state
+                const originalText = submitBtn.textContent;
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Envoi en cours…';
+                submitBtn.style.opacity = '0.7';
+
+                // Try Formspree if configured
+                if (FORMSPREE_ID !== 'xkopznkg') {
+                    try {
+                        const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+                            method: 'POST',
+                            body: data,
+                            headers: { 'Accept': 'application/json' }
+                        });
+                        if (res.ok) { showFormSuccess(contactForm); return; }
+                    } catch(err) { /* fallback ci-dessous */ }
+                }
+
+                // Fallback : ouvrir WhatsApp avec le message pré-rempli
+                const waMsg = buildWhatsAppMessage(data);
+                window.open(`https://wa.me/${WA_NUMBER}?text=${waMsg}`, '_blank');
+
+                // Restaurer le bouton
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+                submitBtn.style.opacity = '1';
+                showFormSuccess(contactForm);
+            });
+        }
 
         // Counter animation for stats
         const animateCounters = () => {

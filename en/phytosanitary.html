@@ -4,19 +4,19 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Pig Farm - SOCAC</title>
+<title>Phytosanitary - SOCAC</title>
 
 <meta property="og:type" content="website"/>
-<meta property="og:title" content="Pig Farm - SOCAC"/>
-<meta property="og:description" content="SOCAC pig farm in Soa, Yaounde: structured pig production, breeders, fattening, nutrition, and animal health."/>
+<meta property="og:title" content="Phytosanitary - SOCAC"/>
+<meta property="og:description" content="Santé et alimentation SOCAC : nutrition, biosécurité, suivi sanitaire et protocoles de performance pour les filières d’élevage."/>
 <meta property="og:image" content="https://www.socac-cameroun.com/assets/logo-socac-official.jpg"/>
 <meta property="og:url" content="https://www.socac-cameroun.com/"/>
 <meta property="og:locale" content="en_CM"/>
 <meta name="robots" content="index, follow"/>
 <meta name="theme-color" content="#2D5A27"/>
-<link rel="canonical" href="../en/ferme-porcine.html"/>
-<link rel="alternate" hreflang="fr" href="../fr/ferme-porcine.html"/>
-<link rel="alternate" hreflang="en" href="../en/ferme-porcine.html"/>
+<link rel="canonical" href="../en/phytosanitary.html"/>
+<link rel="alternate" hreflang="fr" href="../en/phytosanitary.html"/>
+<link rel="alternate" hreflang="en" href="../en/phytosanitary.html"/>
 <link rel="alternate" hreflang="x-default" href="../index.html"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -38,8 +38,8 @@
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg, #fff3ef); color: var(--dark); line-height: 1.6; }
-:root {--page-bg: #fff3ef; --hero-start: #8a4b34; --hero-end: #5f2d1f; --page-overlay: rgba(255,243,239,0.80);}
+body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg, #f7f0fb); color: var(--dark); line-height: 1.6; }
+:root {--page-bg: #eef7ee; --hero-start: #1a4d1a; --hero-end: #2D5A27; --page-overlay: rgba(238,247,238,0.82);}
 
         body::before {
             content: '';
@@ -374,6 +374,65 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
         opacity: 0.10;
     }
 }
+
+.submenu-tabs {
+    display: flex; gap: 12px; flex-wrap: wrap;
+    justify-content: center; margin: 0 0 40px;
+}
+.submenu-tab {
+    background: white; border: 2px solid var(--primary-green);
+    color: var(--primary-green); padding: 10px 22px;
+    border-radius: 30px; font-size: 0.88rem; font-weight: 700;
+    cursor: pointer; transition: all 0.25s; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 8px;
+}
+.submenu-tab:hover, .submenu-tab.active {
+    background: var(--primary-green); color: white;
+}
+.phyto-domain {
+    background: white; border-radius: 18px; overflow: hidden;
+    box-shadow: 0 4px 24px rgba(45,90,39,0.1);
+    margin-bottom: 32px; border: 1px solid rgba(45,90,39,0.1);
+}
+.phyto-domain-header {
+    background: linear-gradient(135deg, var(--primary-green), var(--primary-green-light));
+    padding: 28px 32px; display: flex; align-items: center; gap: 18px;
+}
+.phyto-domain-icon { font-size: 2.4rem; }
+.phyto-domain-title { color: white; }
+.phyto-domain-title h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 4px; }
+.phyto-domain-title p  { font-size: 0.88rem; opacity: 0.85; }
+.phyto-domain-body { padding: 28px 32px; }
+.phyto-items { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-bottom: 20px; }
+.phyto-item {
+    background: var(--cream-dark, #f0ede8); border-radius: 12px;
+    padding: 18px 18px 14px;
+    border-left: 4px solid var(--accent-gold);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.phyto-item:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(45,90,39,0.12); }
+.phyto-item-icon { font-size: 1.6rem; margin-bottom: 8px; }
+.phyto-item h5 { font-size: 0.95rem; color: var(--primary-green); margin-bottom: 6px; font-weight: 700; }
+.phyto-item p  { font-size: 0.82rem; color: var(--gray, #666); line-height: 1.55; }
+.phyto-product-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.phyto-chip {
+    background: rgba(45,90,39,0.08); border: 1px solid rgba(45,90,39,0.2);
+    color: var(--primary-green); padding: 5px 14px;
+    border-radius: 20px; font-size: 0.75rem; font-weight: 600;
+}
+.alert-box {
+    background: rgba(196,163,90,0.1); border: 2px solid var(--accent-gold);
+    border-radius: 12px; padding: 16px 20px; margin: 20px 0;
+    display: flex; gap: 12px; align-items: flex-start;
+}
+.alert-box .ai { font-size: 1.5rem; flex-shrink: 0; }
+.alert-box p { font-size: 0.85rem; color: var(--dark, #1a1a1a); line-height: 1.6; }
+.alert-box strong { color: var(--primary-green); }
+@media (max-width:600px) {
+  .phyto-domain-header { flex-direction: column; text-align: center; }
+  .phyto-domain-body { padding: 20px 16px; }
+}
+
 </style>
 <style id="socac-footer-style">
 .socac-custom-footer{background:linear-gradient(90deg,#173b0f 0%,#1d4d14 50%,#173b0f 100%)!important;color:#fff!important;padding:26px 0 22px!important;margin-top:40px;position:relative;overflow:hidden;}
@@ -392,7 +451,7 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 .socac-social-link:hover{transform:translateY(-2px);background:rgba(255,255,255,.18);}
 @media (max-width:700px){.socac-footer-copy{font-size:17px;}.socac-footer-contact-row{font-size:14px;gap:8px;}.socac-footer-contact::after{display:none;}.socac-footer-contact{width:100%;justify-content:center;}}
 </style>
-<meta content="SOCAC pig farm in Soa, Yaounde: structured pig production, breeders, fattening, nutrition, and animal health." name="description"/></head>
+<meta content="Santé et alimentation SOCAC : nutrition, biosécurité, suivi sanitaire et protocoles de performance pour les filières d’élevage." name="description"/></head>
 <body>
 <nav class="navbar">
 <div class="nav-container">
@@ -404,153 +463,362 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 <li><a href="../en/index.html">Home</a></li>
 <li><a href="index.html#activites">Our Activities</a></li>
 <li><a href="index.html#equipe">Our Team</a></li>
-<li><a href="../en/catalogue.html">Catalog</a></li>
+<li><a href="../fr/catalogue.html">Catalogue</a></li>
 <li><a href="index.html#contact">Contact</a></li>
 </ul>
 <div class="lang-selector">
-<a class="lang-btn lang-switch" data-lang="fr" href="../fr/ferme-porcine.html">FR</a>
-<a class="lang-btn active lang-switch" data-lang="en" href="../en/ferme-porcine.html">EN</a>
+<a class="lang-btn active lang-switch" data-lang="fr" href="../en/phytosanitary.html">FR</a>
+<a class="lang-btn lang-switch" data-lang="en" href="../en/phytosanitary.html">EN</a>
 </div>
 <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
 </div>
 </nav>
 <section class="page-hero">
-<h1>Pig Farm</h1>
-<p>Modern pig farming with animal welfare-friendly practices</p>
+<h1>Phytosanitary</h1>
+<p>Crop protection, soil health and agronomic consulting for high-performance agriculture</p>
 <div class="breadcrumb">
-<a href="../en/index.html">Home</a> &gt; <a href="index.html#activites">Our Activities</a> &gt; Pig Farm
+<a href="../en/index.html">Accueil</a> &gt; <a href="index.html#activites">Our Activities</a> &gt; Phytosanitaire
         </div>
 </section>
 <section class="section">
 <div class="container">
 <div class="section-header">
-<h2>Our Modules</h2>
-<p>Our modules cover the main stages of the pig value chain to better manage production and quality.</p>
+<h2>Nos Modules</h2>
+<p>Les modules de santé et alimentation structurent les protocoles, le suivi et l’amélioration continue des performances d’élevage.</p>
 <div class="section-divider"></div>
-</div><div class="note-box"><p>SOCAC’s pig farm follows a modern, responsible, and performance-oriented approach. We develop structured pig production with health monitoring, controlled feeding, and a sustainable commercial vision.</p></div><div class="premium-grid"><div class="premium-card"><h3>What we offer</h3><p>Piglets, breeders, growing pigs, market pigs, farming support, and supply options adapted to market demand.</p></div><div class="premium-card"><h3>Who is this sector for?</h3><p>Households, traders, resellers, processors, retail outlets, and professional partners.</p></div><div class="premium-card"><h3>Our commitment</h3><p>To provide a reliable pig sector supported by good farming practices, regular monitoring, and trusted customer relationships.</p></div></div><div class="cta-panel"><h3>The strength of our pig operation</h3><p>SOCAC focuses on consistency, animal health, nutrition, and organization to deliver a credible and sustainable pig offering.</p><ul class="check-list"><li>Serious health monitoring</li><li>Structured farming approach</li><li>Reliable local supply</li><li>Fast contact for availability</li></ul></div>
-<div class="submodules-grid">
-<div class="submodule-card">
-<div class="submodule-icon">🐖</div>
-<h4>Maternity</h4>
-<p>Management of gestating and lactating sows with climate-controlled farrowing crates and individual monitoring.</p>
+</div><section class="section">
+<div class="container">
+<div class="section-header">
+<h2>Phytosanitary Division</h2>
+<p>SOCAC offers a comprehensive range of phytosanitary services and products to protect your crops, improve soil health, and maximize your agricultural yields.</p>
+<div class="section-divider"></div>
 </div>
-<div class="submodule-card">
-<div class="submodule-icon">🍼</div>
-<h4>Post-Weaning</h4>
-<p>Specialized nursery for weaned piglets with adapted feeding and strict health control.</p>
+
+<!-- SUBMENU TABS -->
+<div class="submenu-tabs">
+  <a class="submenu-tab" href="#protection">🌿 Crop Protection</a>
+  <a class="submenu-tab" href="#semences">🌱 Semences & Traitement</a>
+  <a class="submenu-tab" href="#sols">🪱 Soil Health</a>
+  <a class="submenu-tab" href="#pulverisation">💧 Spraying</a>
+  <a class="submenu-tab" href="#conseil">📋 Conseil & Diagnostic</a>
+  <a class="submenu-tab" href="#materiel">⚙️ Equipment</a>
 </div>
-<div class="submodule-card">
-<div class="submodule-icon">📈</div>
-<h4>Fattening</h4>
-<p>Optimized fattening buildings for rapid growth to slaughter weight (100-120kg).</p>
+
+<div class="alert-box">
+  <div class="ai">⚠️</div>
+  <p><strong>Responsible and safe use:</strong> All our phytosanitary products are used in accordance with good agricultural practices. We prioritize solutions that respect the environment and human health. Agronomic advice is systematically provided before any treatment.</p>
 </div>
-<div class="submodule-card">
-<div class="submodule-icon">🧬</div>
-<h4>Genetic Selection</h4>
-<p>Breeding program with high-performing boars to improve lines (Large White, Landrace).</p>
+
+
+<!-- ═══ 1. PROTECTION DES CULTURES ═══ -->
+<div class="phyto-domain" id="protection">
+  <div class="phyto-domain-header">
+    <div class="phyto-domain-icon">🌿</div>
+    <div class="phyto-domain-title">
+      <h3>Crop Protection</h3>
+      <p>Herbicides, fungicides, insecticides and biopesticides to protect your crops</p>
+    </div>
+  </div>
+  <div class="phyto-domain-body">
+    <div class="phyto-items">
+      <div class="phyto-item">
+        <div class="phyto-item-icon">🍄</div>
+        <h5>Fongicides</h5>
+        <p>Traitement et prévention des maladies fongiques : mildiou, rouille, oïdium, fonte des semis sur toutes cultures.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">🐛</div>
+        <h5>Insecticides</h5>
+        <p>Lutte contre les insectes ravageurs : chenilles, pucerons, thrips, cochenilles, mouches des fruits.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">🌾</div>
+        <h5>Herbicides</h5>
+        <p>Contrôle des mauvaises herbes en pré et post-levée pour cultures maraîchères, céréales et fruitiers.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">🐀</div>
+        <h5>Rodenticides</h5>
+        <p>Solutions de lutte contre les rongeurs dans les cultures et les entrepôts agricoles.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">🌱</div>
+        <h5>Biopesticides</h5>
+        <p>Produits d'origine biologique pour une protection respectueuse de l'environnement et des consommateurs.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">🦠</div>
+        <h5>Bactéricides</h5>
+        <p>Traitement des infections bactériennes sur cultures sensibles : tomates, poivrons, agrumes.</p>
+      </div>
+    </div>
+    <div class="phyto-product-chips">
+      <span class="phyto-chip">Mancozebe</span><span class="phyto-chip">Imidaclopride</span>
+      <span class="phyto-chip">Glyphosate</span><span class="phyto-chip">Bacillus thuringiensis</span>
+      <span class="phyto-chip">Chlorpyrifos</span><span class="phyto-chip">Cuivre</span>
+      <span class="phyto-chip">Pyréthrines</span><span class="phyto-chip">Soufre mouillable</span>
+    </div>
+  </div>
 </div>
-<div class="submodule-card">
-<div class="submodule-icon">🏥</div>
-<h4>Infirmary &amp; Quarantine</h4>
-<p>Isolation area for sick animals and new arrivals with strict veterinary protocols.</p>
+
+<!-- ═══ 2. SEMENCES & TRAITEMENT ═══ -->
+<div class="phyto-domain" id="semences">
+  <div class="phyto-domain-header">
+    <div class="phyto-domain-icon">🌱</div>
+    <div class="phyto-domain-title">
+      <h3>Seeds &amp; Treatment</h3>
+      <p>Variety selection, seed treatment and germination protection</p>
+    </div>
+  </div>
+  <div class="phyto-domain-body">
+    <div class="phyto-items">
+      <div class="phyto-item">
+        <div class="phyto-item-icon">🧪</div>
+        <h5>Traitement Fongicide Semences</h5>
+        <p>Enrobage des semences contre les pathogènes telluriques et les moisissures de stockage avant semis.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">🐞</div>
+        <h5>Traitement Insecticide Semences</h5>
+        <p>Protection des semences contre les insectes du sol (taupins, mouche du semis) dès la germination.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">🔬</div>
+        <h5>Test de Germination</h5>
+        <p>Évaluation du taux de germination et de la vigueur des lots de semences avant mise en culture.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">📦</div>
+        <h5>Conservation &amp; Stockage</h5>
+        <p>Conseils et produits pour le stockage sécurisé des semences : anti-insectes, absorbeurs d'humidité.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">🌿</div>
+        <h5>Biostimulants Germination</h5>
+        <p>Inoculants microbiens (rhizobiums, mycorhizes) pour améliorer la levée et l'enracinement.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">📋</div>
+        <h5>Fiche Technico-Économique</h5>
+        <p>Accompagnement documenté pour chaque variété : densité, dose, traitement recommandé, rendement attendu.</p>
+      </div>
+    </div>
+    <div class="phyto-product-chips">
+      <span class="phyto-chip">Thirame</span><span class="phyto-chip">Captan</span>
+      <span class="phyto-chip">Thiamethoxam</span><span class="phyto-chip">Rhizobium spp.</span>
+      <span class="phyto-chip">Trichoderma</span><span class="phyto-chip">Enrobage pelliculé</span>
+    </div>
+  </div>
 </div>
-<div class="submodule-card">
-<div class="submodule-icon">♻️</div>
-<h4>Effluent Management</h4>
-<p>Slurry treatment system and biogas production for sustainable farming.</p>
-</div></div>
-<div class="products-section">
-<h3>🐷 Our Products &amp; Services</h3>
-<div class="products-grid"><div class="product-item">Weaned piglets (8kg)</div><div class="product-item">Slaughter pigs (100-120kg)</div><div class="product-item">Breeding sows</div><div class="product-item">Selected boars</div><div class="product-item">Fresh meat (carcass)</div><div class="product-item">Cuts (ribs, ham)</div><div class="product-item">Abats comestibles</div><div class="product-item">Composted manure</div></div>
+
+<!-- ═══ 3. SANTÉ DES SOLS ═══ -->
+<div class="phyto-domain" id="sols">
+  <div class="phyto-domain-header">
+    <div class="phyto-domain-icon">🪱</div>
+    <div class="phyto-domain-title">
+      <h3>Soil Health</h3>
+      <p>Amendments, fertilizers and biostimulants for living, productive soils</p>
+    </div>
+  </div>
+  <div class="phyto-domain-body">
+    <div class="phyto-items">
+      <div class="phyto-item">
+        <div class="phyto-item-icon">🧫</div>
+        <h5>Analyse de Sol</h5>
+        <p>Prélèvement et analyse physico-chimique du sol : pH, azote, phosphore, potassium, matière organique.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">🌿</div>
+        <h5>Amendements Organiques</h5>
+        <p>Compost, fumures organiques et matières humifères pour enrichir la vie biologique du sol.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">⚗️</div>
+        <h5>Correction du pH</h5>
+        <p>Chaulage et acidification selon les résultats d'analyse pour optimiser la disponibilité des nutriments.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">💧</div>
+        <h5>Fertilisation Minérale</h5>
+        <p>Apports raisonnés en NPK, oligo-éléments et engrais foliaires selon le stade de la culture.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">🔋</div>
+        <h5>Biostimulants</h5>
+        <p>Extraits d'algues, acides aminés et micro-organismes bénéfiques pour stimuler la croissance naturelle.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">🌍</div>
+        <h5>Nématicide Sol</h5>
+        <p>Traitement contre les nématodes parasites des racines avant plantation ou entre deux cycles.</p>
+      </div>
+    </div>
+    <div class="phyto-product-chips">
+      <span class="phyto-chip">NPK équilibré</span><span class="phyto-chip">Chaux agricole</span>
+      <span class="phyto-chip">Compost SOCAC</span><span class="phyto-chip">Extrait d'algues</span>
+      <span class="phyto-chip">Mycorhizes</span><span class="phyto-chip">Urée 46%</span>
+    </div>
+  </div>
 </div>
-<div class="equipment-section">
-<h3>⚙️ Advanced Equipment</h3>
-<div class="equipment-grid">
-<div class="equipment-item">
-<div class="equipment-icon">🌡️</div>
-<div class="equipment-info">
-<h5>Climate Control System</h5>
-<p>Automatic ventilation and misting for optimal thermal comfort (18-22°C).</p>
+
+<!-- ═══ 4. SERVICE DE PULVÉRISATION ═══ -->
+<div class="phyto-domain" id="pulverisation">
+  <div class="phyto-domain-header">
+    <div class="phyto-domain-icon">💧</div>
+    <div class="phyto-domain-title">
+      <h3>Spraying Service</h3>
+      <p>Professional application of phytosanitary treatments on your plots</p>
+    </div>
+  </div>
+  <div class="phyto-domain-body">
+    <div class="phyto-items">
+      <div class="phyto-item">
+        <div class="phyto-item-icon">🚜</div>
+        <h5>Pulvérisation à Dos</h5>
+        <p>Traitement des petites et moyennes parcelles avec pulvérisateur à dos motorisé par des techniciens formés.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">🏭</div>
+        <h5>Pulvérisation Grand Volume</h5>
+        <p>Application sur grandes surfaces avec atomiseur ou pulvérisateur à rampe pour vergers et cultures extensives.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">📅</div>
+        <h5>Calendrier de Traitement</h5>
+        <p>Élaboration d'un programme de traitements préventifs et curatifs adapté à votre calendrier cultural.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">🧰</div>
+        <h5>Location de Matériel</h5>
+        <p>Mise à disposition de pulvérisateurs en bon état avec formation à l'utilisation et aux EPI.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">⏱️</div>
+        <h5>Intervention d'Urgence</h5>
+        <p>Traitement rapide en cas d'attaque parasitaire sévère ou d'épidémie fongique sur vos cultures.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">📊</div>
+        <h5>Rapport d'Intervention</h5>
+        <p>Fiche de traçabilité après chaque intervention : produit utilisé, dose, date, technicien, parcelle.</p>
+      </div>
+    </div>
+    <div class="phyto-product-chips">
+      <span class="phyto-chip">Pulvérisateur Solo</span><span class="phyto-chip">Atomiseur portatif</span>
+      <span class="phyto-chip">EPI certifiés</span><span class="phyto-chip">Traçabilité IFMS</span>
+      <span class="phyto-chip">Délai avant récolte</span><span class="phyto-chip">Dosage précis</span>
+    </div>
+  </div>
 </div>
+
+<!-- ═══ 5. CONSEIL & DIAGNOSTIC ═══ -->
+<div class="phyto-domain" id="conseil">
+  <div class="phyto-domain-header">
+    <div class="phyto-domain-icon">📋</div>
+    <div class="phyto-domain-title">
+      <h3>Phytosanitary Consulting &amp; Diagnosis</h3>
+      <p>Field agronomic expertise for informed decisions</p>
+    </div>
+  </div>
+  <div class="phyto-domain-body">
+    <div class="phyto-items">
+      <div class="phyto-item">
+        <div class="phyto-item-icon">🔍</div>
+        <h5>Diagnostic Terrain</h5>
+        <p>Visite et identification des problèmes : maladies, ravageurs, carences, stress hydrique ou climatique.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">💊</div>
+        <h5>Prescription de Traitements</h5>
+        <p>Recommandations spécifiques : choix du produit, dose homologuée, fréquence et mode d'application.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">📚</div>
+        <h5>Formation Agriculteurs</h5>
+        <p>Ateliers et formations sur la sécurité d'emploi des produits phytosanitaires, les EPI et les bonnes pratiques.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">🗺️</div>
+        <h5>Cartographie des Risques</h5>
+        <p>Identification des zones à risque phytosanitaire sur votre exploitation pour anticiper les traitements.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">📱</div>
+        <h5>Suivi à Distance (IFMS)</h5>
+        <p>Enregistrement des observations de terrain dans le système IFMS pour un suivi en temps réel.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">🤝</div>
+        <h5>Partenariats Institutionnels</h5>
+        <p>Collaboration avec le MINADER et les organismes agréés pour les certifications et homologations.</p>
+      </div>
+    </div>
+    <div class="phyto-product-chips">
+      <span class="phyto-chip">Visite gratuite</span><span class="phyto-chip">Rapport écrit</span>
+      <span class="phyto-chip">Suivi IFMS</span><span class="phyto-chip">Homologation MINADER</span>
+      <span class="phyto-chip">Formation certifiée</span><span class="phyto-chip">Devis sur site</span>
+    </div>
+  </div>
 </div>
-<div class="equipment-item">
-<div class="equipment-icon">🍽️</div>
-<div class="equipment-info">
-<h5>Distributeurs Automatiques DAC</h5>
-<p>Automatic Concentrate Distribution with precise dosing according to growth phases.</p>
+
+<!-- ═══ 6. MATÉRIEL PHYTOSANITAIRE ═══ -->
+<div class="phyto-domain" id="materiel">
+  <div class="phyto-domain-header">
+    <div class="phyto-domain-icon">⚙️</div>
+    <div class="phyto-domain-title">
+      <h3>Phytosanitary Equipment</h3>
+      <p>Protection and application equipment for effective and safe treatments</p>
+    </div>
+  </div>
+  <div class="phyto-domain-body">
+    <div class="phyto-items">
+      <div class="phyto-item">
+        <div class="phyto-item-icon">🥽</div>
+        <h5>Équipements de Protection (EPI)</h5>
+        <p>Combinaisons, gants, lunettes, masques et bottes homologués pour l'application des phytosanitaires.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">💦</div>
+        <h5>Pulvérisateurs à Dos</h5>
+        <p>Pulvérisateurs manuels et motorisés (16L, 20L) pour petites et moyennes parcelles.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">🔧</div>
+        <h5>Pièces de Rechange</h5>
+        <p>Buses, joints, filtres et pompes pour l'entretien et la réparation du matériel de traitement.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">⚖️</div>
+        <h5>Matériel de Dosage</h5>
+        <p>Éprouvettes graduées, seringues de précision et balances pour des dosages exacts et reproductibles.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">🗂️</div>
+        <h5>Fiches de Sécurité</h5>
+        <p>Documentation technique complète sur chaque produit vendu : FDS, DAR, LMR, mode d'emploi.</p>
+      </div>
+      <div class="phyto-item">
+        <div class="phyto-item-icon">♻️</div>
+        <h5>Gestion des Emballages</h5>
+        <p>Conseil sur le rinçage, le tri et l'élimination sécurisée des emballages vides de phytosanitaires.</p>
+      </div>
+    </div>
+    <div class="phyto-product-chips">
+      <span class="phyto-chip">Solo 423</span><span class="phyto-chip">Jacto</span>
+      <span class="phyto-chip">3M masques</span><span class="phyto-chip">Buses anti-dérive</span>
+      <span class="phyto-chip">Balance 0.1g</span><span class="phyto-chip">Kit décontamination</span>
+    </div>
+  </div>
 </div>
-</div>
-<div class="equipment-item">
-<div class="equipment-icon">💧</div>
-<div class="equipment-info">
-<h5>Nipple Drinkers</h5>
-<p>Fresh water available 24/7 with adjustable flow and anti-waste system.</p>
-</div>
-</div>
-<div class="equipment-item">
-<div class="equipment-icon">⚖️</div>
-<div class="equipment-info">
-<h5>Electronic Scale</h5>
-<p>Weighing cage for weekly weight monitoring and ADG calculation.</p>
-</div>
-</div>
-<div class="equipment-item">
-<div class="equipment-icon">🔥</div>
-<div class="equipment-info">
-<h5>Lampes Chauffantes Infrarouge</h5>
-<p>Heated creep areas for newborn piglets (32-35°C) reducing mortality.</p>
-</div>
-</div>
-<div class="equipment-item">
-<div class="equipment-icon">🚿</div>
-<div class="equipment-info">
-<h5>Station de Lavage Haute Pression</h5>
-<p>Cleaning and disinfection of buildings between each batch.</p>
-</div>
-</div></div>
-</div>
-<div class="ingredients-section">
-<h3>🌿 Inputs &amp; Protocols</h3>
-<div class="ingredients-grid">
-<div class="ingredient-item">
-<span>🍼</span>
-<span>1st age feed (pre-starter)</span>
-</div>
-<div class="ingredient-item">
-<span>🐷</span>
-<span>2nd age feed (starter)</span>
-</div>
-<div class="ingredient-item">
-<span>📈</span>
-<span>Growth feed (25-60kg)</span>
-</div>
-<div class="ingredient-item">
-<span>🎯</span>
-<span>Finisher feed (60-120kg)</span>
-</div>
-<div class="ingredient-item">
-<span>🤰</span>
-<span>Sow gestation feed</span>
-</div>
-<div class="ingredient-item">
-<span>🍼</span>
-<span>Sow lactation feed</span>
-</div>
-<div class="ingredient-item">
-<span>💪</span>
-<span>Breeding boar feed</span>
-</div>
-<div class="ingredient-item">
-<span>💊</span>
-<span>Vitamin mineral supplements</span>
-</div>
-<div class="ingredient-item">
-<span>🧪</span>
-<span>Additifs probiotiques</span>
-</div></div>
-</div>
-<div class="benefits-badge">✨ Performance: ADG 850g/day | FCR 2.5 | Fertility rate 92% | Weaned piglets/sow/year: 28</div>
+
+<div class="benefits-badge">✨ SOCAC Commitment: Responsible use | MRL compliance | Full traceability | Free advice | Farmer safety</div>
+
 <div style="text-align: center;">
+<a class="back-link" href="index.html#activites">
+<svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>
+                    Back to activities
+                </a>
+</div>
 <a class="back-link" href="index.html#activites">
 <svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>
                     Back to activities
@@ -561,30 +829,30 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 <section class="section other-divisions">
 <div class="container">
 <div class="section-header">
-<h2>Other Sectors</h2>
-<p>Explore SOCAC’s other complementary business sectors.</p>
+<h2>Autres divisions</h2>
+<p>Explorez les autres filières complémentaires de SOCAC.</p>
 <div class="section-divider"></div>
 </div>
 <div class="divisions-grid">
-<a class="division-link" href="../en/provenderie.html">
+<a class="division-link" href="../fr/provenderie.html">
 <div class="division-link-icon">🌾</div>
-<h4>Feed Mill</h4>
+<h4>Provenderie</h4>
 </a>
-<a class="division-link" href="../en/ferme-avicole.html">
+<a class="division-link" href="../fr/ferme-porcine.html">
+<div class="division-link-icon">🐷</div>
+<h4>Ferme Porcine</h4>
+</a>
+<a class="division-link" href="../fr/ferme-avicole.html">
 <div class="division-link-icon">🐔</div>
-<h4>Poultry Farm</h4>
+<h4>Ferme Avicole</h4>
 </a>
-<a class="division-link" href="../en/ferme-piscicole.html">
+<a class="division-link" href="../fr/ferme-piscicole.html">
 <div class="division-link-icon">🐟</div>
-<h4>Fish Farm</h4>
+<h4>Ferme Piscicole</h4>
 </a>
-<a class="division-link" href="../en/arboriculture.html">
+<a class="division-link" href="../fr/arboriculture.html">
 <div class="division-link-icon">🌳</div>
-<h4>Orchard</h4>
-</a>
-<a class="division-link" href="../en/sante-alimentation.html">
-<div class="division-link-icon">🏥</div>
-<h4>Health &amp; Nutrition</h4>
+<h4>Arboriculture</h4>
 </a></div>
 </div>
 </section>
@@ -623,7 +891,7 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 
 <script>
 (function(){
-  var currentLang='en';
+  var currentLang='fr';
   var saved=localStorage.getItem('socac_lang') || currentLang;
   document.querySelectorAll('.lang-switch').forEach(function(link){
     link.addEventListener('click', function(){

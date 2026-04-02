@@ -5,6 +5,15 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>SOCAC - Cameroon Agri-Food Cooperative Society</title>
+
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="SOCAC - Cameroon Agri-Food Cooperative Society"/>
+<meta property="og:description" content="SOCAC is an integrated agribusiness company based in Soa, Yaounde, specializing in poultry, pigs, fish farming, orchard production, feed supply, and WhatsApp ordering."/>
+<meta property="og:image" content="https://www.socac-cameroun.com/assets/logo-socac-official.jpg"/>
+<meta property="og:url" content="https://www.socac-cameroun.com/"/>
+<meta property="og:locale" content="fr_CM"/>
+<meta name="robots" content="index, follow"/>
+<meta name="theme-color" content="#2D5A27"/>
 <link rel="canonical" href="../en/index.html"/>
 <link rel="alternate" hreflang="fr" href="../fr/index.html"/>
 <link rel="alternate" hreflang="en" href="../en/index.html"/>
@@ -1736,6 +1745,18 @@
         opacity: 0.10;
     }
 }
+
+.hero-phones {
+    display:flex; gap:16px; flex-wrap:wrap; margin-top:14px; justify-content:flex-start;
+}
+.hero-phone-link {
+    color:rgba(255,255,255,0.9); font-size:1.05rem; font-weight:800;
+    text-decoration:none; letter-spacing:1px;
+    background:rgba(255,255,255,0.1); padding:7px 16px; border-radius:25px;
+    border:1px solid rgba(255,255,255,0.25); transition:background .2s;
+}
+.hero-phone-link:hover { background:rgba(255,255,255,0.18); }
+
 </style>
 <style id="socac-footer-style">
 .socac-custom-footer{background:linear-gradient(90deg,#173b0f 0%,#1d4d14 50%,#173b0f 100%)!important;color:#fff!important;padding:26px 0 22px!important;margin-top:40px;position:relative;overflow:hidden;}
@@ -1866,6 +1887,12 @@
 <div class="activity-icon">🏥</div>
 <h3>Health &amp; Nutrition</h3>
 <p>Health monitoring, nutrition, protocols, and technical support to secure livestock performance.</p>
+<span class="activity-link">Learn more →</span>
+</a>
+<a class="activity-card" href="../en/phytosanitary.html" style="text-decoration:none;">
+<div class="activity-icon">🌿</div>
+<h3>Phytosanitary</h3>
+<p>Crop protection, seed treatment, soil health and agronomic consulting for safe and high-performance plant production.</p>
 <span class="activity-link">Learn more →</span>
 </a>
 </div>
@@ -2330,7 +2357,7 @@ ${data.get('message')}`
                 submitBtn.textContent = 'Sending…';
                 submitBtn.style.opacity = '0.7';
 
-                if (FORMSPREE_ID !== 'xkopznkg') {
+                if (FORMSPREE_ID && FORMSPREE_ID.length > 5) {
                     try {
                         const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
                             method: 'POST',

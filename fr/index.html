@@ -5,6 +5,15 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>SOCAC - Société Coopérative Agroalimentaire du Cameroun</title>
+
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="SOCAC - Société Coopérative Agroalimentaire du Cameroun"/>
+<meta property="og:description" content="SOCAC est une entreprise agro-pastorale intégrée basée à Soa, Yaoundé, spécialisée dans la volaille, les porcs, les poissons, l’arboriculture, la provenderie et la commande via WhatsApp."/>
+<meta property="og:image" content="https://www.socac-cameroun.com/assets/logo-socac-official.jpg"/>
+<meta property="og:url" content="https://www.socac-cameroun.com/"/>
+<meta property="og:locale" content="fr_CM"/>
+<meta name="robots" content="index, follow"/>
+<meta name="theme-color" content="#2D5A27"/>
 <link rel="canonical" href="../fr/index.html"/>
 <link rel="alternate" hreflang="fr" href="../fr/index.html"/>
 <link rel="alternate" hreflang="en" href="../en/index.html"/>
@@ -1736,6 +1745,18 @@
         opacity: 0.10;
     }
 }
+
+.hero-phones {
+    display:flex; gap:16px; flex-wrap:wrap; margin-top:14px; justify-content:flex-start;
+}
+.hero-phone-link {
+    color:rgba(255,255,255,0.9); font-size:1.05rem; font-weight:800;
+    text-decoration:none; letter-spacing:1px;
+    background:rgba(255,255,255,0.1); padding:7px 16px; border-radius:25px;
+    border:1px solid rgba(255,255,255,0.25); transition:background .2s;
+}
+.hero-phone-link:hover { background:rgba(255,255,255,0.18); }
+
 </style>
 <style id="socac-footer-style">
 .socac-custom-footer{background:linear-gradient(90deg,#173b0f 0%,#1d4d14 50%,#173b0f 100%)!important;color:#fff!important;padding:26px 0 22px!important;margin-top:40px;position:relative;overflow:hidden;}
@@ -1792,6 +1813,10 @@
 <a class="btn btn-primary" href="catalogue.html">Voir le catalogue</a>
 <a class="btn btn-secondary" href="https://wa.me/237672142796">Commander sur WhatsApp</a>
 
+</div>
+<div class="hero-phones">
+  <a href="https://wa.me/237672142796" class="hero-phone-link">📞 +237 672 14 27 96</a>
+  <a href="https://wa.me/237654892217" class="hero-phone-link">📞 +237 654 89 22 17</a>
 </div>
 </div>
 </section>
@@ -1866,6 +1891,12 @@
 <div class="activity-icon">🏥</div>
 <h3>Santé &amp; Alimentation</h3>
 <p>Suivi sanitaire, nutrition, protocoles et accompagnement technique pour sécuriser les performances des élevages.</p>
+<span class="activity-link">En savoir plus →</span>
+</a>
+<a class="activity-card" href="../fr/phytosanitaire.html" style="text-decoration:none;">
+<div class="activity-icon">🌿</div>
+<h3>Phytosanitaire</h3>
+<p>Protection des cultures, traitement des semences, santé des sols et conseil agronomique pour une production végétale saine et performante.</p>
 <span class="activity-link">En savoir plus →</span>
 </a>
 </div>
@@ -2263,7 +2294,7 @@
         });
 
         // ── Contact form — envoi réel ──────────────────────────────────────────
-        const FORMSPREE_ID = 'xkopznkg'; // ⚠️ Créer compte gratuit sur formspree.io et remplacer cet ID
+        const FORMSPREE_ID = 'xkopznkg'; // Formspree form ID
         const WA_NUMBER   = '237672142796';
 
         const contactForm = document.querySelector('.contact-form');
@@ -2334,7 +2365,7 @@ ${data.get('message')}`
                 submitBtn.style.opacity = '0.7';
 
                 // Try Formspree if configured
-                if (FORMSPREE_ID !== 'xkopznkg') {
+                if (FORMSPREE_ID && FORMSPREE_ID.length > 5) {
                     try {
                         const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
                             method: 'POST',

@@ -186,8 +186,6 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 .ingredients-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .ingredient-item { display: flex; align-items: center; gap: 10px; padding: 12px 15px; background: var(--cream); border-radius: 8px; font-size: 0.9rem; }
 
-.benefits-badge { background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%); color: white; padding: 22px 30px; border-radius: 12px; text-align: center; font-size: 1rem; margin-top: 30px; }
-
 .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--primary-green); text-decoration: none; font-weight: 600; padding: 12px 25px; border: 2px solid var(--primary-green); border-radius: 50px; transition: all 0.3s ease; margin-top: 40px; }
 .back-link:hover { background: var(--primary-green); color: white; }
 
@@ -402,6 +400,30 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 .cookie-accept { background: var(--socac-orange, #F08A1E); color: white; }
 .cookie-refuse { background: rgba(255,255,255,0.12); color: white; border: 1px solid rgba(255,255,255,0.3); }
 
+
+.page-hero h1 {
+    animation: socac-hero-in .8s cubic-bezier(.22,.61,.36,1) .2s both;
+}
+.page-hero p {
+    animation: socac-hero-in .8s cubic-bezier(.22,.61,.36,1) .45s both;
+}
+.page-hero .breadcrumb {
+    animation: socac-hero-in .8s cubic-bezier(.22,.61,.36,1) .65s both;
+}
+@keyframes socac-hero-in {
+    from { opacity:0; transform: translateY(24px); }
+    to   { opacity:1; transform: translateY(0); }
+}
+
+
+.navbar {
+    animation: socac-nav-in .6s cubic-bezier(.22,.61,.36,1) both;
+}
+@keyframes socac-nav-in {
+    from { opacity:0; transform: translateY(-100%); }
+    to   { opacity:1; transform: translateY(0); }
+}
+
 </style>
 <style id="socac-footer-style">
 .socac-custom-footer{background:linear-gradient(90deg,#173b0f 0%,#1d4d14 50%,#173b0f 100%)!important;color:#fff!important;padding:26px 0 22px!important;margin-top:40px;position:relative;overflow:hidden;}
@@ -577,7 +599,7 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 <span>Legal health register</span>
 </div></div>
 </div>
-<div class="benefits-badge">✨ Commitment: Zero preventive antibiotics | Animal welfare | Full traceability | Healthy products</div>
+
 <div style="text-align: center;">
 <a class="back-link" href="index.html#activites">
 <svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M19 12H5M12 19l-7-7 7-7"></path></svg>
@@ -692,5 +714,6 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 })();
 </script>
 
+<script src="../assets/animations.js" defer></script>
 </body>
 </html>

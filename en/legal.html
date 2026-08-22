@@ -74,6 +74,30 @@ a:hover{text-decoration:underline;}
 .footer-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:12px;}
 .footer-links a{font-size:0.82rem;color:rgba(255,255,255,0.7);}
 .footer-links a:hover{color:var(--gold);}
+
+.page-hero h1 {
+    animation: socac-hero-in .8s cubic-bezier(.22,.61,.36,1) .2s both;
+}
+.page-hero p {
+    animation: socac-hero-in .8s cubic-bezier(.22,.61,.36,1) .45s both;
+}
+.page-hero .breadcrumb {
+    animation: socac-hero-in .8s cubic-bezier(.22,.61,.36,1) .65s both;
+}
+@keyframes socac-hero-in {
+    from { opacity:0; transform: translateY(24px); }
+    to   { opacity:1; transform: translateY(0); }
+}
+
+
+.navbar {
+    animation: socac-nav-in .6s cubic-bezier(.22,.61,.36,1) both;
+}
+@keyframes socac-nav-in {
+    from { opacity:0; transform: translateY(-100%); }
+    to   { opacity:1; transform: translateY(0); }
+}
+
 </style>
 </head>
 <body>
@@ -325,5 +349,6 @@ a:hover{text-decoration:underline;}
   <p>© 2026 SOCAC — Cameroon Agri-Food Cooperative Society. All rights reserved.</p>
 </footer>
 
+<script src="../assets/animations.js" defer></script>
 </body>
 </html>

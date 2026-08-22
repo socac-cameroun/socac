@@ -717,6 +717,10 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 
 /* ── BANDEAU DÉFILANT SOCAC ─────────────────────────────────────────── */
 .socac-ticker {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    margin-top: 80px;
     background: linear-gradient(90deg, var(--primary-green-dark, #1D3A17) 0%, var(--primary-green, #2D5A27) 50%, var(--primary-green-dark, #1D3A17) 100%);
     overflow: hidden;
     padding: 0;

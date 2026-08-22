@@ -714,6 +714,183 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
     to   { opacity:1; transform: translateY(0); }
 }
 
+
+/* ── BANDEAU DÉFILANT SOCAC ─────────────────────────────────────────── */
+.socac-ticker {
+    background: linear-gradient(90deg, var(--primary-green-dark, #1D3A17) 0%, var(--primary-green, #2D5A27) 50%, var(--primary-green-dark, #1D3A17) 100%);
+    overflow: hidden;
+    padding: 0;
+    border-bottom: 2px solid var(--accent-gold, #C4A35A);
+    border-top: 2px solid var(--accent-gold, #C4A35A);
+    white-space: nowrap;
+    position: relative;
+    z-index: 998;
+    height: 38px;
+    display: flex;
+    align-items: center;
+}
+.socac-ticker::before,
+.socac-ticker::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 80px;
+    z-index: 2;
+    pointer-events: none;
+}
+.socac-ticker::before {
+    left: 0;
+    background: linear-gradient(90deg, var(--primary-green-dark, #1D3A17), transparent);
+}
+.socac-ticker::after {
+    right: 0;
+    background: linear-gradient(-90deg, var(--primary-green-dark, #1D3A17), transparent);
+}
+.socac-ticker-track {
+    display: inline-flex;
+    align-items: center;
+    animation: ticker-scroll 28s linear infinite;
+    will-change: transform;
+}
+.socac-ticker-track:hover { animation-play-state: paused; }
+.socac-ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 36px;
+    font-family: 'Source Sans 3', 'Montserrat', sans-serif;
+}
+.socac-ticker-name {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+.socac-ticker-slogan {
+    font-size: 0.78rem;
+    font-weight: 400;
+    color: var(--accent-gold, #C4A35A);
+    font-style: italic;
+    letter-spacing: 0.5px;
+}
+.socac-ticker-sep {
+    color: var(--accent-gold, #C4A35A);
+    font-size: 1rem;
+    opacity: 0.6;
+    flex-shrink: 0;
+}
+@keyframes ticker-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .socac-ticker-track { animation: none; }
+}
+
+
+/* ── PULSATION WHATSAPP ─────────────────────────────── */
+.social-float-toggle,
+.social-float-btn.whatsapp {
+    position: relative;
+}
+.social-float-toggle::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: #25D366;
+    animation: wa-pulse-ring 2s ease-out infinite;
+    z-index: -1;
+}
+@keyframes wa-pulse-ring {
+    0%   { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* ── RIPPLE SUR BOUTONS CTA ─────────────────────────── */
+.btn { position: relative; overflow: hidden; }
+.btn .ripple-effect {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.35);
+    transform: scale(0);
+    animation: ripple-btn .6s linear;
+    pointer-events: none;
+}
+@keyframes ripple-btn {
+    to { transform: scale(4); opacity: 0; }
+}
+
+/* ── BARRE DE PROGRESSION DE LECTURE ────────────────── */
+#socac-read-progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #2D5A27, #C4A35A, #F08A1E);
+    z-index: 9999;
+    width: 0%;
+    transition: width .1s linear;
+    pointer-events: none;
+}
+
+/* ── BOUTON RETOUR EN HAUT ──────────────────────────── */
+#socac-back-top {
+    position: fixed;
+    bottom: 100px;
+    right: 24px;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--primary-green, #2D5A27);
+    border: 2px solid var(--accent-gold, #C4A35A);
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 997;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .3s ease, transform .3s ease;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 16px rgba(45,90,39,0.35);
+}
+#socac-back-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+#socac-back-top:hover {
+    background: var(--socac-orange, #F08A1E);
+    border-color: var(--socac-orange, #F08A1E);
+    transform: translateY(-3px) !important;
+}
+
+/* ── SÉPARATEURS TRACÉS ─────────────────────────────── */
+.section-divider {
+    transform-origin: left center;
+    transform: scaleX(0);
+    transition: transform .8s cubic-bezier(.22,.61,.36,1);
+}
+.section-divider.visible { transform: scaleX(1); }
+
+/* ── HOVER ICÔNES RÉSEAUX SOCIAUX ───────────────────── */
+.social-link, .contact-social a {
+    transition: transform .2s ease, box-shadow .2s ease !important;
+}
+.social-link:hover, .contact-social a:hover {
+    transform: translateY(-5px) scale(1.12) !important;
+}
+
+/* ── SKELETON LOADER CATALOGUE ──────────────────────── */
+.catalogue-skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skel-shimmer 1.5s infinite;
+    border-radius: 12px;
+}
+@keyframes skel-shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
 </style>
 <style id="socac-footer-style">
 .socac-custom-footer{background:linear-gradient(90deg,#173b0f 0%,#1d4d14 50%,#173b0f 100%)!important;color:#fff!important;padding:26px 0 22px!important;margin-top:40px;position:relative;overflow:hidden;}
@@ -758,6 +935,37 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 </div>
 </div>
 </nav>
+
+<!-- SOCAC Scrolling Banner -->
+<div class="socac-ticker" role="marquee" aria-label="SOCAC Information">
+  <div class="socac-ticker-track">
+    <span class="socac-ticker-item">
+      <span class="socac-ticker-name">Cameroon Agri-Food Cooperative Society</span>
+      <span class="socac-ticker-sep">✦</span>
+      <span class="socac-ticker-slogan">Cultivating the Future, Promoting Healthy Living</span>
+      <span class="socac-ticker-sep">✦</span>
+    </span>
+    <span class="socac-ticker-item">
+      <span class="socac-ticker-name">SOCAC — Soa, Yaoundé, Cameroon</span>
+      <span class="socac-ticker-sep">✦</span>
+      <span class="socac-ticker-slogan">+237 672 14 27 96 · +237 654 89 22 17</span>
+      <span class="socac-ticker-sep">✦</span>
+    </span>
+    <span class="socac-ticker-item">
+      <span class="socac-ticker-name">Cameroon Agri-Food Cooperative Society</span>
+      <span class="socac-ticker-sep">✦</span>
+      <span class="socac-ticker-slogan">Cultivating the Future, Promoting Healthy Living</span>
+      <span class="socac-ticker-sep">✦</span>
+    </span>
+    <span class="socac-ticker-item">
+      <span class="socac-ticker-name">SOCAC — Soa, Yaoundé, Cameroon</span>
+      <span class="socac-ticker-sep">✦</span>
+      <span class="socac-ticker-slogan">+237 672 14 27 96 · +237 654 89 22 17</span>
+      <span class="socac-ticker-sep">✦</span>
+    </span>
+  </div>
+</div>
+
 <section class="page-hero">
 <h1>Catalog &amp; Shop</h1>
 <p>Discover our products, indicative prices, and business categories. Order directly through WhatsApp to confirm availability, request a quote, or place a bulk order.</p>
@@ -1390,5 +1598,57 @@ let allProducts = [];
 </script>
 
 <script src="../assets/animations.js" defer></script>
+
+<div id="socac-read-progress"></div>
+<button id="socac-back-top" aria-label="Retour en haut" title="Retour en haut">↑</button>
+<script>
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  /* Ripple on buttons */
+  document.querySelectorAll('.btn').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      var r = document.createElement('span');
+      r.className = 'ripple-effect';
+      var rect = btn.getBoundingClientRect();
+      var size = Math.max(rect.width, rect.height);
+      r.style.cssText = 'width:'+size+'px;height:'+size+'px;left:'+(e.clientX-rect.left-size/2)+'px;top:'+(e.clientY-rect.top-size/2)+'px;';
+      btn.appendChild(r);
+      setTimeout(function(){ r.remove(); }, 700);
+    });
+  });
+
+  /* Read progress bar */
+  var bar = document.getElementById('socac-read-progress');
+  var btt = document.getElementById('socac-back-top');
+  window.addEventListener('scroll', function(){
+    var doc = document.documentElement;
+    var scrolled = doc.scrollTop || document.body.scrollTop;
+    var total = doc.scrollHeight - doc.clientHeight;
+    if(bar) bar.style.width = (total > 0 ? (scrolled/total*100) : 0) + '%';
+    if(btt){
+      if(scrolled > 300) btt.classList.add('visible');
+      else btt.classList.remove('visible');
+    }
+  }, { passive: true });
+
+  /* Back to top */
+  if(btt){
+    btt.addEventListener('click', function(){
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* Section dividers via IntersectionObserver */
+  var dividers = document.querySelectorAll('.section-divider');
+  if(dividers.length){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.5 });
+    dividers.forEach(function(d){ io.observe(d); });
+  }
+})();
+</script>
+
 </body>
 </html>

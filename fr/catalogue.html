@@ -82,7 +82,7 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
 .nav-toggle span { width: 25px; height: 2px; background: var(--dark); }
 
-.page-hero { background: linear-gradient(135deg, var(--hero-start, var(--primary-green)) 0%, var(--hero-end, var(--primary-green-dark)) 100%); padding: 150px 0 80px; text-align: center; color: white; }
+.page-hero { background: linear-gradient(135deg, var(--hero-start, var(--primary-green)) 0%, var(--hero-end, var(--primary-green-dark)) 100%); padding: 188px 0 80px; text-align: center; color: white; }
 .page-hero {
     position: relative;
     overflow: hidden;
@@ -717,10 +717,11 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
 
 /* ── BANDEAU DÉFILANT SOCAC ─────────────────────────────────────────── */
 .socac-ticker {
-    position: sticky;
-    top: 0;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
     z-index: 999;
-    margin-top: 80px;
     background: linear-gradient(90deg, var(--primary-green-dark, #1D3A17) 0%, var(--primary-green, #2D5A27) 50%, var(--primary-green-dark, #1D3A17) 100%);
     overflow: hidden;
     padding: 0;
@@ -894,6 +895,133 @@ body { font-family: 'Source Sans 3', sans-serif; background-color: var(--page-bg
     0%   { background-position: 200% 0; }
     100% { background-position: -200% 0; }
 }
+
+
+/* ── SPLASH SCREEN ─────────────────────────────────────── */
+#socac-splash {
+    position: fixed; inset: 0; z-index: 99999;
+    background: linear-gradient(145deg, #1D3A17 0%, #2D5A27 60%, #3D7A37 100%);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    transition: opacity .6s ease, visibility .6s ease;
+}
+#socac-splash.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.splash-logo-wrap { text-align: center; animation: splash-pop .7s cubic-bezier(.2,1.2,.4,1) both; }
+@keyframes splash-pop { from{opacity:0;transform:scale(.7)} to{opacity:1;transform:scale(1)} }
+.splash-img { width: 110px; height: 110px; border-radius: 50%; object-fit: contain;
+  background: rgba(255,255,255,.08); padding: 8px;
+  box-shadow: 0 0 0 4px rgba(196,163,90,.3), 0 0 0 8px rgba(196,163,90,.12);
+  animation: splash-glow 2s ease-in-out infinite; }
+@keyframes splash-glow {
+  0%,100%{box-shadow:0 0 0 4px rgba(196,163,90,.3),0 0 0 8px rgba(196,163,90,.12)}
+  50%{box-shadow:0 0 0 6px rgba(196,163,90,.5),0 0 0 14px rgba(196,163,90,.18)}
+}
+.splash-name { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900;
+  color: white; letter-spacing: 6px; margin-top: 20px;
+  animation: splash-pop .7s cubic-bezier(.2,1.2,.4,1) .2s both; }
+.splash-slogan { font-size: .8rem; color: #C4A35A; font-style: italic; letter-spacing: 1px;
+  margin-top: 6px; animation: splash-pop .7s ease .4s both; }
+.splash-bar-wrap { width: 160px; height: 3px; background: rgba(255,255,255,.15);
+  border-radius: 2px; margin-top: 32px; overflow: hidden;
+  animation: splash-pop .5s ease .5s both; }
+.splash-bar-fill { height: 100%; width: 0; background: linear-gradient(90deg, #C4A35A, #F08A1E);
+  border-radius: 2px; animation: splash-fill 1.4s ease .6s both; }
+@keyframes splash-fill { to { width: 100%; } }
+
+/* ── VAGUES ENTRE SECTIONS ─────────────────────────────── */
+.wave-divider { line-height: 0; overflow: hidden; margin: 0; padding: 0; }
+.wave-divider svg { display: block; width: 100%; }
+.wave-green-to-cream { background: var(--primary-green, #2D5A27); }
+.wave-cream-to-green { background: var(--cream, #FAF8F5); }
+
+/* ── PARTICULES VÉGÉTALES ──────────────────────────────── */
+.hero-particles { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 1; }
+.hero-particle {
+    position: absolute; font-size: 1.2rem; opacity: 0;
+    animation: particle-fall linear infinite;
+    user-select: none;
+}
+@keyframes particle-fall {
+    0%   { transform: translateY(-20px) rotate(0deg);   opacity: 0; }
+    10%  { opacity: 0.5; }
+    85%  { opacity: 0.35; }
+    100% { transform: translateY(calc(100vh + 40px)) rotate(360deg); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .hero-particle { display: none; } }
+
+/* ── WIDGET CHAT WHATSAPP ──────────────────────────────── */
+#wa-chat-widget {
+    position: fixed; bottom: 24px; right: 24px; z-index: 9990;
+    font-family: 'Source Sans 3', sans-serif;
+}
+#wa-chat-box {
+    width: 290px; background: white; border-radius: 16px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.2); overflow: hidden;
+    margin-bottom: 12px; opacity: 0; transform: scale(.9) translateY(10px);
+    transform-origin: bottom right;
+    transition: opacity .3s ease, transform .3s ease;
+    pointer-events: none;
+}
+#wa-chat-box.open { opacity: 1; transform: scale(1) translateY(0); pointer-events: auto; }
+.wa-chat-header {
+    background: linear-gradient(135deg, #075E54, #128C7E);
+    padding: 14px 16px; display: flex; align-items: center; gap: 10px;
+}
+.wa-chat-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    object-fit: contain; background: rgba(255,255,255,.1);
+    padding: 2px; flex-shrink: 0;
+}
+.wa-chat-info { flex: 1; }
+.wa-chat-name { font-size: .88rem; font-weight: 700; color: white; }
+.wa-chat-status { font-size: .72rem; color: rgba(255,255,255,.75); display: flex; align-items: center; gap: 4px; }
+.wa-status-dot { width: 6px; height: 6px; border-radius: 50%; background: #25D366; flex-shrink: 0; }
+.wa-close { color: rgba(255,255,255,.7); font-size: 1.2rem; cursor: pointer; padding: 4px; line-height: 1; }
+.wa-close:hover { color: white; }
+.wa-chat-body { background: #ECE5DD; padding: 14px 12px; min-height: 100px; }
+.wa-bubble {
+    background: white; border-radius: 0 12px 12px 12px;
+    padding: 10px 12px; max-width: 85%; font-size: .82rem; line-height: 1.5;
+    color: #333; box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    animation: bubble-in .4s ease both;
+}
+@keyframes bubble-in { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+.wa-bubble-time { font-size: .65rem; color: #999; text-align: right; margin-top: 4px; }
+.wa-chat-footer { padding: 10px 12px; background: white; display: flex; gap: 8px; align-items: center; }
+.wa-chat-input {
+    flex: 1; border: none; background: #f0f0f0; border-radius: 20px;
+    padding: 8px 14px; font-size: .82rem; color: #333; outline: none;
+    font-family: inherit;
+}
+.wa-chat-send {
+    width: 36px; height: 36px; border-radius: 50%; background: #25D366;
+    border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+}
+.wa-chat-send svg { width: 16px; height: 16px; fill: white; }
+#wa-chat-toggle {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: #25D366; border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,.4);
+    position: relative; float: right;
+    transition: transform .2s ease;
+}
+#wa-chat-toggle:hover { transform: scale(1.08); }
+#wa-chat-toggle svg { width: 28px; height: 28px; fill: white; }
+.wa-ping {
+    position: absolute; top: -2px; right: -2px;
+    width: 18px; height: 18px; border-radius: 50%;
+    background: #F08A1E; color: white; font-size: .65rem;
+    font-weight: 700; display: flex; align-items: center; justify-content: center;
+    animation: ping-bounce .8s ease-in-out infinite alternate;
+}
+@keyframes ping-bounce { from{transform:scale(1)} to{transform:scale(1.2)} }
+.wa-pulse-ring {
+    position: absolute; inset: 0; border-radius: 50%;
+    background: #25D366; animation: wa-ring-out 2s ease-out infinite;
+}
+@keyframes wa-ring-out { 0%{transform:scale(1);opacity:.6} 100%{transform:scale(1.9);opacity:0} }
 
 </style>
 <style id="socac-footer-style">

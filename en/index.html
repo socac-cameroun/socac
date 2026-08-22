@@ -1737,6 +1737,34 @@
 }
 .hero-phone-link:hover { background:rgba(255,255,255,0.18); }
 
+
+/* ── BANDEAU COOKIES ─────────────────────────────── */
+#cookie-banner {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
+    background: var(--primary-green-dark, #1D3A17);
+    color: white; padding: 18px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; flex-wrap: wrap;
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.3);
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+#cookie-banner.visible { transform: translateY(0); }
+#cookie-banner p {
+    font-size: 0.85rem; line-height: 1.5; flex: 1; min-width: 240px;
+    color: rgba(255,255,255,0.9); margin: 0;
+}
+#cookie-banner a { color: var(--accent-gold, #C4A35A); font-weight: 600; }
+.cookie-btns { display: flex; gap: 10px; flex-shrink: 0; flex-wrap: wrap; }
+.cookie-btn {
+    padding: 9px 20px; border-radius: 30px; font-size: 0.82rem;
+    font-weight: 700; cursor: pointer; border: none; font-family: inherit;
+    transition: opacity 0.2s;
+}
+.cookie-btn:hover { opacity: 0.88; }
+.cookie-accept { background: var(--socac-orange, #F08A1E); color: white; }
+.cookie-refuse { background: rgba(255,255,255,0.12); color: white; border: 1px solid rgba(255,255,255,0.3); }
+
 </style>
 <style id="socac-footer-style">
 .socac-custom-footer{background:linear-gradient(90deg,#173b0f 0%,#1d4d14 50%,#173b0f 100%)!important;color:#fff!important;padding:26px 0 22px!important;margin-top:40px;position:relative;overflow:hidden;}
@@ -1755,7 +1783,61 @@
 .socac-social-link:hover{transform:translateY(-2px);background:rgba(255,255,255,.18);}
 @media (max-width:700px){.socac-footer-copy{font-size:17px;}.socac-footer-contact-row{font-size:14px;gap:8px;}.socac-footer-contact::after{display:none;}.socac-footer-contact{width:100%;justify-content:center;}.hero::after{background-position:center 20%;background-size:min(420px,82vw);opacity:0.12;animation:none;}.hero-content{max-width:92%;padding-top:200px;}.hero h1{max-width:none;font-size:2.5rem;}.hero-subtitle{max-width:100%;font-size:1.08rem;}}
 </style>
-<meta content="SOCAC is an integrated agribusiness company based in Soa, Yaounde, specializing in poultry, pigs, fish farming, orchard production, feed supply, and WhatsApp ordering." name="description"/></head>
+<meta content="SOCAC is an integrated agribusiness company based in Soa, Yaounde, specializing in poultry, pigs, fish farming, orchard production, feed supply, and WhatsApp ordering." name="description"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "SOCAC — Société Coopérative Agroalimentaire du Cameroun",
+  "alternateName": "SOCAC",
+  "description": "Agri-Food Cooperative Society specializing in poultry, pig and fish farming, arboriculture and Nourix feed products in Soa, Yaoundé, Cameroon.",
+  "url": "https://www.socac-cameroun.com/en/index.html",
+  "logo": "https://www.socac-cameroun.com/assets/logo-socac-official.jpg",
+  "image": "https://www.socac-cameroun.com/assets/logo-socac-official.jpg",
+  "email": "socac.cm@gmail.com",
+  "telephone": ["+237672142796", "+237654892217"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Soa",
+    "addressLocality": "Yaoundé",
+    "addressCountry": "CM"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 3.9167,
+    "longitude": 11.5833
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "08:00",
+      "closes": "17:00"
+    }
+  ],
+  "priceRange": "FCFA",
+  "currenciesAccepted": "XAF",
+  "paymentAccepted": "Orange Money, MTN MoMo, Cash",
+  "sameAs": [
+    "https://www.facebook.com/share/1BEzDiwMbe/",
+    "https://www.instagram.com/socac.cm",
+    "https://www.tiktok.com/@alimentsnourix"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Catalogue SOCAC",
+    "url": "https://www.socac-cameroun.com/fr/catalogue.html",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Aliments Nourix Avicole"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Aliments Nourix Porcin"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Aliments Nourix Piscicole"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Volailles & Œufs"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Product", "name": "Poissons Frais"}}
+    ]
+  }
+}
+</script>
+</head>
 <body>
 <!-- Navigation -->
 <nav class="navbar" id="navbar">
@@ -2393,5 +2475,33 @@ ${data.get('message')}`
   });
 })();
 </script>
+
+<!-- Cookie Banner -->
+<div id="cookie-banner" role="dialog" aria-label="Cookie consent">
+  <p>🍪 This site uses functional cookies to remember your language and consent preferences. By clicking "Accept", you agree to their use. <a href="../en/legal.html#cookies">Learn more</a></p>
+  <div class="cookie-btns">
+    <button class="cookie-btn cookie-refuse" id="cookieRefuse">Decline</button>
+    <button class="cookie-btn cookie-accept" id="cookieAccept">Accept</button>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY = 'socac_cookie_consent';
+  var banner = document.getElementById('cookie-banner');
+  if (!localStorage.getItem(KEY)) {
+    setTimeout(function(){ banner && banner.classList.add('visible'); }, 800);
+  }
+  function hide(val) {
+    localStorage.setItem(KEY, val);
+    banner && banner.classList.remove('visible');
+    setTimeout(function(){ banner && (banner.style.display='none'); }, 500);
+  }
+  var acc = document.getElementById('cookieAccept');
+  var ref = document.getElementById('cookieRefuse');
+  if(acc) acc.addEventListener('click', function(){ hide('accepted'); });
+  if(ref) ref.addEventListener('click', function(){ hide('refused'); });
+})();
+</script>
+
 </body>
 </html>

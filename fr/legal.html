@@ -101,11 +101,6 @@ a:hover{text-decoration:underline;}
 
 /* ── BANDEAU DÉFILANT SOCAC ─────────────────────────────────────────── */
 .socac-ticker {
-    position: fixed;
-    top: 80px;
-    left: 0;
-    right: 0;
-    z-index: 999;
     background: linear-gradient(90deg, var(--primary-green-dark, #1D3A17) 0%, var(--primary-green, #2D5A27) 50%, var(--primary-green-dark, #1D3A17) 100%);
     overflow: hidden;
     padding: 0;
@@ -406,6 +401,21 @@ a:hover{text-decoration:underline;}
     background: #25D366; animation: wa-ring-out 2s ease-out infinite;
 }
 @keyframes wa-ring-out { 0%{transform:scale(1);opacity:.6} 100%{transform:scale(1.9);opacity:0} }
+
+.socac-ticker {
+    position: fixed !important;
+    top: 80px !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 999 !important;
+}
+
+body { padding-top: 118px; }
+.page-hero {
+    margin-top: -118px;
+    padding-top: 230px !important;
+    padding-bottom: 80px;
+}
 
 </style>
 </head>

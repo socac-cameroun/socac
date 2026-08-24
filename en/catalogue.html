@@ -1033,6 +1033,24 @@ body { padding-top: 118px; }
     padding-bottom: 80px;
 }
 
+
+/* ── Ticker toujours sous la navbar réelle ── */
+.socac-ticker {
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 999 !important;
+    /* top est défini dynamiquement par JS */
+}
+/* Contenu de la page : espace pour navbar + ticker */
+.page-hero, .hero-section {
+    padding-top: calc(var(--nav-ticker-height, 118px) + 70px) !important;
+    margin-top: 0 !important;
+}
+body {
+    padding-top: var(--nav-ticker-height, 118px) !important;
+}
+
 </style>
 <style id="socac-footer-style">
 .socac-custom-footer{background:linear-gradient(90deg,#173b0f 0%,#1d4d14 50%,#173b0f 100%)!important;color:#fff!important;padding:26px 0 22px!important;margin-top:40px;position:relative;overflow:hidden;}
@@ -1789,6 +1807,29 @@ let allProducts = [];
     }, { threshold: 0.5 });
     dividers.forEach(function(d){ io.observe(d); });
   }
+})();
+</script>
+
+
+<script>
+(function(){
+  function positionTicker(){
+    var nav = document.querySelector('.navbar, nav.navbar, #navbar');
+    var ticker = document.querySelector('.socac-ticker');
+    if(!nav || !ticker) return;
+    var navH = nav.getBoundingClientRect().height;
+    ticker.style.top = navH + 'px';
+    /* Also adjust body padding so content doesn't hide under nav+ticker */
+    var tickerH = ticker.getBoundingClientRect().height;
+    var total = navH + tickerH;
+    document.body.style.setProperty('--nav-ticker-height', total + 'px');
+  }
+  /* Run on load and resize */
+  window.addEventListener('load', positionTicker);
+  window.addEventListener('resize', positionTicker);
+  document.addEventListener('DOMContentLoaded', positionTicker);
+  /* Also run after 300ms in case fonts shift layout */
+  setTimeout(positionTicker, 300);
 })();
 </script>
 

@@ -2136,6 +2136,23 @@
 .cd-cta { margin-top: 14px; font-size: .82rem; color: rgba(255,255,255,.7); }
 .cd-cta a { color: var(--socac-orange, #F08A1E); font-weight: 700; }
 
+.socac-ticker {
+    position: fixed !important;
+    top: 80px !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 999 !important;
+}
+
+body {
+    padding-top: 118px;
+}
+/* Reset for sections that already account for the nav */
+.hero-section, .page-hero {
+    margin-top: -118px;
+    padding-top: calc(150px + 38px) !important;
+}
+
 </style>
 <style id="socac-footer-style">
 .socac-custom-footer{background:linear-gradient(90deg,#173b0f 0%,#1d4d14 50%,#173b0f 100%)!important;color:#fff!important;padding:26px 0 22px!important;margin-top:40px;position:relative;overflow:hidden;}
